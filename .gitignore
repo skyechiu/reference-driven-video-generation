@@ -84,3 +84,13 @@ _generate_shot001.py
 # outputs/audits/reference_control_pose_mask_audit/reference_control_pose_mask_audit.zip
 # (outputs/huggingface_static_site/ now actively excluded above, not just a MAYBE)
 # pipeline/models/pose_landmarker_full.task   (9.4MB vendored MediaPipe model — consider download-on-setup instead)
+
+# --- Internal AI-assistant working/handoff documents (process notes for
+# Claude/Codex during development; not dissertation or dashboard deliverables,
+# and reference the "What Is Light" phrase this project excludes everywhere
+# else -- excluded from the public repo, kept locally as work records) ---
+CLAUDE.md
+DEV_NOTES.md
+MASTER_INSTRUCTIONS_20260805.md
+codex_dashboard_patch_instructions.md
+codex_text_selfcheck_20260805.md
