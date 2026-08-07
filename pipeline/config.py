@@ -33,7 +33,12 @@ PIPELINE_DIR = Path(__file__).parent
 OUTPUT_DIR = ROOT_DIR / "outputs"
 STATE_FILE = ROOT_DIR / "project_state.json"
 
-IP_CHARACTER_DIR = Path("/Users/test/Desktop/character_look")
+# Optional external folder of legacy character reference images, only used by the
+# /media/characters/<filename> route when no look package is selected (see
+# IP_REFERENCE_IMAGES below -- active generation resolves via the selected look
+# package instead). Configurable via env var since this lives outside the repo
+# on whichever machine runs the pipeline; the route 404s gracefully if unset/missing.
+IP_CHARACTER_DIR = Path(os.environ.get("IP_CHARACTER_DIR", ROOT_DIR / "assets" / "character_look"))
 
 # LEGACY — only used when no look package is selected (generation is blocked in that case).
 # Active generation resolves reference images via the selected look package.

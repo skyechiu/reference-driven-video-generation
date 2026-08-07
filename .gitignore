@@ -105,3 +105,55 @@ dissertation/paper.tex.backup_*
 # implementation, evidence, and evaluation infrastructure the dissertation's
 # claims trace back to, not the manuscript itself. ---
 dissertation/
+
+# --- Mode C raw/unredacted driving footage (real-person content). The
+# privacy-redacted (pixelated) equivalents are the ones meant to be public,
+# at outputs/audits/privacy_redacted_mode_c/. See docs/GITHUB_FINAL_AUDIT.md §0. ---
+outputs/runs/mode_c_phase0/mode_c_condition_a/input/
+outputs/runs/mode_c_phase0/phase0_results/driving_segment_phase0.mp4
+outputs/runs/mode_c_phase0/phase0_results/driving_segment_phase0_magic_mask_person_20260720_190946.mp4
+outputs/runs/mode_c_phase0/local_animate_full7s_20260804/test2_magic_mask_person_20260804_153753.mp4
+
+# --- Duplicate / superseded media (see docs/GITHUB_FINAL_AUDIT.md §4) ---
+outputs/runs/live_test_04_street_look3/final/final_look3_street_demo_motion_v2_preview.mp4
+outputs/runs/live_test_04_street_look3/final/final_look3_street_demo_premotion_backup.mp4
+reference/test_03_multishot_edit_4shots.mp4
+outputs/runs/mode_c_phase0/local_animate_full7s_20260804/2026-08-04-16h45m09s_seed630814980_A fit young woman with a blonde ponytail, wearing a fitted pink sports bra and brown athletic shorts.mp4
+outputs/runs/mode_c_phase0/local_animate_full7s_20260804/2026-08-04-17h51m35s_seed630814980_A fit young woman with a blonde ponytail, wearing a fitted pink sports bra and brown athletic shorts.mp4
+outputs/runs/mode_c_phase0/local_animate_full7s_20260804/2026-08-04-18h33m37s_seed630814980_A fit young woman with a blonde ponytail, wearing a fitted pink sports bra and brown athletic shorts.mp4
+outputs/audits/reference_control_pose_mask_audit/reference_control_pose_mask_audit.zip
+
+# --- Unidentified file, unresolved -- see docs/GITHUB_FINAL_AUDIT.md ---
+outputs/ziQmGV7z
+
+# --- Raw LoRA face-training dataset (40 personal photos); trained/generated
+# outputs are kept, the raw training set is not published ---
+outputs/lora/olivia_face_lora/dataset_sample/
+
+# --- Stray draft scripts left inside the data folder (superseded by
+# scripts/generation/generate_shot001.py) ---
+outputs/_gen001.py
+outputs/_generate_shot001.py
+
+# --- Superseded exploratory run, predates the two main dissertation runs ---
+outputs/runs/run_20260720_224813/
+
+# =========================================================================
+# outputs/ policy change (2026-08-07): the public GitHub repo ships a small
+# curated evidence set at the top-level public_evidence/ (not nested under
+# outputs/) instead of the full raw outputs/ tree. Every complete run,
+# intermediate attempt, and audit file stays in the local / university-
+# submission archive only. See public_evidence/README.md.
+# =========================================================================
+outputs/
+
+# --- Mode D: rough hosted-service test clips with download-style filenames
+# (one literally contains the author's name). Low dissertation-evidence
+# value ("planned extension" per project status labels); excluded wholesale
+# rather than renamed. Curate + re-add specific files later if needed. ---
+mode_d/
+
+# --- Internal GitHub-publishing audit: contains local paths, privacy
+# investigation notes, and internal cleanup reasoning -- not something a
+# public reader needs to see. Kept locally as a work record. ---
+docs/GITHUB_FINAL_AUDIT.md

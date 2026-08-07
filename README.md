@@ -244,7 +244,8 @@ This policy also defines the public dashboard boundary: the deployed site serves
 ├── assets/                Public project assets
 ├── look/                  Look-conditioning material
 ├── storyboards/           Structured storyboard assets
-├── outputs/               Generated and evaluated evidence
+├── public_evidence/       Curated evidence set (full raw runs kept out of this
+│                          public repository -- see its own README)
 ├── README.md
 ├── requirements...
 └── .gitignore
@@ -262,7 +263,7 @@ This policy also defines the public dashboard boundary: the deployed site serves
 | `scripts/export/` | Static dashboard/export tooling (`export.py`, `readme_and_zip.py`) |
 | `scripts/maintenance/` | Dated one-off dashboard patch scripts |
 | `scripts/ablation_analyze.py`, `scripts/extract_start_end_poses.py` | Single-purpose evaluation/analysis scripts, kept at the top of `scripts/` rather than in a one-file subfolder |
-| `outputs/` | Executed evidence and derived analysis |
+| `public_evidence/` | Curated evidence set: final videos, approved keyframes, decision logs, evaluation summaries, and the pose/mask audit contact sheet for both main runs. The complete raw run archive (every attempt, intermediate file, and full audit) is kept locally / in the university submission rather than published here. |
 | `docs/` | Architecture, reproducibility and project documentation |
 
 The repository also contains dated experimental scripts where they are required to preserve the provenance of executed runs. These are retained as research records rather than presented as the primary public API.
