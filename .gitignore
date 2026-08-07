@@ -99,3 +99,9 @@ codex_text_selfcheck_20260805.md
 # edit; same category as pipeline/app.py.backup_* -- work-in-progress
 # snapshots, not deliverables) ---
 dissertation/paper.tex.backup_*
+
+# --- Dissertation manuscript: kept out of the public repository entirely.
+# Submitted separately to the university; this repo documents the
+# implementation, evidence, and evaluation infrastructure the dissertation's
+# claims trace back to, not the manuscript itself. ---
+dissertation/

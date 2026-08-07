@@ -240,7 +240,6 @@ This policy also defines the public dashboard boundary: the deployed site serves
 ├── pipeline/              Core orchestration and dashboard source
 ├── scripts/               Generation, export, maintenance and analysis scripts,
 │                          organised by purpose (single-file categories kept bare)
-├── dissertation/          LaTeX dissertation source and bibliography
 ├── docs/                  Architecture, execution and audit documentation
 ├── assets/                Public project assets
 ├── look/                  Look-conditioning material
@@ -264,7 +263,6 @@ This policy also defines the public dashboard boundary: the deployed site serves
 | `scripts/maintenance/` | Dated one-off dashboard patch scripts |
 | `scripts/ablation_analyze.py`, `scripts/extract_start_end_poses.py` | Single-purpose evaluation/analysis scripts, kept at the top of `scripts/` rather than in a one-file subfolder |
 | `outputs/` | Executed evidence and derived analysis |
-| `dissertation/` | MSc dissertation source |
 | `docs/` | Architecture, reproducibility and project documentation |
 
 The repository also contains dated experimental scripts where they are required to preserve the provenance of executed runs. These are retained as research records rather than presented as the primary public API.
@@ -351,9 +349,9 @@ The implemented evidence supports a narrower claim:
 
 ## Dissertation
 
-The full methodology, experimental evidence, limitations, and discussion are documented in:
-
-[`dissertation/paper.tex`](dissertation/paper.tex)
+The dissertation manuscript itself is submitted separately to the university and is not
+included in this public repository. This repository documents the implementation,
+evidence, and evaluation infrastructure that the dissertation's claims are traced back to.
 
 **MSc Artificial Intelligence for Media**
 Bournemouth University / NCCA

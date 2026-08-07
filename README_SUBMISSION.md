@@ -3,11 +3,12 @@
 MSc AI for Media engineering dissertation artefact (August 2026).
 
 ## Key entry points
-- `dissertation/paper.tex` — dissertation source of truth
-- `dissertation/dissertation_full_draft_v18_20260805.pdf` — current compiled PDF
 - `pipeline/app.py` — read-only evidence dashboard (Flask). Run and open the
   homepage; generation and all state-changing routes are disabled (HTTP 403).
 - `project_state.json` — central decision-log / state file
+
+Note: the dissertation manuscript (`dissertation/`) is not part of this
+public repository -- it is submitted separately to the university.
 
 ## Structure
 - `pipeline/` — four-stage pipeline (stage1_analyze … stage5_repair), dashboard,
