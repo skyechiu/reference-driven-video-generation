@@ -1,0 +1,4 @@
+file '/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/runs/live_test_04_street_look3/clips/shot_001_look3_street.mp4'
+file '/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/runs/live_test_04_street_look3/clips/shot_002_look3_street.mp4'
+file '/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/runs/live_test_04_street_look3/clips/shot_003_look3_street.mp4'
+file '/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/runs/live_test_04_street_look3/clips/shot_004_look3_street.mp4'

@@ -1,0 +1,76 @@
+{
+  "look_id": "look_1_activewear",
+  "look_number": 1,
+  "look_name": "The Active Self",
+  "status": "built_in",
+  "identity_id": "ip_01_the_four_selves",
+  "main_thumbnail": "look1_sheet.png",
+  "description": "Fitted activewear — cropped athletic top, high-waist compression leggings, clean trainers. Fresh-faced, minimal makeup, hair tied back.",
+  "best_use": [
+    "movement shots",
+    "gym and studio scenes",
+    "dynamic full-body motion",
+    "casual athletic editorial"
+  ],
+  "risk_notes": [
+    "fitted silhouette may shift in fast I2V motion",
+    "minimal look depends on strong body-proportion framing"
+  ],
+  "motion_stability": "high",
+  "_inferred": true,
+  "_note": "Inferred from look/look1/ — no original look_package.json found. Update prompt_profile if outfit details differ.",
+  "references": [
+    {
+      "filename": "look1_sheet.png",
+      "label": "Body Turnaround Sheet",
+      "role": "overview",
+      "use_for": [
+        "layout",
+        "full_outfit",
+        "silhouette",
+        "styling",
+        "overall_reference"
+      ]
+    },
+    {
+      "filename": "look1_front.png",
+      "label": "Front View",
+      "role": "front_full_body",
+      "use_for": [
+        "outfit_silhouette",
+        "full_body_proportion",
+        "frontal_styling"
+      ]
+    },
+    {
+      "filename": "look1_side.png",
+      "label": "Side View",
+      "role": "side_full_body",
+      "use_for": [
+        "side_silhouette",
+        "profile_outfit"
+      ]
+    },
+    {
+      "filename": "look1_face_angles.png",
+      "label": "Face Angles Sheet",
+      "role": "face_closeup",
+      "use_for": [
+        "identity",
+        "skin_tone",
+        "brows",
+        "hair_texture",
+        "expression"
+      ]
+    }
+  ],
+  "prompt_profile": {
+    "outfit": "fitted athletic wear — cropped sports top or fitted tank, high-waist compression leggings, clean structured trainers",
+    "hair": "natural dark hair tied back in a high ponytail or neat bun, clean and practical",
+    "makeup": "minimal fresh-faced makeup, dewy clean skin, defined brows, no heavy eye makeup",
+    "shoes": "clean white or neutral athletic trainers, structured sole",
+    "body_silhouette": "fitted athletic silhouette, body-conscious cut, strong upright posture, lean athletic proportions",
+    "palette": "neutral activewear tones — white, grey, black, or muted earth",
+    "texture": "performance stretch fabric, matte compression material, breathable panels"
+  }
+}

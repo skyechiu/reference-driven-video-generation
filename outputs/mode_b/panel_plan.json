@@ -1,0 +1,92 @@
+{
+  "mode": "mode_b_animated_storyboard",
+  "style": "highly stylized 3D cartoon storyboard",
+  "character_look_id": "girl_a_3d",
+  "character_look_name": "Girl A 3D",
+  "template_id": "3d_animated_4panel",
+  "duration_s": 8.0,
+  "panel_count": 4,
+  "story_summary": "A girl in a dark dressing room tries to catch a bouncing glowing pearl.",
+  "panels": [
+    {
+      "panel_id": "panel_001",
+      "beat_label": "setup",
+      "duration_s": 2.0,
+      "shot_size": "medium wide shot",
+      "camera_angle": "front three-quarter",
+      "camera_motion": "static",
+      "character_action": "The girl stands in the dressing room, looking at the mirror.",
+      "expression": "curious",
+      "emotion": "intrigued",
+      "motion_note": "Girl standing still, gazing at the mirror.",
+      "background_note": "Dimly lit dressing room with a mirror.",
+      "video_prompt_pack": {
+        "start_prompt": "Girl stands gazing into the mirror in a dimly lit room, looking curious.",
+        "middle_prompt": "She remains still, eyes fixated on the mirror.",
+        "end_prompt": "Girl holds a curious expression, standing still.",
+        "motion_prompt": "Curious girl stands still gazing into the mirror.",
+        "negative_prompt": "extra characters, different outfit, photorealistic, different face, multiple people, extra limbs, camera chaos, unreadable pose, extra characters"
+      }
+    },
+    {
+      "panel_id": "panel_002",
+      "beat_label": "action",
+      "duration_s": 2.0,
+      "shot_size": "medium full body",
+      "camera_angle": "side",
+      "camera_motion": "slight push-in",
+      "character_action": "The girl reaches out as a glowing pearl bounces off the mirror.",
+      "expression": "determined",
+      "emotion": "focused",
+      "motion_note": "Girl lunges forward, arm extended towards the pearl.",
+      "background_note": "Mirror reflecting the bouncing pearl.",
+      "video_prompt_pack": {
+        "start_prompt": "Girl stands ready to catch the pearl, arm reaching forward.",
+        "middle_prompt": "She lunges forward, eyes locked on the pearl.",
+        "end_prompt": "Girl's arm is extended, expression of determination.",
+        "motion_prompt": "Determined girl reaches out towards the bouncing pearl.",
+        "negative_prompt": "extra characters, different outfit, photorealistic, different face, multiple people, extra limbs, camera chaos, unreadable pose, extra characters"
+      }
+    },
+    {
+      "panel_id": "panel_003",
+      "beat_label": "reaction",
+      "duration_s": 2.0,
+      "shot_size": "medium close-up",
+      "camera_angle": "front",
+      "camera_motion": "slow push-in",
+      "character_action": "The girl reacts with frustration as the pearl evades her grasp.",
+      "expression": "frustrated",
+      "emotion": "disappointed",
+      "motion_note": "Girl's face shows frustration, hands slightly opening in a gesture of giving up.",
+      "background_note": "Mirror reflecting dim light.",
+      "video_prompt_pack": {
+        "start_prompt": "Close-up of girl's frustrated face, hands slightly open.",
+        "middle_prompt": "Her expression shifts to show disappointment.",
+        "end_prompt": "Girl's face remains disappointed, hands in a slight gesture of giving up.",
+        "motion_prompt": "Frustrated girl reacts as pearl evades her grasp.",
+        "negative_prompt": "extra characters, different outfit, photorealistic, different face, multiple people, extra limbs, camera chaos, unreadable pose, extra characters"
+      }
+    },
+    {
+      "panel_id": "panel_004",
+      "beat_label": "final pose",
+      "duration_s": 2.0,
+      "shot_size": "hero close-up",
+      "camera_angle": "front",
+      "camera_motion": "hold",
+      "character_action": "The girl looks surprised and relieved as the pearl lands in her hand.",
+      "expression": "surprised",
+      "emotion": "relieved",
+      "motion_note": "Girl looks at her hand, eyes wide with surprise.",
+      "background_note": "Dimly lit room with a mirror background.",
+      "video_prompt_pack": {
+        "start_prompt": "Close-up of girl holding the pearl, expression of surprise.",
+        "middle_prompt": "Her eyes widen in relief as she realizes she's caught the pearl.",
+        "end_prompt": "Girl gazes at the pearl in her hand, looking relieved.",
+        "motion_prompt": "Surprised girl holds the pearl, feeling relieved.",
+        "negative_prompt": "extra characters, different outfit, photorealistic, different face, multiple people, extra limbs, camera chaos, unreadable pose, extra characters"
+      }
+    }
+  ]
+}

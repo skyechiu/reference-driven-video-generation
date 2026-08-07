@@ -1,0 +1,223 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+<defs>
+  <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="18" stdDeviation="24" flood-color="#1f2328" flood-opacity="0.08"/></filter>
+  <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#fbfbfd"/><stop offset="58%" stop-color="#fffdf8"/><stop offset="100%" stop-color="#f4f9ff"/></linearGradient>
+  <linearGradient id="glass" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#ffffff" stop-opacity="0.86"/><stop offset="100%" stop-color="#ffffff" stop-opacity="0.62"/></linearGradient>
+  <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto" markerUnits="strokeWidth"><path d="M0,0 L0,6 L8,3 z" fill="#a1a1a6"/></marker>
+</defs>
+<rect x="8" y="8" width="1584" height="884" rx="22" fill="url(#bg)" stroke="#e9eaee" stroke-width="1" opacity="1" />
+<circle cx="1320" cy="140" r="270" fill="#5ac8fa" opacity="0.05"/>
+<circle cx="160" cy="640" r="260" fill="#ff9f0a" opacity="0.035"/>
+<rect x="50" y="42" width="54" height="54" rx="16" fill="#fff4ef" stroke="#ffd8cf" stroke-width="1" opacity="1" />
+<rect x="72" y="55" width="10" height="10" rx="1" fill="none" stroke="#d86f62" stroke-width="2"/>
+<line x1="77" y1="66" x2="77" y2="77" stroke="#d86f62" stroke-width="2"/>
+<line x1="62" y1="77" x2="92" y2="77" stroke="#d86f62" stroke-width="2"/>
+<rect x="57" y="77" width="10" height="10" rx="1" fill="none" stroke="#d86f62" stroke-width="2"/>
+<rect x="72" y="77" width="10" height="10" rx="1" fill="none" stroke="#d86f62" stroke-width="2"/>
+<rect x="87" y="77" width="10" height="10" rx="1" fill="none" stroke="#d86f62" stroke-width="2"/>
+<text x="128" y="65" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="34" font-weight="800" fill="#1d1d1f" text-anchor="start" letter-spacing="0">Mode A–D System Map</text>
+<text x="128" y="94" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="15" font-weight="400" fill="#6e6e73" text-anchor="start" letter-spacing="0">Reference-driven agentic video generation: modes, shared logic and evidence boundaries</text>
+<rect x="1168" y="50" width="392" height="42" rx="20" fill="#ffffffaa" stroke="#dde2e9" stroke-width="1" opacity="1" />
+<text x="1194" y="76" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="500" fill="#6e6e73" text-anchor="start" letter-spacing="0">●  Research prototype   ·   read-only evidence portfolio style</text>
+<rect x="36" y="145" width="340" height="310" rx="20" fill="#f7fbff" stroke="#d9eff9" stroke-width="1.3" opacity="1" />
+<rect x="54" y="163" width="42" height="42" rx="12" fill="#5ac8fa28" stroke="#5ac8fa48" stroke-width="1" opacity="1" />
+<text x="75" y="191" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="700" fill="#007aff" text-anchor="middle" letter-spacing="0">A</text>
+<text x="110" y="178" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="17" font-weight="700" fill="#1d1d1f" text-anchor="start" letter-spacing="0">Mode A — Reference video pipeline</text>
+<text x="110" y="201" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="500" fill="#007aff" text-anchor="start" letter-spacing="0">Primary dissertation path</text>
+<rect x="54" y="225" width="42" height="42" rx="12" fill="#ffffff" stroke="#5ac8fa36" stroke-width="1" opacity="1" />
+<text x="75" y="252" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#007aff" text-anchor="middle" letter-spacing="0">▣</text>
+<text x="110" y="242" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#2c2c2e" text-anchor="start" letter-spacing="0">Input:</text>
+<text x="110" y="262" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">reference video</text>
+<rect x="54" y="286" width="42" height="42" rx="12" fill="#ffffff" stroke="#5ac8fa36" stroke-width="1" opacity="1" />
+<text x="75" y="313" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#007aff" text-anchor="middle" letter-spacing="0">↗</text>
+<text x="110" y="303" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#2c2c2e" text-anchor="start" letter-spacing="0">Analysis:</text>
+<text x="110" y="323" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">shots, framing, timing, motion, semantics</text>
+<rect x="54" y="347" width="42" height="42" rx="12" fill="#ffffff" stroke="#5ac8fa36" stroke-width="1" opacity="1" />
+<text x="75" y="374" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#007aff" text-anchor="middle" letter-spacing="0">✓</text>
+<text x="110" y="364" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#2c2c2e" text-anchor="start" letter-spacing="0">Output path:</text>
+<text x="110" y="384" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">approved keyframes → Kling I2V → final video</text>
+<rect x="54" y="408" width="42" height="42" rx="12" fill="#ffffff" stroke="#5ac8fa36" stroke-width="1" opacity="1" />
+<text x="75" y="435" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#007aff" text-anchor="middle" letter-spacing="0">⚑</text>
+<text x="110" y="425" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#2c2c2e" text-anchor="start" letter-spacing="0">Completed evidence:</text>
+<text x="110" y="445" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">Beach Mode A-1</text>
+<rect x="136.0" y="412" width="140" height="26" rx="13.0" fill="#5ac8fa16" stroke="#5ac8fa32" stroke-width="1" opacity="1" />
+<text x="206.0" y="430.0" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="700" fill="#007aff" text-anchor="middle" letter-spacing="0">Main evidence</text>
+<rect x="36" y="480" width="340" height="310" rx="20" fill="#f7fcf8" stroke="#d5ead9" stroke-width="1.3" opacity="1" />
+<rect x="54" y="498" width="42" height="42" rx="12" fill="#34c75928" stroke="#248a3d44" stroke-width="1" opacity="1" />
+<text x="75" y="526" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="700" fill="#248a3d" text-anchor="middle" letter-spacing="0">C</text>
+<text x="110" y="513" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="17" font-weight="700" fill="#1d1d1f" text-anchor="start" letter-spacing="0">Mode C — Driving-video backend</text>
+<text x="110" y="536" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="500" fill="#248a3d" text-anchor="start" letter-spacing="0">Separate backend, not the keyframe-first Mode A/B core</text>
+<rect x="54" y="560" width="42" height="42" rx="12" fill="#ffffff" stroke="#248a3d33" stroke-width="1" opacity="1" />
+<text x="75" y="587" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#248a3d" text-anchor="middle" letter-spacing="0">◎</text>
+<text x="110" y="577" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#2c2c2e" text-anchor="start" letter-spacing="0">Input:</text>
+<text x="110" y="597" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">driving performance video</text>
+<rect x="54" y="621" width="42" height="42" rx="12" fill="#ffffff" stroke="#248a3d33" stroke-width="1" opacity="1" />
+<text x="75" y="648" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#248a3d" text-anchor="middle" letter-spacing="0">⌁</text>
+<text x="110" y="638" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#2c2c2e" text-anchor="start" letter-spacing="0">Tools:</text>
+<text x="110" y="658" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">DWPose, SAM3, Wan2GP / Wan2.2</text>
+<rect x="54" y="682" width="42" height="42" rx="12" fill="#ffffff" stroke="#248a3d33" stroke-width="1" opacity="1" />
+<text x="75" y="709" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#248a3d" text-anchor="middle" letter-spacing="0">♙</text>
+<text x="110" y="699" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#2c2c2e" text-anchor="start" letter-spacing="0">Purpose:</text>
+<text x="110" y="719" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">person replacement feasibility</text>
+<rect x="54" y="743" width="42" height="42" rx="12" fill="#ffffff" stroke="#248a3d33" stroke-width="1" opacity="1" />
+<text x="75" y="770" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#248a3d" text-anchor="middle" letter-spacing="0">✓</text>
+<text x="110" y="760" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#2c2c2e" text-anchor="start" letter-spacing="0">Result:</text>
+<text x="110" y="780" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">Phase 0 + 7s test · quality WIP</text>
+<rect x="136.0" y="747" width="140" height="26" rx="13.0" fill="#248a3d14" stroke="#248a3d30" stroke-width="1" opacity="1" />
+<text x="206.0" y="765.0" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="700" fill="#248a3d" text-anchor="middle" letter-spacing="0">Phase 0</text>
+<rect x="1240" y="145" width="324" height="295" rx="20" fill="#fffaf1" stroke="#f6dfb7" stroke-width="1.3" opacity="1" />
+<rect x="1258" y="163" width="42" height="42" rx="12" fill="#ffcc002b" stroke="#a66a0044" stroke-width="1" opacity="1" />
+<text x="1279" y="191" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="700" fill="#a66a00" text-anchor="middle" letter-spacing="0">B</text>
+<text x="1314" y="178" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="17" font-weight="700" fill="#1d1d1f" text-anchor="start" letter-spacing="0">Mode B — Storyboard prompt extension</text>
+<text x="1314" y="201" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="500" fill="#a66a00" text-anchor="start" letter-spacing="0">Experimental secondary extension</text>
+<rect x="1258" y="225" width="42" height="42" rx="12" fill="#ffffff" stroke="#a66a0033" stroke-width="1" opacity="1" />
+<text x="1279" y="252" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#a66a00" text-anchor="middle" letter-spacing="0">▦</text>
+<text x="1314" y="242" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#2c2c2e" text-anchor="start" letter-spacing="0">Input:</text>
+<text x="1314" y="262" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">story prompt / storyboard panels / JSON</text>
+<rect x="1258" y="286" width="42" height="42" rx="12" fill="#ffffff" stroke="#a66a0033" stroke-width="1" opacity="1" />
+<text x="1279" y="313" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#a66a00" text-anchor="middle" letter-spacing="0">⌘</text>
+<text x="1314" y="303" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#2c2c2e" text-anchor="start" letter-spacing="0">Uses:</text>
+<text x="1314" y="323" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">same downstream generation core</text>
+<rect x="1258" y="347" width="42" height="42" rx="12" fill="#ffffff" stroke="#a66a0033" stroke-width="1" opacity="1" />
+<text x="1279" y="374" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#a66a00" text-anchor="middle" letter-spacing="0">ⓘ</text>
+<text x="1314" y="364" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#2c2c2e" text-anchor="start" letter-spacing="0">Boundary:</text>
+<text x="1314" y="384" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">not the street scene-package run</text>
+<rect x="1332.0" y="397" width="140" height="26" rx="13.0" fill="#a66a0014" stroke="#a66a0030" stroke-width="1" opacity="1" />
+<text x="1402.0" y="415.0" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="700" fill="#a66a00" text-anchor="middle" letter-spacing="0">Experimental</text>
+<rect x="1240" y="475" width="324" height="300" rx="20" fill="#fafafa" stroke="#dedede" stroke-width="1.3" opacity="1" />
+<rect x="1258" y="493" width="42" height="42" rx="12" fill="#8e8e9322" stroke="#8e8e9344" stroke-width="1" opacity="1" />
+<text x="1279" y="521" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="28" font-weight="700" fill="#8e8e93" text-anchor="middle" letter-spacing="0">D</text>
+<text x="1314" y="508" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="17" font-weight="700" fill="#1d1d1f" text-anchor="start" letter-spacing="0">Mode D — Planned extension</text>
+<text x="1314" y="531" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="500" fill="#8e8e93" text-anchor="start" letter-spacing="0">Future architecture only</text>
+<rect x="1258" y="555" width="42" height="42" rx="12" fill="#ffffff" stroke="#8e8e9333" stroke-width="1" opacity="1" />
+<text x="1279" y="582" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#8e8e93" text-anchor="middle" letter-spacing="0">◎</text>
+<text x="1314" y="572" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#2c2c2e" text-anchor="start" letter-spacing="0">Goal:</text>
+<text x="1314" y="592" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">person + background replacement</text>
+<rect x="1258" y="616" width="42" height="42" rx="12" fill="#ffffff" stroke="#8e8e9333" stroke-width="1" opacity="1" />
+<text x="1279" y="643" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#8e8e93" text-anchor="middle" letter-spacing="0">⌛</text>
+<text x="1314" y="633" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#2c2c2e" text-anchor="start" letter-spacing="0">Status:</text>
+<text x="1314" y="653" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">not implemented</text>
+<rect x="1258" y="677" width="42" height="42" rx="12" fill="#ffffff" stroke="#8e8e9333" stroke-width="1" opacity="1" />
+<text x="1279" y="704" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#8e8e93" text-anchor="middle" letter-spacing="0">◌</text>
+<text x="1314" y="694" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="700" fill="#2c2c2e" text-anchor="start" letter-spacing="0">Architecture:</text>
+<text x="1314" y="714" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="14" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">tooling TBD</text>
+<rect x="1332.0" y="732" width="140" height="26" rx="13.0" fill="#8e8e9314" stroke="#8e8e9330" stroke-width="1" opacity="1" />
+<text x="1402.0" y="750.0" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="700" fill="#8e8e93" text-anchor="middle" letter-spacing="0">Planned</text>
+<rect x="425" y="212" width="760" height="300" rx="22" fill="#ffffffc8" stroke="#e5f3fa" stroke-width="1.2" filter="url(#shadow)" />
+<text x="805" y="245" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#007aff" text-anchor="middle" letter-spacing="2.8">SHARED EVIDENCE CORE</text>
+<text x="805" y="282" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="24" font-weight="750" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">Shared orchestration logic</text>
+<rect x="445" y="308" width="88" height="166" rx="14" fill="#ffffff" stroke="#e8e8ed" stroke-width="1" opacity="1" />
+<text x="489.0" y="345" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="23" font-weight="650" fill="#5ac8fa" text-anchor="middle" letter-spacing="0">▤</text>
+<text x="489.0" y="382" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">1. Reference /</text>
+<text x="489.0" y="398" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">prompt input</text>
+<text x="489.0" y="432" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">Ingest evidence</text>
+<text x="489.0" y="448" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">and intent</text>
+<line x1="537" y1="391" x2="544" y2="391" stroke="#a1a1a6" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<rect x="549" y="308" width="88" height="166" rx="14" fill="#ffffff" stroke="#e8e8ed" stroke-width="1" opacity="1" />
+<text x="593.0" y="345" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="23" font-weight="650" fill="#5ac8fa" text-anchor="middle" letter-spacing="0">✣</text>
+<text x="593.0" y="382" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">2. Structured</text>
+<text x="593.0" y="398" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">analysis /</text>
+<text x="593.0" y="414" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">planning</text>
+<text x="593.0" y="432" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">Decompose, map</text>
+<text x="593.0" y="448" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">and plan</text>
+<line x1="641" y1="391" x2="648" y2="391" stroke="#a1a1a6" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<rect x="653" y="308" width="88" height="166" rx="14" fill="#ffffff" stroke="#e8e8ed" stroke-width="1" opacity="1" />
+<text x="697.0" y="345" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="23" font-weight="650" fill="#5ac8fa" text-anchor="middle" letter-spacing="0">▱</text>
+<text x="697.0" y="382" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">3. Separated</text>
+<text x="697.0" y="398" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">conditioning</text>
+<text x="697.0" y="414" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">packages</text>
+<text x="697.0" y="432" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">Structure, IP, look,</text>
+<text x="697.0" y="448" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">scene</text>
+<line x1="745" y1="391" x2="752" y2="391" stroke="#a1a1a6" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<rect x="757" y="308" width="88" height="166" rx="14" fill="#ffffff" stroke="#e8e8ed" stroke-width="1" opacity="1" />
+<text x="801.0" y="345" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="23" font-weight="650" fill="#5ac8fa" text-anchor="middle" letter-spacing="0">▧</text>
+<text x="801.0" y="382" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">4. Keyframe</text>
+<text x="801.0" y="398" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">generation</text>
+<text x="801.0" y="432" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">Qualitative evidence</text>
+<text x="801.0" y="448" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">frames</text>
+<line x1="849" y1="391" x2="856" y2="391" stroke="#a1a1a6" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<rect x="861" y="308" width="88" height="166" rx="14" fill="#ffffff" stroke="#e8e8ed" stroke-width="1" opacity="1" />
+<text x="905.0" y="345" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="23" font-weight="650" fill="#5ac8fa" text-anchor="middle" letter-spacing="0">▶</text>
+<text x="905.0" y="382" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">5. Video</text>
+<text x="905.0" y="398" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">generation</text>
+<text x="905.0" y="432" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">Model inference</text>
+<text x="905.0" y="448" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">(I2V / backend)</text>
+<line x1="953" y1="391" x2="960" y2="391" stroke="#a1a1a6" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<rect x="965" y="308" width="88" height="166" rx="14" fill="#ffffff" stroke="#e8e8ed" stroke-width="1" opacity="1" />
+<text x="1009.0" y="345" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="23" font-weight="650" fill="#5ac8fa" text-anchor="middle" letter-spacing="0">▣</text>
+<text x="1009.0" y="382" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">6. Review /</text>
+<text x="1009.0" y="398" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">decision log</text>
+<text x="1009.0" y="432" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">Human review and</text>
+<text x="1009.0" y="448" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">rationales</text>
+<line x1="1057" y1="391" x2="1064" y2="391" stroke="#a1a1a6" stroke-width="1.6" fill="none" marker-end="url(#arrow)"/>
+<rect x="1069" y="308" width="88" height="166" rx="14" fill="#ffffff" stroke="#e8e8ed" stroke-width="1" opacity="1" />
+<text x="1113.0" y="345" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="23" font-weight="650" fill="#5ac8fa" text-anchor="middle" letter-spacing="0">✓</text>
+<text x="1113.0" y="382" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">7. Final</text>
+<text x="1113.0" y="398" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">output</text>
+<text x="1113.0" y="432" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">Curated deliverable</text>
+<text x="1113.0" y="448" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">and evidence</text>
+<path d="M376 285 C405 285, 400 370, 425 370" stroke="#5ac8fa" stroke-width="2.2" fill="none" marker-end="url(#arrow)"/>
+<path d="M376 585 C410 585, 400 500, 425 500" stroke="#34c759" stroke-width="2" fill="none" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<path d="M1185 370 C1215 370, 1210 285, 1240 285" stroke="#a66a00" stroke-width="2" fill="none" stroke-dasharray="4 4" marker-end="url(#arrow)"/>
+<path d="M1008 512 C1008 555, 1220 550, 1240 625" stroke="#8e8e93" stroke-width="1.8" fill="none" stroke-dasharray="5 5" marker-end="url(#arrow)"/>
+<rect x="446" y="596" width="505" height="170" rx="20" fill="#ffffffcc" stroke="#e5f3fa" stroke-width="1.1" opacity="1" />
+<rect x="470" y="615" width="98" height="126" rx="12" fill="#5ac8fa12" stroke="#5ac8fa24" stroke-width="1" opacity="1" />
+<rect x="482" y="628" width="30" height="30" rx="8" fill="#ffffff" stroke="#5ac8fa28" stroke-width="1" opacity="1" />
+<text x="497" y="650" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#007aff" text-anchor="middle" letter-spacing="0">▥</text>
+<text x="520" y="646" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">Reference</text>
+<text x="520" y="660" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">structure</text>
+<text x="520" y="686" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">Shot structure,</text>
+<text x="520" y="701" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">framing, timing,</text>
+<text x="520" y="716" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">semantics</text>
+<rect x="586" y="615" width="98" height="126" rx="12" fill="#af9ce812" stroke="#af9ce824" stroke-width="1" opacity="1" />
+<rect x="598" y="628" width="30" height="30" rx="8" fill="#ffffff" stroke="#af9ce828" stroke-width="1" opacity="1" />
+<text x="613" y="650" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#8f7ad1" text-anchor="middle" letter-spacing="0">♙</text>
+<text x="636" y="646" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">IP identity</text>
+<text x="636" y="660" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">package</text>
+<text x="636" y="686" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">Who / identity</text>
+<text x="636" y="701" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">attributes and</text>
+<text x="636" y="716" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">consistency</text>
+<rect x="702" y="615" width="98" height="126" rx="12" fill="#ff9a8b12" stroke="#ff9a8b24" stroke-width="1" opacity="1" />
+<rect x="714" y="628" width="30" height="30" rx="8" fill="#ffffff" stroke="#ff9a8b28" stroke-width="1" opacity="1" />
+<text x="729" y="650" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#d86f62" text-anchor="middle" letter-spacing="0">◕</text>
+<text x="752" y="646" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">Look</text>
+<text x="752" y="660" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">package</text>
+<text x="752" y="686" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">Appearance,</text>
+<text x="752" y="701" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">lighting, grade,</text>
+<text x="752" y="716" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">style</text>
+<rect x="818" y="615" width="98" height="126" rx="12" fill="#5ac8b812" stroke="#5ac8b824" stroke-width="1" opacity="1" />
+<rect x="830" y="628" width="30" height="30" rx="8" fill="#ffffff" stroke="#5ac8b828" stroke-width="1" opacity="1" />
+<text x="845" y="650" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="16" font-weight="700" fill="#318f84" text-anchor="middle" letter-spacing="0">△</text>
+<text x="868" y="646" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">Scene</text>
+<text x="868" y="660" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="800" fill="#1d1d1f" text-anchor="middle" letter-spacing="0">package</text>
+<text x="868" y="686" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">Location, set,</text>
+<text x="868" y="701" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">props, weather,</text>
+<text x="868" y="716" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="11" font-weight="400" fill="#6e6e73" text-anchor="middle" letter-spacing="0">time</text>
+<text x="700" y="790" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#007aff" text-anchor="middle" letter-spacing="2.8">SEPARATED CONDITIONING INPUTS</text>
+<path d="M700 596 C700 555, 700 515, 700 474" stroke="#5ac8fa" stroke-width="1.6" fill="none" stroke-dasharray="4 3" marker-end="url(#arrow)"/>
+<rect x="990" y="575" width="242" height="190" rx="18" fill="#ffffffc8" stroke="#e1e4e8" stroke-width="1" opacity="1" />
+<text x="1010" y="605" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="800" fill="#007aff" text-anchor="start" letter-spacing="2">EVIDENCE STATUS</text>
+<rect x="1010" y="625" width="210" height="30" rx="14" fill="#ffffff" stroke="#e7e9ee" stroke-width="1" opacity="1" />
+<circle cx="1027" cy="640" r="8" fill="#64d2ff" opacity="0.85"/>
+<text x="1045" y="644" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#64d2ff" text-anchor="start" letter-spacing="0">Completed evidence</text>
+<text x="1130" y="644" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="400" fill="#747980" text-anchor="start" letter-spacing="0">Main evidence path</text>
+<rect x="1010" y="661" width="210" height="30" rx="14" fill="#ffffff" stroke="#e7e9ee" stroke-width="1" opacity="1" />
+<circle cx="1027" cy="676" r="8" fill="#a66a00" opacity="0.85"/>
+<text x="1045" y="680" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#a66a00" text-anchor="start" letter-spacing="0">Experimental</text>
+<text x="1130" y="680" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="400" fill="#747980" text-anchor="start" letter-spacing="0">Secondary / exploratory</text>
+<rect x="1010" y="697" width="210" height="30" rx="14" fill="#ffffff" stroke="#e7e9ee" stroke-width="1" opacity="1" />
+<circle cx="1027" cy="712" r="8" fill="#248a3d" opacity="0.85"/>
+<text x="1045" y="716" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#248a3d" text-anchor="start" letter-spacing="0">Phase 0</text>
+<text x="1130" y="716" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="400" fill="#747980" text-anchor="start" letter-spacing="0">Feasibility evidence</text>
+<rect x="1010" y="733" width="210" height="30" rx="14" fill="#ffffff" stroke="#e7e9ee" stroke-width="1" opacity="1" />
+<circle cx="1027" cy="748" r="8" fill="#8e8e93" opacity="0.85"/>
+<text x="1045" y="752" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="12" font-weight="700" fill="#8e8e93" text-anchor="start" letter-spacing="0">Planned</text>
+<text x="1130" y="752" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="10" font-weight="400" fill="#747980" text-anchor="start" letter-spacing="0">Future architecture</text>
+<rect x="310" y="820" width="980" height="70" rx="18" fill="#ffffffcc" stroke="#e5e7eb" stroke-width="1.2" opacity="1" />
+<rect x="328" y="838" width="36" height="36" rx="11" fill="#fff3ef" stroke="#ffd9cf" stroke-width="1" opacity="1" />
+<text x="346" y="862" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="700" fill="#d35b47" text-anchor="middle" letter-spacing="0">◈</text>
+<text x="386" y="856" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="18" font-weight="750" fill="#161719" text-anchor="start" letter-spacing="0">Claim boundary</text>
+<text x="548" y="845" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">The implemented evidence preserves shot structure and action intent; it does not claim exact frame-level motion transfer.</text>
+<text x="548" y="863" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">Automatic Stage-4 scoring was designed and partially instrumented, but not fully executed.</text>
+<text x="548" y="881" font-family="-apple-system,BlinkMacSystemFont,'SF Pro Display','SF Pro Text',Inter,'Helvetica Neue',Arial,sans-serif" font-size="13" font-weight="400" fill="#515154" text-anchor="start" letter-spacing="0">Pose/mask control trials did not drive the final beach or street outputs.</text>
+</svg>

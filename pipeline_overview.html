@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pipeline Architecture Overview</title>
+<style>
+  :root {
+    --bg: #0f1117;
+    --surface: #1a1d27;
+    --surface2: #22263a;
+    --bd: #2d3148;
+    --bd2: #3a3f5c;
+    --tx: #e8eaf6;
+    --tx2: #9da3c8;
+    --tx3: #5c6280;
+    --accent: #6366f1;
+    --accent-lt: rgba(99,102,241,0.12);
+    --pass: #10b981;
+    --pass-bg: rgba(16,185,129,0.08);
+    --warn: #f59e0b;
+    --fail: #ef4444;
+    --info: #38bdf8;
+    --r: 10px;
+    --r-sm: 6px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    background: var(--bg);
+    color: var(--tx);
+    line-height: 1.6;
+    padding: 0 0 80px;
+  }
+
+  /* ── Header ── */
+  .hero {
+    background: linear-gradient(135deg, #0f1117 0%, #1a1040 60%, #0f1117 100%);
+    border-bottom: 1px solid var(--bd);
+    padding: 48px 64px 40px;
+  }
+  .hero h1 {
+    font-size: 26px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -.02em;
+    margin-bottom: 8px;
+  }
+  .hero .subtitle {
+    font-size: 14px;
+    color: var(--tx2);
+    max-width: 700px;
+  }
+  .hero .logline {
+    margin-top: 18px;
+    display: inline-block;
+    padding: 10px 18px;
+    background: var(--accent-lt);
+    border: 1px solid rgba(99,102,241,0.3);
+    border-radius: var(--r-sm);
+    font-size: 13px;
+    color: #a5b4fc;
+    font-style: italic;
+  }
+
+  /* ── Content wrapper ── */
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 48px; }
+
+  /* ── Section headers ── */
+  .sec-label {
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .1em;
+    color: var(--tx3);
+    margin: 48px 0 16px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--bd);
+  }
+
+  /* ── Core components grid ── */
+  .comp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 12px;
+  }
+  .comp-card {
+    background: var(--surface);
+    border: 1px solid var(--bd);
+    border-radius: var(--r);
+    padding: 16px 18px;
+  }
+  .comp-card .icon { font-size: 20px; margin-bottom: 8px; }
+  .comp-card .name {
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--tx);
+    margin-bottom: 4px;
+  }
+  .comp-card .desc {
+    font-size: 11px;
+    color: var(--tx3);
+    line-height: 1.5;
+  }
+  .comp-card.accent { border-color: rgba(99,102,241,0.4); background: rgba(99,102,241,0.06); }
+  .comp-card.green  { border-color: rgba(16,185,129,0.35); background: rgba(16,185,129,0.05); }
+  .comp-card.amber  { border-color: rgba(245,158,11,0.35); background: rgba(245,158,11,0.05); }
+  .comp-card.blue   { border-color: rgba(56,189,248,0.35); background: rgba(56,189,248,0.05); }
+  .comp-card.red    { border-color: rgba(239,68,68,0.35);  background: rgba(239,68,68,0.05); }
+
+  /* ── Flowchart ── */
+  .flowchart-wrap {
+    background: var(--surface);
+    border: 1px solid var(--bd);
+    border-radius: var(--r);
+    padding: 24px;
+    overflow-x: auto;
+  }
+  .flowchart-wrap svg { display: block; margin: 0 auto; }
+
+  /* ── Architecture prose sections ── */
+  .arch-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  @media (max-width: 800px) { .arch-grid { grid-template-columns: 1fr; } }
+  .arch-card {
+    background: var(--surface);
+    border: 1px solid var(--bd);
+    border-radius: var(--r);
+    padding: 20px 22px;
+  }
+  .arch-card h3 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--tx);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .arch-card h3 .num {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 999px;
+    background: var(--accent-lt);
+    color: #a5b4fc;
+  }
+  .arch-card p, .arch-card li {
+    font-size: 12px;
+    color: var(--tx2);
+    line-height: 1.65;
+  }
+  .arch-card ul { padding-left: 0; list-style: none; }
+  .arch-card li::before { content: "·  "; color: var(--tx3); }
+  .arch-card li { margin-bottom: 3px; }
+
+  /* ── Strategy table ── */
+  .strategy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 700px) { .strategy-grid { grid-template-columns: 1fr; } }
+  .strat-card {
+    background: var(--surface);
+    border: 1px solid var(--bd);
+    border-radius: var(--r);
+    padding: 18px;
+  }
+  .strat-card .strat-tag {
+    font-size: 9px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 3px 8px;
+    border-radius: 999px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .strat-a .strat-tag { background: rgba(16,185,129,0.15); color: var(--pass); }
+  .strat-b .strat-tag { background: var(--accent-lt); color: #a5b4fc; }
+  .strat-c .strat-tag { background: rgba(245,158,11,0.12); color: var(--warn); }
+  .strat-card h4 { font-size: 13px; font-weight: 700; color: var(--tx); margin-bottom: 6px; }
+  .strat-card .fits { font-size: 11px; color: var(--tx3); margin-bottom: 10px; }
+  .strat-card .flow-mini {
+    font-size: 10px;
+    color: var(--tx2);
+    font-family: monospace;
+    line-height: 1.8;
+    background: var(--surface2);
+    border-radius: var(--r-sm);
+    padding: 8px 10px;
+  }
+  .strat-card .output-unit {
+    margin-top: 10px;
+    font-size: 10px;
+    font-weight: 600;
+    color: var(--tx3);
+  }
+  .strat-card .output-unit span {
+    font-family: monospace;
+    color: #a5b4fc;
+    background: var(--accent-lt);
+    padding: 2px 6px;
+    border-radius: 4px;
+  }
+
+  /* ── Packages row ── */
+  .pkg-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+  }
+  @media (max-width: 700px) { .pkg-grid { grid-template-columns: 1fr; } }
+  .pkg-card {
+    background: var(--surface);
+    border: 1px solid var(--bd);
+    border-radius: var(--r);
+    padding: 18px;
+  }
+  .pkg-card h4 { font-size: 12px; font-weight: 700; color: var(--tx); margin-bottom: 8px; }
+  .pkg-card .tag {
+    font-size: 9px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: .07em; padding: 2px 7px; border-radius: 999px;
+    display: inline-block; margin-bottom: 10px;
+  }
+  .pkg-identity .tag { background: rgba(239,68,68,0.12); color: #fca5a5; }
+  .pkg-look .tag     { background: rgba(245,158,11,0.12); color: var(--warn); }
+  .pkg-scene .tag    { background: rgba(56,189,248,0.12); color: var(--info); }
+  .pkg-card ul { list-style: none; padding: 0; }
+  .pkg-card li { font-size: 11px; color: var(--tx3); margin-bottom: 3px; }
+  .pkg-card li::before { content: "→  "; color: var(--tx3); }
+
+  /* ── Schema box ── */
+  .schema-box {
+    background: var(--surface2);
+    border: 1px solid var(--bd);
+    border-radius: var(--r-sm);
+    padding: 16px 20px;
+    font-family: 'Fira Code', 'Consolas', monospace;
+    font-size: 11px;
+    color: var(--tx2);
+    line-height: 1.8;
+    overflow-x: auto;
+  }
+  .schema-box .key { color: #93c5fd; }
+  .schema-box .val { color: #86efac; }
+  .schema-box .cmt { color: var(--tx3); }
+
+  /* ── Metrics grid ── */
+  .metrics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+  }
+  .metric-card {
+    background: var(--surface);
+    border: 1px solid var(--bd);
+    border-radius: var(--r-sm);
+    padding: 12px 14px;
+    font-size: 11px;
+  }
+  .metric-card .name { font-weight: 700; color: var(--tx); margin-bottom: 3px; }
+  .metric-card .how { color: var(--tx3); font-size: 10px; }
+
+  /* ── Experiment box ── */
+  .exp-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .exp-card {
+    background: var(--surface);
+    border: 1px solid var(--bd);
+    border-radius: var(--r);
+    padding: 20px;
+  }
+  .exp-card h4 { font-size: 13px; font-weight: 700; margin-bottom: 10px; }
+  .exp-card.off h4 { color: var(--fail); }
+  .exp-card.on  h4 { color: var(--pass); }
+  .exp-card p   { font-size: 12px; color: var(--tx2); margin-bottom: 8px; }
+  .exp-card li  { font-size: 11px; color: var(--tx3); list-style: none; }
+  .exp-card li::before { content: "·  "; color: var(--tx3); }
+
+  /* ── Footer note ── */
+  .footer-note {
+    margin-top: 48px;
+    padding: 16px 20px;
+    background: var(--surface);
+    border: 1px solid var(--bd);
+    border-radius: var(--r);
+    font-size: 11px;
+    color: var(--tx3);
+    line-height: 1.7;
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- HERO -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="hero">
+  <div style="max-width:1100px;margin:0 auto;padding:0 16px">
+    <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:var(--tx3);margin-bottom:10px">
+      MSc AI for Media · NCCA, Bournemouth University · Sept 2026
+    </div>
+    <h1>Reference-Driven Agentic Short-Form Video Generation System</h1>
+    <p class="subtitle">
+      A single-character, reference-driven, package-controlled, storyboard-JSON-centred agentic video generation pipeline.
+      It <strong style="color:#c7d2fe">adaptively reuses the available structure</strong> of each reference shot — assigning a
+      conditioning mode by how much reliable structure that shot provides — rather than applying one fixed strategy to every video.
+      Handles multi-shot video, single-take key moments, and storyboard-prompt mode; high-energy driving performance is planned future work.
+      All inputs normalise to <code style="color:#a5b4fc;background:rgba(99,102,241,0.15);padding:2px 6px;border-radius:4px">generation_units[]</code>
+      then enter a unified IP-conditioned generation → evaluation → repair loop.
+    </p>
+    <div class="logline">
+      Reference video / storyboard → extract structure → select IP + Look + Scene → generate → evaluate → repair → decision log
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- STAT CARDS -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div style="display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:32px">
+
+  <div style="background:var(--surface);border:1px solid var(--bd);border-radius:var(--r);padding:16px 18px;display:flex;align-items:center;gap:13px">
+    <div style="width:38px;height:38px;flex-shrink:0;background:rgba(99,102,241,0.13);border-radius:8px;display:flex;align-items:center;justify-content:center">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="#a5b4fc" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+    <div>
+      <div style="font-size:30px;font-weight:800;line-height:1;color:#fff;letter-spacing:-.03em">7</div>
+      <div style="font-size:10.5px;color:var(--tx3);margin-top:2px;line-height:1.3">Models &amp; Tools</div>
+    </div>
+  </div>
+
+  <div style="background:var(--surface);border:1px solid var(--bd);border-radius:var(--r);padding:16px 18px;display:flex;align-items:center;gap:13px">
+    <div style="width:38px;height:38px;flex-shrink:0;background:rgba(16,185,129,0.11);border-radius:8px;display:flex;align-items:center;justify-content:center">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M18 8h1a4 4 0 0 1 0 8h-1" stroke="#6ee7b7" stroke-width="2" stroke-linecap="round"/><path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z" stroke="#6ee7b7" stroke-width="2"/><line x1="6" y1="1" x2="6" y2="4" stroke="#6ee7b7" stroke-width="2" stroke-linecap="round"/><line x1="10" y1="1" x2="10" y2="4" stroke="#6ee7b7" stroke-width="2" stroke-linecap="round"/><line x1="14" y1="1" x2="14" y2="4" stroke="#6ee7b7" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <div style="font-size:30px;font-weight:800;line-height:1;color:#fff;letter-spacing:-.03em">2</div>
+      <div style="font-size:10.5px;color:var(--tx3);margin-top:2px;line-height:1.3">Input Modes</div>
+    </div>
+  </div>
+
+  <div style="background:var(--surface);border:1px solid var(--bd);border-radius:var(--r);padding:16px 18px;display:flex;align-items:center;gap:13px">
+    <div style="width:38px;height:38px;flex-shrink:0;background:rgba(56,189,248,0.10);border-radius:8px;display:flex;align-items:center;justify-content:center">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><line x1="8" y1="6" x2="21" y2="6" stroke="#7dd3fc" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="12" x2="21" y2="12" stroke="#7dd3fc" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="18" x2="21" y2="18" stroke="#7dd3fc" stroke-width="2" stroke-linecap="round"/><line x1="3" y1="6" x2="3.01" y2="6" stroke="#7dd3fc" stroke-width="2.5" stroke-linecap="round"/><line x1="3" y1="12" x2="3.01" y2="12" stroke="#7dd3fc" stroke-width="2.5" stroke-linecap="round"/><line x1="3" y1="18" x2="3.01" y2="18" stroke="#7dd3fc" stroke-width="2.5" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <div style="font-size:30px;font-weight:800;line-height:1;color:#fff;letter-spacing:-.03em">6</div>
+      <div style="font-size:10.5px;color:var(--tx3);margin-top:2px;line-height:1.3">Pipeline Stages</div>
+    </div>
+  </div>
+
+  <div style="background:var(--surface);border:1px solid var(--bd);border-radius:var(--r);padding:16px 18px;display:flex;align-items:center;gap:13px">
+    <div style="width:38px;height:38px;flex-shrink:0;background:rgba(245,158,11,0.10);border-radius:8px;display:flex;align-items:center;justify-content:center">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><line x1="18" y1="20" x2="18" y2="10" stroke="#fcd34d" stroke-width="2" stroke-linecap="round"/><line x1="12" y1="20" x2="12" y2="4" stroke="#fcd34d" stroke-width="2" stroke-linecap="round"/><line x1="6" y1="20" x2="6" y2="14" stroke="#fcd34d" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <div style="font-size:30px;font-weight:800;line-height:1;color:#fff;letter-spacing:-.03em">5</div>
+      <div style="font-size:10.5px;color:var(--tx3);margin-top:2px;line-height:1.3">Eval Metrics</div>
+    </div>
+  </div>
+
+  <div style="background:var(--surface);border:1px solid var(--bd);border-radius:var(--r);padding:16px 18px;display:flex;align-items:center;gap:13px">
+    <div style="width:38px;height:38px;flex-shrink:0;background:rgba(239,68,68,0.10);border-radius:8px;display:flex;align-items:center;justify-content:center">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#fca5a5" stroke-width="2"/><path d="M12 8v4l3 3" stroke="#fca5a5" stroke-width="2" stroke-linecap="round"/></svg>
+    </div>
+    <div>
+      <div style="font-size:30px;font-weight:800;line-height:1;color:#fff;letter-spacing:-.03em">3</div>
+      <div style="font-size:10.5px;color:var(--tx3);margin-top:2px;line-height:1.3">Ref Strategies</div>
+    </div>
+  </div>
+
+</div><!-- /stat cards -->
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- POSITIONING / SCOPE -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div style="margin-top:20px;display:grid;grid-template-columns:1.4fr 1fr;gap:12px">
+  <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.3);border-radius:var(--r);padding:18px 20px">
+    <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:#a5b4fc;margin-bottom:8px">What this workflow is</div>
+    <p style="font-size:12.5px;color:var(--tx2);line-height:1.65">
+      Practical for short-form reference-guided regeneration — especially when the reference has
+      <strong style="color:var(--tx)">clear shot structure</strong>, <strong style="color:var(--tx)">readable subject motion</strong>,
+      and <strong style="color:var(--tx)">visually separable identity / look / scene</strong> components.
+      After analysis, each shot is assigned a conditioning mode by the quality of its extracted structure, so the workflow
+      reuses available structure adaptively across different reference videos — not one fixed strategy for every clip.
+    </p>
+  </div>
+  <div style="background:rgba(245,158,11,0.05);border:1px solid rgba(245,158,11,0.3);border-radius:var(--r);padding:18px 20px">
+    <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--warn);margin-bottom:8px">Scope boundary</div>
+    <p style="font-size:12.5px;color:var(--tx2);line-height:1.65">
+      The current API-based implementation is <strong style="color:#fcd34d">not designed for exact frame-level motion transfer</strong>
+      or complex high-energy performance replication. It preserves shot structure and action intent — not pixel-level motion.
+    </p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- MODE A / B FLOWCHART -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="sec-label" style="margin-top:40px">Pipeline Architecture</div>
+
+<!-- Tags row -->
+<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px">
+  <span style="font-size:10px;padding:3px 10px;border-radius:999px;background:rgba(16,185,129,0.12);color:#6ee7b7;font-weight:600">Reference structure</span>
+  <span style="font-size:10px;padding:3px 10px;border-radius:999px;background:rgba(99,102,241,0.12);color:#a5b4fc;font-weight:600">Fixed IP character</span>
+  <span style="font-size:10px;padding:3px 10px;border-radius:999px;background:rgba(56,189,248,0.10);color:#7dd3fc;font-weight:600">Storyboard JSON</span>
+  <span style="font-size:10px;padding:3px 10px;border-radius:999px;background:rgba(245,158,11,0.10);color:#fcd34d;font-weight:600">Shot-level generation</span>
+  <span style="font-size:10px;padding:3px 10px;border-radius:999px;background:rgba(239,68,68,0.10);color:#fca5a5;font-weight:600">Repair loop</span>
+  <span style="font-size:10px;padding:3px 10px;border-radius:999px;background:rgba(148,163,184,0.08);color:var(--tx3);font-weight:600">Human review</span>
+</div>
+
+<div class="flowchart-wrap" style="padding:28px 28px 20px">
+<svg viewBox="0 0 1100 264" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;display:block">
+  <defs>
+    <marker id="fa" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#10b981"/>
+    </marker>
+    <marker id="fb" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#6366f1"/>
+    </marker>
+    <marker id="fsh" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#9da3c8"/>
+    </marker>
+    <marker id="fmerge" markerWidth="7" markerHeight="7" refX="5.5" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L7,3 z" fill="#9da3c8"/>
+    </marker>
+  </defs>
+
+  <!-- ─── MODE A REGION ─────────────────────────────────────── -->
+  <rect x="4" y="4" width="492" height="96" rx="8"
+        fill="rgba(16,185,129,0.04)" stroke="rgba(16,185,129,0.25)" stroke-width="1.2" stroke-dasharray="5,4"/>
+  <text x="14" y="19" font-family="system-ui" font-size="8" font-weight="700" letter-spacing="1"
+        fill="#10b981" text-anchor="start">MODE A — REFERENCE VIDEO</text>
+
+  <!-- Mode A Box 1: Reference Video -->
+  <rect x="16" y="24" width="128" height="62" rx="7"
+        fill="rgba(16,185,129,0.10)" stroke="rgba(16,185,129,0.45)" stroke-width="1.4"/>
+  <text x="80" y="46" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#6ee7b7">Reference Video</text>
+  <text x="80" y="60" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">Input source</text>
+  <text x="80" y="72" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">select strategy A / B / C</text>
+
+  <!-- A: arrow 1 -->
+  <line x1="144" y1="55" x2="162" y2="55" stroke="#10b981" stroke-width="1.4" marker-end="url(#fa)"/>
+
+  <!-- Mode A Box 2: Video Analysis -->
+  <rect x="164" y="24" width="148" height="62" rx="7"
+        fill="rgba(30,40,60,0.9)" stroke="rgba(16,185,129,0.30)" stroke-width="1.2"/>
+  <text x="238" y="44" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#9da3c8">Video Analysis</text>
+  <text x="238" y="57" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">PySceneDetect · librosa</text>
+  <text x="238" y="69" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">MediaPipe · GPT-4o Vision</text>
+  <text x="238" y="81" text-anchor="middle" font-family="system-ui" font-size="8" fill="#3d4460">beats · cuts · pose · framing</text>
+
+  <!-- A: arrow 2 -->
+  <line x1="312" y1="55" x2="330" y2="55" stroke="#10b981" stroke-width="1.4" marker-end="url(#fa)"/>
+
+  <!-- Mode A Box 3: Storyboard JSON -->
+  <rect x="332" y="24" width="140" height="62" rx="7"
+        fill="rgba(30,40,60,0.9)" stroke="rgba(16,185,129,0.30)" stroke-width="1.2"/>
+  <text x="402" y="44" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#9da3c8">Storyboard JSON</text>
+  <text x="402" y="57" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">Beat-aligned · Shot spec</text>
+  <text x="402" y="69" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">generation_units[] built</text>
+  <text x="402" y="81" text-anchor="middle" font-family="system-ui" font-size="7.5" fill="#3d4460">v0.2</text>
+
+  <!-- ─── MODE B REGION ─────────────────────────────────────── -->
+  <rect x="4" y="164" width="492" height="96" rx="8"
+        fill="rgba(99,102,241,0.04)" stroke="rgba(99,102,241,0.22)" stroke-width="1.2" stroke-dasharray="5,4"/>
+  <text x="14" y="179" font-family="system-ui" font-size="8" font-weight="700" letter-spacing="1"
+        fill="#6366f1" text-anchor="start">MODE B — STORYBOARD PROMPT</text>
+
+  <!-- Mode B Box 1: Character Card + Story Prompt -->
+  <rect x="16" y="184" width="152" height="62" rx="7"
+        fill="rgba(99,102,241,0.10)" stroke="rgba(99,102,241,0.40)" stroke-width="1.4"/>
+  <text x="92" y="204" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#a5b4fc">Character Card</text>
+  <text x="92" y="217" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#a5b4fc">+ Story Prompt</text>
+  <text x="92" y="232" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">Inputs</text>
+
+  <!-- B: arrow 1 -->
+  <line x1="168" y1="215" x2="184" y2="215" stroke="#6366f1" stroke-width="1.4" marker-end="url(#fb)"/>
+
+  <!-- Mode B Box 2: Storyboard Sheet / Panel Review -->
+  <rect x="186" y="184" width="148" height="62" rx="7"
+        fill="rgba(30,40,60,0.9)" stroke="rgba(99,102,241,0.28)" stroke-width="1.2"/>
+  <text x="260" y="207" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#9da3c8">Storyboard Sheet /</text>
+  <text x="260" y="220" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#9da3c8">Panel Review</text>
+  <text x="260" y="233" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">Review &amp; refine</text>
+
+  <!-- B: arrow 2 -->
+  <line x1="334" y1="215" x2="350" y2="215" stroke="#6366f1" stroke-width="1.4" marker-end="url(#fb)"/>
+
+  <!-- Mode B Box 3: Storyboard JSON -->
+  <rect x="352" y="184" width="140" height="62" rx="7"
+        fill="rgba(30,40,60,0.9)" stroke="rgba(99,102,241,0.28)" stroke-width="1.2"/>
+  <text x="422" y="207" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#9da3c8">Storyboard JSON</text>
+  <text x="422" y="220" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">Generated or uploaded</text>
+  <text x="422" y="233" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">same schema as Mode A</text>
+
+  <!-- ─── CONVERGENCE ─────────────────────────────────────── -->
+  <!-- A JSON → right → down to merge -->
+  <path d="M472,55 H510 V132" stroke="#9da3c8" stroke-width="1.3" fill="none"/>
+  <!-- B JSON → right → up to merge -->
+  <path d="M492,215 H510 V132" stroke="#9da3c8" stroke-width="1.3" fill="none"/>
+  <!-- merge dot -->
+  <circle cx="510" cy="132" r="4" fill="#9da3c8"/>
+  <!-- merge → shared section arrow -->
+  <line x1="514" y1="132" x2="545" y2="132" stroke="#9da3c8" stroke-width="1.3" marker-end="url(#fmerge)"/>
+
+  <!-- ─── SHARED CORE PIPELINE ──────────────────────────────── -->
+  <rect x="546" y="84" width="548" height="96" rx="8"
+        fill="rgba(15,17,23,0.7)" stroke="rgba(99,102,241,0.18)" stroke-width="1.2" stroke-dasharray="5,4"/>
+  <text x="556" y="100" font-family="system-ui" font-size="8" font-weight="700" letter-spacing="1"
+        fill="rgba(99,102,241,0.6)">SHARED CORE PIPELINE  (per generation_unit)</text>
+
+  <!-- Shared Box 1: IP Keyframes -->
+  <rect x="553" y="104" width="112" height="62" rx="7"
+        fill="rgba(99,102,241,0.12)" stroke="rgba(99,102,241,0.45)" stroke-width="1.4"/>
+  <text x="609" y="125" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#a5b4fc">IP Keyframes</text>
+  <text x="609" y="138" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">GPT-image-1</text>
+  <text x="609" y="150" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">Per panel</text>
+
+  <!-- shared arrow 1 -->
+  <line x1="665" y1="135" x2="678" y2="135" stroke="#9da3c8" stroke-width="1.3" marker-end="url(#fsh)"/>
+
+  <!-- Shared Box 2: Video Shots I2V -->
+  <rect x="680" y="104" width="112" height="62" rx="7"
+        fill="rgba(99,102,241,0.12)" stroke="rgba(99,102,241,0.38)" stroke-width="1.2"/>
+  <text x="736" y="125" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#a5b4fc">Video Shots</text>
+  <text x="736" y="138" text-anchor="middle" font-family="system-ui" font-size="8" fill="#a5b4fc">(I2V)</text>
+  <text x="736" y="151" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">Kling AI · Short clips</text>
+
+  <!-- shared arrow 2 -->
+  <line x1="792" y1="135" x2="806" y2="135" stroke="#9da3c8" stroke-width="1.3" marker-end="url(#fsh)"/>
+
+  <!-- Shared Box 3: Evaluation -->
+  <rect x="808" y="104" width="112" height="62" rx="7"
+        fill="rgba(30,40,60,0.9)" stroke="rgba(148,163,184,0.22)" stroke-width="1.2"/>
+  <text x="864" y="124" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#9da3c8">Evaluation</text>
+  <text x="864" y="137" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">ArcFace · MediaPipe</text>
+  <text x="864" y="149" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">Metrics &amp; checks</text>
+  <text x="864" y="160" text-anchor="middle" font-family="system-ui" font-size="7.5" fill="#3d4460">identity · pose · beat · look</text>
+
+  <!-- shared arrow 3 -->
+  <line x1="920" y1="135" x2="934" y2="135" stroke="#9da3c8" stroke-width="1.3" marker-end="url(#fsh)"/>
+
+  <!-- Shared Box 4: Repair Loop -->
+  <rect x="936" y="104" width="112" height="62" rx="7"
+        fill="rgba(245,158,11,0.07)" stroke="rgba(245,158,11,0.30)" stroke-width="1.2"/>
+  <text x="992" y="124" text-anchor="middle" font-family="system-ui" font-size="9" font-weight="700" fill="#fcd34d">Repair Loop</text>
+  <text x="992" y="137" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">Fix &amp; retry</text>
+  <text x="992" y="149" text-anchor="middle" font-family="system-ui" font-size="8" fill="#5c6280">max 3 attempts</text>
+  <text x="992" y="161" text-anchor="middle" font-family="system-ui" font-size="7.5" fill="#3d4460">→ needs_human</text>
+</svg>
+</div><!-- /flowchart-wrap -->
+
+<!-- Note below flowchart -->
+<p style="font-size:11px;color:var(--tx3);margin-top:10px;font-style:italic;line-height:1.6">
+  Both modes convert to the same storyboard JSON. From the IP Keyframes stage onward,
+  they use the same generation, evaluation and repair process.
+</p>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- CORE COMPONENTS -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="sec-label">Core Components</div>
+<div class="comp-grid">
+
+  <div class="comp-card accent">
+    <div class="icon">🔍</div>
+    <div class="name">Reference Analyzer</div>
+    <div class="desc">PySceneDetect · TransNetV2 · MediaPipe / DWPose · librosa · GPT-4o Vision. Extracts shots, pose, framing, beat, semantic labels.</div>
+  </div>
+
+  <div class="comp-card accent">
+    <div class="icon">📋</div>
+    <div class="name">Template Builder</div>
+    <div class="desc">Converts analysis into beat-aligned storyboard JSON. Snaps cut times to nearest beat (max_snap_distance 150 ms). Outputs <code>generation_units[]</code>.</div>
+  </div>
+
+  <div class="comp-card accent">
+    <div class="icon">🎨</div>
+    <div class="name">IP-Conditioned Generator</div>
+    <div class="desc">LoRA / IP-Adapter + pose conditioning. GPT-image-1 for keyframes. Kling I2V for video. Generates per unit — never one-shot whole video.</div>
+  </div>
+
+  <div class="comp-card green">
+    <div class="icon">📊</div>
+    <div class="name">Evaluator</div>
+    <div class="desc">ArcFace identity score · keypoint distance · beat alignment error (ms) · framing accuracy · subject count · look score. View-adaptive profile per framing.</div>
+  </div>
+
+  <div class="comp-card amber">
+    <div class="icon">🔧</div>
+    <div class="name">Repair Planner</div>
+    <div class="desc">Classifies failure reason → targeted fix: identity drift → stronger LoRA weight; pose mismatch → stronger pose ref; framing error → rewrite prompt; extra subject → stricter constraint.</div>
+  </div>
+
+  <div class="comp-card blue">
+    <div class="icon">📝</div>
+    <div class="name">Decision Logger</div>
+    <div class="desc">Records every attempt: scores, verdict, diagnosis, repair_action, improved_from_previous. Terminal state <code>needs_human</code> after max retries. The agentic evidence for dissertation.</div>
+  </div>
+
+  <div class="comp-card" style="border-color:rgba(239,68,68,0.35);background:rgba(239,68,68,0.05)">
+    <div class="icon">📦</div>
+    <div class="name">Three Packages</div>
+    <div class="desc">Identity Package (who) + Look Package (appearance) + Scene Package (environment). All three travel through the entire pipeline alongside every generation unit.</div>
+  </div>
+
+  <div class="comp-card" style="border-color:rgba(148,163,184,0.3);background:rgba(148,163,184,0.04)">
+    <div class="icon">🗂</div>
+    <div class="name">project_state.json</div>
+    <div class="desc">Single central state file. All agents read and write here. Contains decision log per shot, config, reference_data, shots[], generation_units[], experiments[]. The pipeline's backbone.</div>
+  </div>
+
+</div><!-- /comp-grid -->
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PIPELINE FLOWCHART -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="sec-label">Detailed Pipeline — Evaluation &amp; Repair Loop</div>
+<div class="flowchart-wrap">
+<svg viewBox="0 0 980 900" width="980" height="900" xmlns="http://www.w3.org/2000/svg" style="max-width:100%">
+  <defs>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#6366f1"/>
+    </marker>
+    <marker id="arr-pass" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#10b981"/>
+    </marker>
+    <marker id="arr-fail" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#ef4444"/>
+    </marker>
+    <marker id="arr-gray" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L8,3 z" fill="#5c6280"/>
+    </marker>
+    <!-- node styles -->
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- ── INPUT LAYER ── -->
+  <!-- Mode A box -->
+  <rect x="30" y="20" width="420" height="70" rx="8" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.4)" stroke-width="1.5"/>
+  <text x="240" y="42" text-anchor="middle" fill="#a5b4fc" font-size="9" font-weight="700" letter-spacing="1" font-family="system-ui">INPUT MODE A</text>
+  <text x="240" y="60" text-anchor="middle" fill="#e8eaf6" font-size="12" font-weight="600" font-family="system-ui">Reference Video</text>
+  <text x="240" y="76" text-anchor="middle" fill="#5c6280" font-size="10" font-family="system-ui">upload reference video · confirm copyright · select strategy</text>
+
+  <!-- Mode B box -->
+  <rect x="530" y="20" width="420" height="70" rx="8" fill="rgba(16,185,129,0.06)" stroke="rgba(16,185,129,0.3)" stroke-width="1.5"/>
+  <text x="740" y="42" text-anchor="middle" fill="#6ee7b7" font-size="9" font-weight="700" letter-spacing="1" font-family="system-ui">INPUT MODE B</text>
+  <text x="740" y="60" text-anchor="middle" fill="#e8eaf6" font-size="12" font-weight="600" font-family="system-ui">Storyboard Prompt</text>
+  <text x="740" y="76" text-anchor="middle" fill="#5c6280" font-size="10" font-family="system-ui">character card → story prompt → storyboard sheet → panel review</text>
+
+  <!-- OR separator -->
+  <text x="492" y="61" text-anchor="middle" fill="#5c6280" font-size="11" font-weight="700" font-family="system-ui">OR</text>
+
+  <!-- ── STRATEGY SPLIT (Mode A only) ── -->
+  <!-- arrow down from Mode A -->
+  <line x1="240" y1="90" x2="240" y2="110" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- Strategy row -->
+  <rect x="30" y="112" width="125" height="64" rx="6" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.35)" stroke-width="1.3"/>
+  <text x="92" y="133" text-anchor="middle" fill="#6ee7b7" font-size="9" font-weight="700" letter-spacing=".5" font-family="system-ui">STRATEGY A</text>
+  <text x="92" y="149" text-anchor="middle" fill="#e8eaf6" font-size="10" font-weight="600" font-family="system-ui">Multi-shot</text>
+  <text x="92" y="163" text-anchor="middle" fill="#5c6280" font-size="9" font-family="system-ui">PySceneDetect</text>
+
+  <rect x="178" y="112" width="125" height="64" rx="6" fill="rgba(99,102,241,0.08)" stroke="rgba(99,102,241,0.35)" stroke-width="1.3"/>
+  <text x="240" y="133" text-anchor="middle" fill="#a5b4fc" font-size="9" font-weight="700" letter-spacing=".5" font-family="system-ui">STRATEGY B</text>
+  <text x="240" y="149" text-anchor="middle" fill="#e8eaf6" font-size="10" font-weight="600" font-family="system-ui">Single-take</text>
+  <text x="240" y="163" text-anchor="middle" fill="#5c6280" font-size="9" font-family="system-ui">Continuity check</text>
+
+  <rect x="326" y="112" width="125" height="64" rx="6" fill="rgba(245,158,11,0.04)" stroke="rgba(245,158,11,0.25)" stroke-width="1.3" stroke-dasharray="4,3"/>
+  <text x="388" y="133" text-anchor="middle" fill="#fcd34d" font-size="9" font-weight="700" letter-spacing=".5" font-family="system-ui">STRATEGY C</text>
+  <text x="388" y="149" text-anchor="middle" fill="#e8eaf6" font-size="10" font-weight="600" font-family="system-ui">Dance / Driving</text>
+  <text x="388" y="163" text-anchor="middle" fill="#f59e0b" font-size="8" font-family="system-ui">future work</text>
+
+  <!-- ── ANALYSIS BLOCK ── -->
+  <!-- arrows from strategies to analysis -->
+  <line x1="92"  y1="176" x2="210" y2="216" stroke="#5c6280" stroke-width="1.2" marker-end="url(#arr-gray)"/>
+  <line x1="240" y1="176" x2="240" y2="216" stroke="#5c6280" stroke-width="1.2" marker-end="url(#arr-gray)"/>
+  <line x1="388" y1="176" x2="270" y2="216" stroke="#5c6280" stroke-width="1.2" marker-end="url(#arr-gray)"/>
+
+  <!-- arrow from Mode B -->
+  <line x1="530" y1="55" x2="490" y2="55" stroke="#5c6280" stroke-width="1" stroke-dasharray="4,3"/>
+  <path d="M490,55 Q480,55 480,90 L480,240 Q480,250 470,250 L430,250" stroke="#5c6280" stroke-width="1" stroke-dasharray="4,3" fill="none" marker-end="url(#arr-gray)"/>
+
+  <rect x="60" y="218" width="360" height="70" rx="8" fill="rgba(30,35,60,0.9)" stroke="var(--bd)" stroke-width="1.5"/>
+  <text x="240" y="238" text-anchor="middle" fill="#9da3c8" font-size="9" font-weight="700" letter-spacing=".8" font-family="system-ui">STRUCTURAL ANALYSIS</text>
+  <text x="115" y="257" text-anchor="middle" fill="#5c6280" font-size="10" font-family="system-ui">PySceneDetect</text>
+  <text x="230" y="257" text-anchor="middle" fill="#5c6280" font-size="10" font-family="system-ui">MediaPipe/DWPose</text>
+  <text x="345" y="257" text-anchor="middle" fill="#5c6280" font-size="10" font-family="system-ui">librosa (BPM)</text>
+  <text x="240" y="276" text-anchor="middle" fill="#5c6280" font-size="9" font-family="system-ui">shot cuts · framing · pose keypoints · beat timestamps · motion profile</text>
+
+  <!-- ── SEMANTIC ENRICHMENT ── -->
+  <line x1="240" y1="288" x2="240" y2="308" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="60" y="310" width="360" height="60" rx="8" fill="rgba(99,102,241,0.1)" stroke="rgba(99,102,241,0.4)" stroke-width="1.5"/>
+  <text x="240" y="330" text-anchor="middle" fill="#a5b4fc" font-size="9" font-weight="700" letter-spacing=".8" font-family="system-ui">SEMANTIC ENRICHMENT — GPT-4o Vision</text>
+  <text x="240" y="348" text-anchor="middle" fill="#9da3c8" font-size="10" font-family="system-ui">action · expression · emotion · camera · lighting · prompt_fragment</text>
+  <text x="240" y="362" text-anchor="middle" fill="#5c6280" font-size="9" font-family="system-ui">per-shot / per-key-moment · risk flags · VLM enrichment written to storyboard JSON</text>
+
+  <!-- ── TEMPLATE BUILDER ── -->
+  <line x1="240" y1="370" x2="240" y2="390" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <rect x="60" y="392" width="360" height="56" rx="8" fill="rgba(30,35,60,0.9)" stroke="var(--bd)" stroke-width="1.5"/>
+  <text x="240" y="412" text-anchor="middle" fill="#9da3c8" font-size="9" font-weight="700" letter-spacing=".8" font-family="system-ui">TEMPLATE BUILDER</text>
+  <text x="240" y="430" text-anchor="middle" fill="#e8eaf6" font-size="11" font-weight="600" font-family="system-ui">Beat-aligned Storyboard JSON</text>
+  <text x="240" y="444" text-anchor="middle" fill="#5c6280" font-size="9" font-family="system-ui">shot cuts snapped to beats (≤150ms) · generation_units[] normalised</text>
+
+  <!-- ── PACKAGE SELECTION (beside template builder) ── -->
+  <rect x="480" y="350" width="460" height="120" rx="8" fill="rgba(30,35,60,0.8)" stroke="var(--bd)" stroke-width="1.5"/>
+  <text x="710" y="372" text-anchor="middle" fill="#9da3c8" font-size="9" font-weight="700" letter-spacing=".8" font-family="system-ui">PACKAGE SELECTION</text>
+
+  <rect x="494" y="382" width="136" height="72" rx="6" fill="rgba(239,68,68,0.07)" stroke="rgba(239,68,68,0.3)" stroke-width="1"/>
+  <text x="562" y="400" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700" font-family="system-ui">IDENTITY</text>
+  <text x="562" y="415" text-anchor="middle" fill="#9da3c8" font-size="9" font-family="system-ui">face · bone structure</text>
+  <text x="562" y="428" text-anchor="middle" fill="#9da3c8" font-size="9" font-family="system-ui">body proportions</text>
+  <text x="562" y="441" text-anchor="middle" fill="#9da3c8" font-size="9" font-family="system-ui">age / skin tone</text>
+  <text x="562" y="454" text-anchor="middle" fill="#5c6280" font-size="8" font-family="system-ui">ArcFace refs</text>
+
+  <rect x="640" y="382" width="136" height="72" rx="6" fill="rgba(245,158,11,0.07)" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+  <text x="708" y="400" text-anchor="middle" fill="#fcd34d" font-size="9" font-weight="700" font-family="system-ui">LOOK</text>
+  <text x="708" y="415" text-anchor="middle" fill="#9da3c8" font-size="9" font-family="system-ui">hair · makeup · outfit</text>
+  <text x="708" y="428" text-anchor="middle" fill="#9da3c8" font-size="9" font-family="system-ui">shoes · accessories</text>
+  <text x="708" y="441" text-anchor="middle" fill="#9da3c8" font-size="9" font-family="system-ui">silhouette · texture</text>
+  <text x="708" y="454" text-anchor="middle" fill="#5c6280" font-size="8" font-family="system-ui">LoRA + ref images</text>
+
+  <rect x="786" y="382" width="136" height="72" rx="6" fill="rgba(56,189,248,0.07)" stroke="rgba(56,189,248,0.3)" stroke-width="1"/>
+  <text x="854" y="400" text-anchor="middle" fill="#7dd3fc" font-size="9" font-weight="700" font-family="system-ui">SCENE</text>
+  <text x="854" y="415" text-anchor="middle" fill="#9da3c8" font-size="9" font-family="system-ui">environment · light</text>
+  <text x="854" y="428" text-anchor="middle" fill="#9da3c8" font-size="9" font-family="system-ui">background · floor</text>
+  <text x="854" y="441" text-anchor="middle" fill="#9da3c8" font-size="9" font-family="system-ui">materials · mood</text>
+  <text x="854" y="454" text-anchor="middle" fill="#5c6280" font-size="8" font-family="system-ui">scene_package.json</text>
+
+  <!-- connection from template builder to package and down -->
+  <line x1="420" y1="420" x2="478" y2="420" stroke="#5c6280" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arr-gray)"/>
+
+  <!-- ── PROMPT BUILDER ── -->
+  <line x1="240" y1="448" x2="240" y2="468" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arr)"/>
+  <line x1="710" y1="470" x2="430" y2="490" stroke="#5c6280" stroke-width="1" stroke-dasharray="4,3" marker-end="url(#arr-gray)"/>
+
+  <rect x="60" y="470" width="360" height="56" rx="8" fill="rgba(30,35,60,0.9)" stroke="var(--bd)" stroke-width="1.5"/>
+  <text x="240" y="490" text-anchor="middle" fill="#9da3c8" font-size="9" font-weight="700" letter-spacing=".8" font-family="system-ui">PROMPT BUILDER</text>
+  <text x="240" y="508" text-anchor="middle" fill="#e8eaf6" font-size="10" font-weight="600" font-family="system-ui">keyframe_prompt · video_prompt · negative_prompt</text>
+  <text x="240" y="522" text-anchor="middle" fill="#5c6280" font-size="9" font-family="system-ui">structure + identity + look + scene + constraints → auto-assembled per unit</text>
+
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- CORE LOOP -->
+  <!-- ══════════════════════════════════════════════ -->
+  <!-- loop box outline -->
+  <rect x="30" y="542" width="900" height="320" rx="10" fill="rgba(15,17,23,0.6)" stroke="rgba(99,102,241,0.2)" stroke-width="1.5" stroke-dasharray="6,4"/>
+  <text x="65" y="562" fill="rgba(99,102,241,0.5)" font-size="9" font-weight="700" letter-spacing="1" font-family="system-ui">SHARED CORE LOOP  (per generation_unit)</text>
+
+  <!-- enter loop arrow -->
+  <line x1="240" y1="526" x2="240" y2="560" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- GENERATE KEYFRAME -->
+  <rect x="110" y="562" width="260" height="56" rx="8" fill="rgba(99,102,241,0.12)" stroke="rgba(99,102,241,0.5)" stroke-width="1.5"/>
+  <text x="240" y="582" text-anchor="middle" fill="#a5b4fc" font-size="9" font-weight="700" letter-spacing=".5" font-family="system-ui">GENERATE KEYFRAME</text>
+  <text x="240" y="598" text-anchor="middle" fill="#e8eaf6" font-size="10" font-weight="600" font-family="system-ui">GPT-image-1 + LoRA + pose ref</text>
+  <text x="240" y="611" text-anchor="middle" fill="#5c6280" font-size="9" font-family="system-ui">IP-Adapter · identity + look + scene + framing</text>
+
+  <line x1="240" y1="618" x2="240" y2="638" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- I2V VIDEO -->
+  <rect x="110" y="640" width="260" height="50" rx="8" fill="rgba(99,102,241,0.12)" stroke="rgba(99,102,241,0.5)" stroke-width="1.5"/>
+  <text x="240" y="660" text-anchor="middle" fill="#a5b4fc" font-size="9" font-weight="700" letter-spacing=".5" font-family="system-ui">IMAGE-TO-VIDEO</text>
+  <text x="240" y="676" text-anchor="middle" fill="#e8eaf6" font-size="10" font-weight="600" font-family="system-ui">Kling I2V API</text>
+  <text x="240" y="688" text-anchor="middle" fill="#5c6280" font-size="9" font-family="system-ui">keyframe → short video clip</text>
+
+  <line x1="240" y1="690" x2="240" y2="710" stroke="#6366f1" stroke-width="1.5" marker-end="url(#arr)"/>
+
+  <!-- EVALUATE -->
+  <rect x="110" y="712" width="260" height="66" rx="8" fill="rgba(30,35,60,0.9)" stroke="var(--bd)" stroke-width="1.5"/>
+  <text x="240" y="732" text-anchor="middle" fill="#9da3c8" font-size="9" font-weight="700" letter-spacing=".5" font-family="system-ui">EVALUATE</text>
+  <text x="240" y="749" text-anchor="middle" fill="#e8eaf6" font-size="10" font-weight="600" font-family="system-ui">Multi-metric scoring</text>
+  <text x="155" y="763" text-anchor="middle" fill="#5c6280" font-size="8.5" font-family="system-ui">identity · look · scene</text>
+  <text x="325" y="763" text-anchor="middle" fill="#5c6280" font-size="8.5" font-family="system-ui">pose · framing · beat</text>
+  <text x="240" y="774" text-anchor="middle" fill="#5c6280" font-size="8.5" font-family="system-ui">view-adaptive profile per framing angle</text>
+
+  <!-- PASS path -->
+  <line x1="370" y1="745" x2="520" y2="745" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr-pass)"/>
+  <text x="445" y="738" text-anchor="middle" fill="#10b981" font-size="10" font-weight="700" font-family="system-ui">PASS</text>
+
+  <rect x="522" y="718" width="180" height="54" rx="8" fill="rgba(16,185,129,0.1)" stroke="rgba(16,185,129,0.4)" stroke-width="1.5"/>
+  <text x="612" y="740" text-anchor="middle" fill="#6ee7b7" font-size="9" font-weight="700" font-family="system-ui">DECISION LOG</text>
+  <text x="612" y="756" text-anchor="middle" fill="#9da3c8" font-size="10" font-family="system-ui">verdict: pass</text>
+  <text x="612" y="769" text-anchor="middle" fill="#5c6280" font-size="8.5" font-family="system-ui">scores · attempt logged</text>
+
+  <line x1="702" y1="745" x2="800" y2="745" stroke="#10b981" stroke-width="1.5" marker-end="url(#arr-pass)"/>
+  <rect x="802" y="718" width="118" height="54" rx="8" fill="rgba(16,185,129,0.08)" stroke="rgba(16,185,129,0.3)" stroke-width="1.5"/>
+  <text x="861" y="739" text-anchor="middle" fill="#6ee7b7" font-size="9" font-weight="700" font-family="system-ui">NEXT UNIT</text>
+  <text x="861" y="755" text-anchor="middle" fill="#5c6280" font-size="8.5" font-family="system-ui">→ assembly queue</text>
+
+  <!-- FAIL path -->
+  <line x1="240" y1="778" x2="240" y2="798" stroke="#ef4444" stroke-width="1.5" marker-end="url(#arr-fail)"/>
+  <text x="272" y="792" text-anchor="middle" fill="#ef4444" font-size="10" font-weight="700" font-family="system-ui">FAIL</text>
+
+  <!-- REPAIR PLANNER -->
+  <rect x="110" y="800" width="260" height="54" rx="8" fill="rgba(245,158,11,0.08)" stroke="rgba(245,158,11,0.35)" stroke-width="1.5"/>
+  <text x="240" y="820" text-anchor="middle" fill="#fcd34d" font-size="9" font-weight="700" letter-spacing=".5" font-family="system-ui">REPAIR PLANNER</text>
+  <text x="240" y="836" text-anchor="middle" fill="#9da3c8" font-size="10" font-family="system-ui">Diagnose → targeted fix</text>
+  <text x="240" y="849" text-anchor="middle" fill="#5c6280" font-size="8.5" font-family="system-ui">identity / look / pose / framing / scene / count</text>
+
+  <!-- Log failed attempt -->
+  <line x1="370" y1="827" x2="520" y2="827" stroke="#f59e0b" stroke-width="1.2" stroke-dasharray="4,3" marker-end="url(#arr-gray)"/>
+  <rect x="522" y="800" width="180" height="54" rx="8" fill="rgba(245,158,11,0.07)" stroke="rgba(245,158,11,0.3)" stroke-width="1.2"/>
+  <text x="612" y="820" text-anchor="middle" fill="#fcd34d" font-size="9" font-weight="700" font-family="system-ui">DECISION LOG</text>
+  <text x="612" y="836" text-anchor="middle" fill="#9da3c8" font-size="10" font-family="system-ui">verdict: fail</text>
+  <text x="612" y="849" text-anchor="middle" fill="#5c6280" font-size="8.5" font-family="system-ui">diagnosis · repair_action logged</text>
+
+  <!-- loop back arrow (repair → generate) -->
+  <path d="M110,827 Q60,827 60,745 Q60,618 110,600" stroke="#f59e0b" stroke-width="1.5" fill="none" stroke-dasharray="5,3" marker-end="url(#arr)"/>
+  <text x="48" y="718" fill="#f59e0b" font-size="9" font-weight="700" font-family="system-ui" transform="rotate(-90,48,718)">retry (max N)</text>
+
+  <!-- needs_human terminal -->
+  <rect x="722" y="800" width="198" height="54" rx="8" fill="rgba(239,68,68,0.06)" stroke="rgba(239,68,68,0.3)" stroke-width="1.2"/>
+  <text x="821" y="820" text-anchor="middle" fill="#fca5a5" font-size="9" font-weight="700" font-family="system-ui">TERMINAL: needs_human</text>
+  <text x="821" y="836" text-anchor="middle" fill="#9da3c8" font-size="9" font-family="system-ui">max retries reached</text>
+  <text x="821" y="849" text-anchor="middle" fill="#5c6280" font-size="8.5" font-family="system-ui">flag for manual review</text>
+  <line x1="702" y1="827" x2="720" y2="827" stroke="#ef4444" stroke-width="1.2" stroke-dasharray="3,3" marker-end="url(#arr-fail)"/>
+
+  <!-- ── FINAL ASSEMBLY (below loop) ── -->
+  <line x1="861" y1="772" x2="861" y2="870" stroke="#5c6280" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <line x1="240" y1="880" x2="820" y2="880" stroke="#10b981" stroke-width="1.5"/>
+  <line x1="240" y1="856" x2="240" y2="880" stroke="#5c6280" stroke-width="1.2" stroke-dasharray="4,3"/>
+  <line x1="861" y1="870" x2="861" y2="880" stroke="#5c6280" stroke-width="1.2" stroke-dasharray="4,3"/>
+</svg>
+</div><!-- /flowchart-wrap -->
+
+<p style="font-size:11px;color:var(--tx3);margin-top:12px;font-style:italic;line-height:1.6">
+  Strategy A / B / C above is the input-level router. Within a run, each shot is graded further by the Per-Shot Conditioning Router (pose &middot; head-orientation &middot; framing); Strategy C (dance / driving performance) is future work, not the current API build. The system reuses structure and action intent — it does not perform exact frame-level motion transfer.
+</p>
+
+<!-- ── FINAL ASSEMBLY (below chart) ── -->
+<div style="margin-top:16px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+  <div style="background:var(--surface);border:1px solid rgba(16,185,129,0.3);border-radius:var(--r);padding:16px 20px">
+    <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--pass);margin-bottom:8px">Final Assembly</div>
+    <div style="font-size:12px;color:var(--tx2);line-height:1.6">
+      All passed units assembled in beat order → final 9:16 vertical short video output.
+      Evaluation Report generated from decision log data.
+    </div>
+  </div>
+  <div style="background:var(--surface);border:1px solid rgba(99,102,241,0.3);border-radius:var(--r);padding:16px 20px">
+    <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:#a5b4fc;margin-bottom:8px">Core Experiment</div>
+    <div style="font-size:12px;color:var(--tx2);line-height:1.6">
+      Loop OFF baseline vs Loop ON auto-repair → compare identity avg, look avg, failed units, manual interventions, repair success rate.
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- THREE REFERENCE STRATEGIES -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="sec-label">Mode A · Reference Strategies</div>
+<div class="strategy-grid">
+
+  <div class="strat-card strat-a">
+    <div class="strat-tag">Strategy A</div>
+    <h4>Multi-shot Storyboard</h4>
+    <div class="fits">Reels with cuts · fashion poses · walk / turn / sit / drink · clear edit rhythm</div>
+    <div class="flow-mini">
+Reference video<br>
+→ PySceneDetect / TransNetV2 (shot cuts)<br>
+→ best keyframe per shot<br>
+→ MediaPipe / DWPose (pose per shot)<br>
+→ bbox → framing label<br>
+→ librosa (beat timestamps)<br>
+→ GPT-4o Vision (per-shot semantic)<br>
+→ enriched storyboard JSON
+    </div>
+    <div class="output-unit">Output unit type: <span>shot</span></div>
+  </div>
+
+  <div class="strat-card strat-b">
+    <div class="strat-tag">Strategy B</div>
+    <h4>Single-take Key Moments</h4>
+    <div class="fits">Camera orbit · one-take walk · slow push-in · no hard edit cuts</div>
+    <div class="flow-mini">
+Single-take video<br>
+→ PySceneDetect (candidate events only)<br>
+→ Continuity Analyzer (merge false cuts)<br>
+→ 1 continuous shot confirmed<br>
+→ sample every 2s + motion peaks<br>
+  + beat-near frames<br>
+→ GPT-4o per key moment<br>
+→ 1 shot + N key_moment storyboard
+    </div>
+    <div class="output-unit">Output unit type: <span>key_moment_clip</span></div>
+  </div>
+
+  <div class="strat-card strat-c" style="opacity:.9">
+    <div class="strat-tag">Strategy C · Planned</div>
+    <h4>Driving Performance <span style="font-size:9px;font-weight:700;color:var(--tx3);background:rgba(148,163,184,0.12);padding:2px 7px;border-radius:999px;vertical-align:middle">FUTURE WORK</span></h4>
+    <div class="fits">Dance · full-body performance · K-pop / TikTok choreography — not part of the current API-based build</div>
+    <div class="flow-mini">
+Driving performance video<br>
+→ select primary dancer<br>
+→ DWPose / MediaPipe 8–12 FPS<br>
+→ pose sequence smoothing<br>
+→ cut by beat / motion peak<br>
+→ dance segments<br>
+→ MimicMotion / MusePose /<br>
+  MagicAnimate / Kling fallback<br>
+→ identity + look + scene applied
+    </div>
+    <div class="output-unit">Output unit type: <span>dance_segment</span></div>
+  </div>
+
+</div><!-- /strategy-grid -->
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- PER-SHOT CONDITIONING ROUTER -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="sec-label">Per-Shot Conditioning Router — graded strategy selection</div>
+<p style="font-size:12px;color:var(--tx2);line-height:1.65;margin-bottom:14px;max-width:860px">
+  Distinct from the input-level strategies above: within a run, each <em>shot</em> is routed to a conditioning mode by
+  <strong style="color:var(--tx)">how much reliable structure it actually provides</strong>. Conditioning strength is graded —
+  the number of usable body skeletons equals the number of clean full-body shots, no more. If the extracted structure is
+  unreliable, the shot drops to weaker conditioning or human review. This is what lets the workflow reuse available structure
+  across different reference videos without claiming exact motion transfer.
+</p>
+<div style="background:var(--surface);border:1px solid var(--bd);border-radius:var(--r);overflow:hidden">
+  <div style="display:grid;grid-template-columns:1.15fr 1.35fr 0.9fr;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--tx3);background:var(--surface2);padding:11px 16px;border-bottom:1px solid var(--bd)">
+    <div>Reference condition</div><div>Conditioning mode</div><div>Example (this build)</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1.15fr 1.35fr 0.9fr;gap:8px;padding:12px 16px;border-bottom:1px solid var(--bd);border-left:3px solid var(--pass)">
+    <div style="font-size:11.5px;color:var(--tx);font-weight:600">Full body + reliable keypoints</div>
+    <div style="font-size:11px;color:var(--tx2)">Pose-informed guidance — clean skeleton image + pose reference</div>
+    <div style="font-size:10.5px;color:var(--tx3);font-family:monospace">shot_002 · shot_004 walk</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1.15fr 1.35fr 0.9fr;gap:8px;padding:12px 16px;border-bottom:1px solid var(--bd);border-left:3px solid var(--accent)">
+    <div style="font-size:11.5px;color:var(--tx);font-weight:600">Close-up face / head turn</div>
+    <div style="font-size:11px;color:var(--tx2)">Head-orientation + expression + framing guidance (sparse face pose, no body skeleton)</div>
+    <div style="font-size:10.5px;color:var(--tx3);font-family:monospace">shot_001</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1.15fr 1.35fr 0.9fr;gap:8px;padding:12px 16px;border-bottom:1px solid var(--bd);border-left:3px solid var(--warn)">
+    <div style="font-size:11.5px;color:var(--tx);font-weight:600">Feet / hands / object detail</div>
+    <div style="font-size:11px;color:var(--tx2)">Text + framing guidance (MediaPipe may detect 0 points)</div>
+    <div style="font-size:10.5px;color:var(--tx3);font-family:monospace">shot_003</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1.15fr 1.35fr 0.9fr;gap:8px;padding:12px 16px;border-bottom:1px solid var(--bd);border-left:3px solid var(--fail)">
+    <div style="font-size:11.5px;color:var(--tx);font-weight:600">Poor pose / occlusion / low confidence</div>
+    <div style="font-size:11px;color:var(--tx2)">Weaker conditioning → semantic guidance + human review → <code style="color:#fca5a5">needs_human</code></div>
+    <div style="font-size:10.5px;color:var(--tx3);font-family:monospace">flagged, not forced</div>
+  </div>
+
+  <div style="display:grid;grid-template-columns:1.15fr 1.35fr 0.9fr;gap:8px;padding:12px 16px;border-left:3px solid var(--tx3)">
+    <div style="font-size:11.5px;color:var(--tx2);font-weight:600">High-energy dance / full performance</div>
+    <div style="font-size:11px;color:var(--tx3)">Future work: pose-sequence / driving-video backend</div>
+    <div style="font-size:10.5px;color:var(--tx3);font-family:monospace">not in current API build</div>
+  </div>
+</div>
+<p style="font-size:10.5px;color:var(--tx3);font-style:italic;line-height:1.6;margin-top:10px;max-width:860px">
+  Contribution framing: the system does not claim every reference video generates perfectly. It turns an unstable
+  multi-model generation process into an analysable, routable, repairable, logged workflow that adaptively reuses whatever
+  structure the reference makes available.
+</p>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- THREE PACKAGES -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="sec-label">Three Control Packages</div>
+<div class="pkg-grid">
+
+  <div class="pkg-card pkg-identity">
+    <div class="tag">Identity Package</div>
+    <h4>Who is the character</h4>
+    <ul>
+      <li>Face structure · eyes · bone structure</li>
+      <li>Skin tone · age feel · body proportions</li>
+      <li>ArcFace reference embeddings</li>
+      <li>Evaluation: face embedding cosine distance</li>
+      <li>Repair: stronger identity ref count</li>
+    </ul>
+    <div style="margin-top:10px;font-size:10px;color:var(--tx3)">
+      View-adaptive eval — front / 3/4: <code style="color:#fca5a5">face_embedding</code><br>
+      Side: <code style="color:#fca5a5">face_embedding_and_look</code><br>
+      Back / over-shoulder: <code style="color:#fca5a5">look_and_silhouette</code>
+    </div>
+  </div>
+
+  <div class="pkg-card pkg-look">
+    <div class="tag">Look Package</div>
+    <h4>How they look</h4>
+    <ul>
+      <li>Hair · makeup · outfit · shoes · accessories</li>
+      <li>Silhouette · materials · colour palette</li>
+      <li>LoRA + multiple look reference images</li>
+    </ul>
+    <div style="margin-top:10px;padding:8px 10px;background:var(--surface2);border-radius:var(--r-sm);font-size:10px;color:var(--tx3);line-height:1.6">
+      <strong style="color:var(--warn)">Look 1 · The Tailored Self</strong><br>
+      blazer · denim · olive tie · leather shoes<br>Street / daylight / full body<br><br>
+      <strong style="color:var(--warn)">Look 1C · The Darkening Self</strong><br>
+      black velvet gown · organza shoulder · yellow gem<br>Low light / mirror / close-up / dramatic
+    </div>
+  </div>
+
+  <div class="pkg-card pkg-scene">
+    <div class="tag">Scene Package</div>
+    <h4>Where it happens</h4>
+    <ul>
+      <li>Environment · lighting type · background</li>
+      <li>Ground material · spatial depth · mood</li>
+      <li>scene_package.json per scene</li>
+      <li>Multi-angle refs: establishing / reverse / side / floor</li>
+    </ul>
+    <div style="margin-top:10px;padding:8px 10px;background:var(--surface2);border-radius:var(--r-sm);font-size:10px;color:var(--tx3);line-height:1.6">
+      <strong style="color:var(--info)">Scene 1 · Dark Dressing Room</strong><br>
+      → pairs with Look 1C<br><br>
+      <strong style="color:var(--info)">Scene 2 · Modern Street</strong><br>
+      → pairs with Look 1
+    </div>
+  </div>
+
+</div><!-- /pkg-grid -->
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- GENERATION UNIT SCHEMA -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="sec-label">Generation Unit Schema</div>
+<div style="background:var(--surface);border:1px solid var(--bd);border-radius:var(--r);padding:24px">
+  <p style="font-size:12px;color:var(--tx3);margin-bottom:16px">
+    All three input modes normalise to this unified schema before entering the shared core loop.
+    This is the pipeline's central intermediate representation.
+  </p>
+  <div class="schema-box">
+<span class="cmt">// generation_unit — unified intermediate format</span>
+{
+  <span class="key">"unit_id"</span>:           <span class="val">"shot_001"</span>,
+  <span class="key">"unit_type"</span>:         <span class="val">"shot | key_moment_clip | dance_segment"</span>,
+  <span class="key">"start_s"</span>:           <span class="val">0.0</span>,
+  <span class="key">"end_s"</span>:             <span class="val">2.0</span>,
+  <span class="key">"duration_s"</span>:        <span class="val">2.0</span>,
+
+  <span class="cmt">// Source structure (from reference analysis)</span>
+  <span class="key">"source_panel"</span>:      <span class="val">"shot_1"</span>,
+  <span class="key">"pose_ref"</span>:          <span class="val">"path/to/keyframe.jpg"</span>,
+  <span class="key">"pose_sequence"</span>:     <span class="val">null</span>,             <span class="cmt">// Strategy C only</span>
+
+  <span class="cmt">// Measured structural data</span>
+  <span class="key">"framing_target"</span>:    { <span class="key">"label"</span>: <span class="val">"medium-close-up"</span>, <span class="key">"bbox"</span>: [] },
+  <span class="key">"camera"</span>:            { <span class="key">"angle"</span>: <span class="val">"eye-level"</span>, <span class="key">"motion"</span>: <span class="val">"static"</span> },
+  <span class="key">"aligned_beat_ms"</span>:   <span class="val">42</span>,               <span class="cmt">// offset from nearest beat</span>
+
+  <span class="cmt">// Semantic enrichment (GPT-4o Vision)</span>
+  <span class="key">"semantic"</span>: {
+    <span class="key">"action"</span>:            <span class="val">"walking forward, glancing left"</span>,
+    <span class="key">"expression"</span>:       <span class="val">"neutral, composed"</span>,
+    <span class="key">"emotion"</span>:          <span class="val">"confident"</span>,
+    <span class="key">"lighting"</span>:         <span class="val">"soft side-light, warm"</span>,
+    <span class="key">"prompt_fragment"</span>:  <span class="val">"striding forward, neutral expression, soft warm side lighting"</span>
+  },
+
+  <span class="cmt">// Package targets</span>
+  <span class="key">"identity_target"</span>:  { <span class="key">"look_id"</span>: <span class="val">"ip_01"</span> },
+  <span class="key">"look_target"</span>:      { <span class="key">"look_id"</span>: <span class="val">"tailored-self"</span> },
+  <span class="key">"scene_target"</span>:     { <span class="key">"scene_id"</span>: <span class="val">"scene_02_modern_street"</span> },
+
+  <span class="cmt">// Auto-assembled prompts</span>
+  <span class="key">"generation_prompts"</span>: {
+    <span class="key">"keyframe_prompt"</span>:  <span class="val">"..."</span>,
+    <span class="key">"video_prompt"</span>:     <span class="val">"..."</span>,
+    <span class="key">"negative_prompt"</span>:  <span class="val">"..."</span>
+  },
+
+  <span class="cmt">// Evaluation config</span>
+  <span class="key">"eval_profile"</span>:     <span class="val">"face_embedding | face_embedding_and_look | look_and_silhouette"</span>,
+  <span class="key">"evaluation_targets"</span>: { <span class="key">"min_identity"</span>: <span class="val">0.65</span>, <span class="key">"min_look"</span>: <span class="val">0.6</span> },
+  <span class="key">"risk_flags"</span>:       []
+}
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- EVALUATION METRICS -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="sec-label">Evaluation Metrics</div>
+<div class="metrics-grid">
+  <div class="metric-card">
+    <div class="name">Identity Score</div>
+    <div class="how">ArcFace cosine similarity vs reference embeddings. Phase 0 pass threshold defined pre-run.</div>
+  </div>
+  <div class="metric-card">
+    <div class="name">Look Score</div>
+    <div class="how">Perceptual hash + CLIP similarity vs look reference images. Hair / outfit / silhouette.</div>
+  </div>
+  <div class="metric-card">
+    <div class="name">Pose Similarity</div>
+    <div class="how">Keypoint distance (MediaPipe) between reference pose and generated frame.</div>
+  </div>
+  <div class="metric-card">
+    <div class="name">Framing Accuracy</div>
+    <div class="how">Detected bbox vs target framing label (CU / MCU / MW / Wide). YOLOv8 person bbox.</div>
+  </div>
+  <div class="metric-card">
+    <div class="name">Beat Alignment Error</div>
+    <div class="how">Cut timestamp offset from nearest beat (ms). Target ≤150ms snap threshold.</div>
+  </div>
+  <div class="metric-card">
+    <div class="name">Subject Count</div>
+    <div class="how">YOLO person count check. Single-character constraint: exactly 1 main subject visible.</div>
+  </div>
+  <div class="metric-card">
+    <div class="name">Scene Score</div>
+    <div class="how">CLIP similarity vs scene reference images. Environment, light, background match.</div>
+  </div>
+  <div class="metric-card">
+    <div class="name">Regen Success Rate</div>
+    <div class="how">% of failed units that pass after repair loop. Core experiment metric.</div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- REPAIR TAXONOMY -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="sec-label">Repair Taxonomy</div>
+<div style="background:var(--surface);border:1px solid var(--bd);border-radius:var(--r);padding:20px">
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:10px">
+    <div style="font-size:11px;color:var(--tx2);padding:8px 12px;background:var(--surface2);border-radius:var(--r-sm);border-left:3px solid var(--fail)">
+      <strong style="color:var(--tx)">identity_drift</strong><br>
+      → raise LoRA weight · add more identity refs
+    </div>
+    <div style="font-size:11px;color:var(--tx2);padding:8px 12px;background:var(--surface2);border-radius:var(--r-sm);border-left:3px solid var(--warn)">
+      <strong style="color:var(--tx)">look_mismatch</strong><br>
+      → strengthen look prompt · add look image refs
+    </div>
+    <div style="font-size:11px;color:var(--tx2);padding:8px 12px;background:var(--surface2);border-radius:var(--r-sm);border-left:3px solid var(--warn)">
+      <strong style="color:var(--tx)">scene_mismatch</strong><br>
+      → rewrite scene prompt · use scene_package refs
+    </div>
+    <div style="font-size:11px;color:var(--tx2);padding:8px 12px;background:var(--surface2);border-radius:var(--r-sm);border-left:3px solid var(--accent)">
+      <strong style="color:var(--tx)">framing_error</strong><br>
+      → rewrite framing constraint in prompt
+    </div>
+    <div style="font-size:11px;color:var(--tx2);padding:8px 12px;background:var(--surface2);border-radius:var(--r-sm);border-left:3px solid var(--accent)">
+      <strong style="color:var(--tx)">pose_mismatch</strong><br>
+      → use clearer source keyframe · stronger pose conditioning
+    </div>
+    <div style="font-size:11px;color:var(--tx2);padding:8px 12px;background:var(--surface2);border-radius:var(--r-sm);border-left:3px solid var(--accent)">
+      <strong style="color:var(--tx)">motion_issue</strong><br>
+      → re-run I2V only · adjust video prompt motion intensity
+    </div>
+    <div style="font-size:11px;color:var(--tx2);padding:8px 12px;background:var(--surface2);border-radius:var(--r-sm);border-left:3px solid var(--fail)">
+      <strong style="color:var(--tx)">extra_subject</strong><br>
+      → stricter single-character prompt constraint
+    </div>
+    <div style="font-size:11px;color:var(--tx2);padding:8px 12px;background:var(--surface2);border-radius:var(--r-sm);border-left:3px solid var(--fail)">
+      <strong style="color:var(--tx)">body_deformation</strong><br>
+      → shorten clip · reduce motion intensity · new seed
+    </div>
+    <div style="font-size:11px;color:var(--tx2);padding:8px 12px;background:var(--surface2);border-radius:var(--r-sm);border-left:3px solid var(--tx3)">
+      <strong style="color:var(--tx)">beat_drift</strong><br>
+      → adjust cut timing · re-snap to nearest beat
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- EXPERIMENT DESIGN -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="sec-label">Core Experiment</div>
+<div class="exp-grid">
+  <div class="exp-card off">
+    <h4>⬡ Loop OFF — Baseline</h4>
+    <p>One-shot generation per unit. No retry. No repair. No diagnosis.</p>
+    <ul>
+      <li>Identity average (ArcFace cosine)</li>
+      <li>Look average (CLIP)</li>
+      <li>Failed units count</li>
+      <li>Manual interventions needed</li>
+      <li>Attempts per unit: always 1</li>
+    </ul>
+  </div>
+  <div class="exp-card on">
+    <h4>⬡ Loop ON — Auto-Repair</h4>
+    <p>Auto-detect failures → diagnose → targeted repair → regenerate (max N retries).</p>
+    <ul>
+      <li>Identity average (same metric)</li>
+      <li>Look average (same metric)</li>
+      <li>Failed units after repair</li>
+      <li>Manual interventions needed</li>
+      <li>Repair success rate</li>
+      <li>Avg attempts per unit</li>
+    </ul>
+  </div>
+</div>
+<div style="margin-top:12px;padding:12px 16px;background:var(--surface);border:1px solid var(--bd);border-radius:var(--r-sm);font-size:11px;color:var(--tx3);line-height:1.6">
+  Both conditions use identical generation_units, packages, and prompts.
+  The only variable is whether the evaluation→repair loop runs.
+  Results feed directly into the dissertation Evaluation Report.
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════════ -->
+<!-- DECISION LOG SCHEMA -->
+<!-- ═══════════════════════════════════════════════════════════ -->
+<div class="sec-label">Decision Log Schema (per attempt)</div>
+<div class="schema-box">
+<span class="cmt">// One entry per generation attempt — written by the Evaluator + Repair Planner</span>
+{
+  <span class="key">"unit_id"</span>:                <span class="val">"shot_001"</span>,
+  <span class="key">"unit_type"</span>:              <span class="val">"shot"</span>,
+  <span class="key">"attempt_id"</span>:            <span class="val">"shot_001_attempt_2"</span>,
+  <span class="key">"backend"</span>:               <span class="val">"gpt-image-1 + kling-i2v"</span>,
+  <span class="key">"inputs"</span>:                { <span class="cmt">/* prompts, refs, seed, params */</span> },
+  <span class="key">"outputs"</span>:               { <span class="cmt">/* keyframe_path, video_path */</span> },
+  <span class="key">"scores"</span>: {
+    <span class="key">"identity"</span>:            <span class="val">0.71</span>,
+    <span class="key">"look"</span>:                <span class="val">0.63</span>,
+    <span class="key">"pose"</span>:                <span class="val">0.58</span>,
+    <span class="key">"framing"</span>:             <span class="val">"pass"</span>,
+    <span class="key">"beat_offset_ms"</span>:      <span class="val">42</span>,
+    <span class="key">"subject_count"</span>:       <span class="val">1</span>
+  },
+  <span class="key">"verdict"</span>:               <span class="val">"fail"</span>,
+  <span class="key">"failed_metrics"</span>:       [<span class="val">"pose"</span>],
+  <span class="key">"diagnosis"</span>:            <span class="val">"pose_mismatch"</span>,
+  <span class="key">"repair_action"</span>:        <span class="val">"use_clearer_source_keyframe + stronger_pose_conditioning"</span>,
+  <span class="key">"improved_from_previous"</span>: <span class="val">true</span>,
+  <span class="key">"terminal"</span>:             <span class="val">false</span>          <span class="cmt">// true → needs_human</span>
+}
+</div>
+
+
+<div class="footer-note">
+  <strong style="color:var(--tx)">Architecture is locked.</strong> &nbsp;
+  The four-stage pipeline (Reference Analyzer → Template Builder → IP-Conditioned Generator → Evaluator+Repair)
+  is the dissertation system. The decision log per shot is the evidence that the system is agentic.
+  <em>What Is Light</em> is a separate creative portfolio work — do not merge with this system.
+  &nbsp;·&nbsp; Port 5001 &nbsp;·&nbsp; GPT-image-1 (not gpt-image-2) &nbsp;·&nbsp; Keys always from .env
+</div>
+
+</div><!-- /wrap -->
+</body>
+</html>

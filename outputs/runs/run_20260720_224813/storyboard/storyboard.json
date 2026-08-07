@@ -1,0 +1,74 @@
+{
+  "input_type": "reference_video",
+  "reference_type": "multi_shot",
+  "motion_type": "low",
+  "strategy": "shot_storyboard",
+  "character_mode": "single_primary_subject",
+  "total_duration_s": 7.964444444444444,
+  "shots": [
+    {
+      "shot_id": "shot_001",
+      "unit_id": "shot_001",
+      "unit_type": "shot",
+      "start": 0.0,
+      "end": 2.4,
+      "duration_s": 2.4,
+      "source_panel": "/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/runs/run_20260720_224813/ref_panels/shot_001_best.png",
+      "pose_ref": "/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/runs/run_20260720_224813/pose_refs/shot_001_pose.json",
+      "framing_target": {
+        "shot_type": "medium",
+        "description": "Woman turning toward camera, gentle smile, walking along beach at sunset.; moving right, moving away from camera, facing camera"
+      },
+      "motion_prompt": "Woman turning toward camera, gentle smile, walking along beach at sunset.; moving right, moving away from camera, facing camera",
+      "beat_cut": null
+    },
+    {
+      "shot_id": "shot_002",
+      "unit_id": "shot_002",
+      "unit_type": "shot",
+      "start": 2.4,
+      "end": 4.666667,
+      "duration_s": 2.267,
+      "source_panel": "/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/runs/run_20260720_224813/ref_panels/shot_002_best.png",
+      "pose_ref": "/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/runs/run_20260720_224813/pose_refs/shot_002_pose.json",
+      "framing_target": {
+        "shot_type": "wide",
+        "description": "Woman walking away from camera along beach during sunset, dress flowing."
+      },
+      "motion_prompt": "Woman walking away from camera along beach during sunset, dress flowing.",
+      "beat_cut": null
+    },
+    {
+      "shot_id": "shot_003",
+      "unit_id": "shot_003",
+      "unit_type": "shot",
+      "start": 4.666667,
+      "end": 6.8,
+      "duration_s": 2.133,
+      "source_panel": "/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/runs/run_20260720_224813/ref_panels/shot_003_best.png",
+      "pose_ref": "",
+      "framing_target": {
+        "shot_type": "unknown",
+        "description": "Woman walking along beach, sideways to camera, backlit by sunset."
+      },
+      "motion_prompt": "Woman walking along beach, sideways to camera, backlit by sunset.",
+      "beat_cut": null
+    },
+    {
+      "shot_id": "shot_004",
+      "unit_id": "shot_004",
+      "unit_type": "shot",
+      "start": 6.8,
+      "end": 7.9,
+      "duration_s": 1.1,
+      "source_panel": "/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/runs/run_20260720_224813/ref_panels/shot_004_best.png",
+      "pose_ref": "/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/runs/run_20260720_224813/pose_refs/shot_004_pose.json",
+      "framing_target": {
+        "shot_type": "wide",
+        "description": "Woman facing left, walking barefoot on beach, holding dress, sunset in background.; facing camera"
+      },
+      "motion_prompt": "Woman facing left, walking barefoot on beach, holding dress, sunset in background.; facing camera",
+      "beat_cut": null
+    }
+  ]
+}

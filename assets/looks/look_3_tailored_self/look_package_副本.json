@@ -1,0 +1,144 @@
+{
+  "source_image": "/mnt/data/ghostwriter_images/context/c63e556c-4b02-51aa-991b-59d40e15e9e0.png",
+  "source_size": [
+    1672,
+    941
+  ],
+  "files": {
+    "look3_front.png": {
+      "box_xyxy": [
+        0,
+        20,
+        390,
+        940
+      ],
+      "size": [
+        390,
+        920
+      ]
+    },
+    "look3_detail.png": {
+      "box_xyxy": [
+        450,
+        20,
+        690,
+        500
+      ],
+      "size": [
+        240,
+        480
+      ]
+    },
+    "look3_closeup.png": {
+      "box_xyxy": [
+        1102,
+        442,
+        1246,
+        658
+      ],
+      "size": [
+        144,
+        216
+      ]
+    },
+    "look3_identity_anchor_street.png": {
+      "box_xyxy": [
+        1096,
+        444,
+        1250,
+        676
+      ],
+      "size": [
+        154,
+        232
+      ]
+    },
+    "look3_profile_crop.png": {
+      "box_xyxy": [
+        1526,
+        442,
+        1672,
+        658
+      ],
+      "size": [
+        146,
+        216
+      ]
+    },
+    "_crop_cs_face1_front.png": {
+      "box_xyxy": [
+        1102,
+        442,
+        1246,
+        658
+      ],
+      "size": [
+        144,
+        216
+      ]
+    },
+    "_crop_cs_face2_3q_left.png": {
+      "box_xyxy": [
+        1246,
+        442,
+        1390,
+        658
+      ],
+      "size": [
+        144,
+        216
+      ]
+    },
+    "_crop_cs_face3_3q_right.png": {
+      "box_xyxy": [
+        1390,
+        442,
+        1534,
+        658
+      ],
+      "size": [
+        144,
+        216
+      ]
+    },
+    "_crop_cs_face4_profile.png": {
+      "box_xyxy": [
+        1526,
+        442,
+        1672,
+        658
+      ],
+      "size": [
+        146,
+        216
+      ]
+    },
+    "_crop_behind_3q_figure.png": {
+      "box_xyxy": [
+        1104,
+        70,
+        1248,
+        402
+      ],
+      "size": [
+        144,
+        332
+      ]
+    },
+    "_crop_behind_side_figure.png": {
+      "box_xyxy": [
+        1528,
+        70,
+        1672,
+        402
+      ],
+      "size": [
+        144,
+        332
+      ]
+    },
+    "look_package.json": {
+      "description": "Manifest of crop files and source crop boxes."
+    }
+  }
+}

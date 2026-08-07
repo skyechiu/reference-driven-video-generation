@@ -1,0 +1,41 @@
+{
+  "purpose": "privacy-safe read-only dashboard display derivative",
+  "created_at": "2026-08-05T05:54:31.404948+01:00",
+  "source": "outputs/runs/mode_c_phase0/phase0_results/driving_segment_phase0.mp4",
+  "source_sha256": "906aade6378749426137766be8441017ce8fc3e3c68af5bb028253076b4ba55e",
+  "display_file": "outputs/audits/privacy_redacted_mode_c/driving_segment_phase0_head_pixelated_strong_silent.mp4",
+  "display_sha256": "d4e805c9b560231df503882430075e22953d02d2255283636dbc62145be7fbf4",
+  "display_route": "/media/audit/privacy_redacted_mode_c/driving_segment_phase0_head_pixelated_strong_silent.mp4",
+  "head_redaction": {
+    "method": "expanded coarse pixel mosaic",
+    "region_xywh": [
+      176,
+      60,
+      200,
+      240
+    ],
+    "pixel_grid": [
+      8,
+      10
+    ]
+  },
+  "audio_removed": true,
+  "original_modified": false,
+  "probe": {
+    "programs": [],
+    "stream_groups": [],
+    "streams": [
+      {
+        "index": 0,
+        "codec_name": "h264",
+        "codec_type": "video",
+        "width": 512,
+        "height": 912,
+        "pix_fmt": "yuv420p"
+      }
+    ],
+    "format": {
+      "duration": "4.000000"
+    }
+  }
+}

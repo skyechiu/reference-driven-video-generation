@@ -1,0 +1,70 @@
+# --- Secrets ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+.cache/
+*.egg-info/
+.pytest_cache/
+
+# --- OS / editor ---
+.DS_Store
+.vscode/
+.claude/settings.local.json
+
+# --- Temp / scratch ---
+tmp/
+temp/
+outputs/tmp/
+outputs/cache/
+*.tmp
+
+# --- Node (if any tooling ever added) ---
+node_modules/
+
+# --- Logs ---
+*.log
+
+# --- Dashboard patch-script backups (regenerable / superseded by git history) ---
+pipeline/app.py.backup_*
+
+# --- Private / unredacted source footage (see docs/GITHUB_PREP_REPORT.md §4) ---
+mode_c.MP4
+reference_videos/
+video_ref/
+test2.mov
+reference/video_dance_test_00001v2_.mp4
+
+# --- Local pipeline state (contains machine-specific absolute paths) ---
+project_state.json
+project_state.last_valid.json
+
+# --- Folders already staged for deletion / vendored third-party code / archived scratch ---
+_to_delete/
+_export_tmp/
+_archive/
+
+# --- Corrupt / broken export artifacts ---
+outputs/huggingface_static_site.zip.corrupt*
+
+# --- Oversized media that exceeds GitHub's 100MB limit ---
+outputs/mode_b/comfyui_mode_b_assets/demo_de.mov
+outputs/huggingface_static_site/assets/videos/mode-b-assets/demo_de.mov
+
+# =========================================================================
+# MAYBE — public evidence media that a human should decide on (Git LFS,
+# external hosting, or committed as-is). NOT excluded by default below;
+# uncomment any line you want to keep out of the repo, or set up Git LFS
+# for these paths instead. See docs/GITHUB_PREP_REPORT.md §5 for sizes.
+# =========================================================================
+# outputs/runs/live_test_03_4shots/final/final_look3_reference_driven_demo.mp4
+# outputs/runs/live_test_04_street_look3/final/final_look3_street_demo.mp4
+# outputs/runs/live_test_04_street_look3/final/final_look3_street_demo_motion_v2_preview.mp4
+# outputs/runs/live_test_04_street_look3/final/final_look3_street_demo_premotion_backup.mp4
+# outputs/audits/reference_control_pose_mask_audit/reference_control_pose_mask_audit.zip
+# outputs/huggingface_static_site/   (entire generated static-site export — regenerable via export.py)
+# pipeline/models/pose_landmarker_full.task   (9.4MB vendored MediaPipe model — consider download-on-setup instead)

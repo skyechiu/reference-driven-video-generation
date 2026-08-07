@@ -1,0 +1,170 @@
+{
+  "schema": "decision_log_v1",
+  "run_id": "live_test_03_4shots",
+  "run_date": "2026-07-17",
+  "look": "Look 3 · The Tailored Self",
+  "scene_mode": "preserve_reference_scene",
+  "reference_video": "test/test_03_multishot_edit_4shots.mp4",
+  "pipeline_mode": "Mode A — Reference Video",
+  "final_video": "outputs/runs/live_test_03_4shots/final/final_look3_reference_driven_demo.mp4",
+  "assembly": "ffmpeg concat / copy — no re-encode",
+  "human_events": [],
+  "shots": [
+    {
+      "shot_id": "shot_001",
+      "framing": "medium",
+      "duration_s": 2.4,
+      "keyframe_generation": {
+        "attempt_id": "shot_001_keyframe",
+        "attempts": 1,
+        "model": "gpt-image-1 / images.edit / 1024x1536 / medium",
+        "image_inputs": 4,
+        "image_slot_0": "source_frame_structural (PRIMARY)",
+        "image_slot_1": "look3_front (outfit reference)",
+        "image_slot_2": "look3_sheet (look overview)",
+        "image_slot_3": "look3_closeup (face reference)",
+        "notes": "v3 prompt — preserve scene, over-shoulder MCU. Approved on first attempt.",
+        "status": "approved",
+        "keyframe_path": "outputs/runs/live_test_03_4shots/keyframes/shot_001_keyframe_look3_preserve_scene_test.png",
+        "keyframe_size_kb": 2003,
+        "prompt_used": "The character is a young woman in her mid-twenties. She has a slender, tall build. Her face features: deep-set almond-shaped eyes, strong defined brows, high cheekbones, a straight nose, and full lips. Her skin tone is light olive. Her expression is composed, introspective, and quietly intense. charcoal tailored cropped blazer, white cotton shirt, muted olive tie, wide faded blue denim trousers with clean break, polished black leather oxford shoes. loose natural dark hair, centre part, slightly undone runway texture, falls to shoulders. natural polished makeup, lightly sculpted skin, defined b"
+      },
+      "kling_i2v": {
+        "attempt_id": "shot_001_kling",
+        "model": "kling-v1-6 / std / 9:16 / 5s",
+        "motion_type": "prompt-level I2V (not pose transfer)",
+        "video_prompt": "Over-shoulder medium close-up. The character naturally turns her head back toward the camera in the same pose as the keyframe. Very subtle push-in camera motion. Preserve the seaside sunset background, warm natural light, tailored blazer outfit, and quiet candid expression. Keep motion minimal and realistic. No identity drift, no extra people.",
+        "negative_prompt": "different face, changed identity, distorted face, wrong person, extra limbs, unstable hands, distorted proportions, multiple people, extra person, second face, background characters, crowd, duplicated body, bride, bridal, wedding, wedding dress, bridal gown, veil, cathedral veil, wedding veil, white beach dress, copied source outfit, same outfit as source, wrong outfit, wrong hairstyle, different identity, generic woman, random bride",
+        "status": "success",
+        "clip_path": "outputs/runs/live_test_03_4shots/clips/shot_001_look3.mp4",
+        "clip_size_kb": 4919
+      },
+      "evaluation": {
+        "status": "pending",
+        "attempts": [],
+        "note": "Evaluation not yet run. Awaiting user approval to start."
+      },
+      "repair": {
+        "status": "not_run",
+        "note": "No repair triggered — evaluation pending."
+      }
+    },
+    {
+      "shot_id": "shot_002",
+      "framing": "wide",
+      "duration_s": 2.2666670000000004,
+      "keyframe_generation": {
+        "attempt_id": "shot_002_keyframe",
+        "attempts": 2,
+        "model": "gpt-image-1 / images.edit / 1024x1536 / medium",
+        "image_inputs": 4,
+        "image_slot_0": "source_frame_structural (PRIMARY)",
+        "image_slot_1": "look3_front (outfit reference)",
+        "image_slot_2": "look3_sheet (look overview)",
+        "image_slot_3": "look3_closeup (face reference)",
+        "notes": "v1 blocked by forbidden-word guard (bride/bridal in negative instructions). v2 natural-realism prompt approved.",
+        "status": "approved",
+        "keyframe_path": "outputs/runs/live_test_03_4shots/keyframes/shot_002_keyframe_look3_preserve_scene.png",
+        "keyframe_size_kb": 1993,
+        "prompt_used": "The character is a young woman in her mid-twenties. She has a slender, tall build. Her face features: deep-set almond-shaped eyes, strong defined brows, high cheekbones, a straight nose, and full lips. Her skin tone is light olive. Her expression is composed, introspective, and quietly intense. charcoal tailored cropped blazer, white cotton shirt, muted olive tie, wide faded blue denim trousers with clean break, polished black leather oxford shoes. loose natural dark hair, centre part, slightly undone runway texture, falls to shoulders. natural polished makeup, lightly sculpted skin, defined b"
+      },
+      "kling_i2v": {
+        "attempt_id": "shot_002_kling",
+        "model": "kling-v1-6 / std / 9:16 / 5s",
+        "motion_type": "prompt-level I2V (not pose transfer)",
+        "video_prompt": "Wide full-body back-view walking shot. The character walks away from the camera along the beach toward the sunset. Keep the back view, full body, visible shoes, wide denim trousers, cropped blazer, and natural walking stride. Camera remains mostly static. Preserve beach sunset background and wet sand. Do not turn the character toward camera. No extra people.",
+        "negative_prompt": "different face, changed identity, distorted face, wrong person, extra limbs, unstable hands, distorted proportions, multiple people, extra person, second face, background characters, crowd, duplicated body, bride, bridal, wedding, wedding dress, bridal gown, veil, cathedral veil, wedding veil, white beach dress, copied source outfit, same outfit as source, wrong outfit, wrong hairstyle, different identity, generic woman, random bride",
+        "status": "success",
+        "clip_path": "outputs/runs/live_test_03_4shots/clips/shot_002_look3.mp4",
+        "clip_size_kb": 4347
+      },
+      "evaluation": {
+        "status": "pending",
+        "attempts": [],
+        "note": "Evaluation not yet run. Awaiting user approval to start."
+      },
+      "repair": {
+        "status": "not_run",
+        "note": "No repair triggered — evaluation pending."
+      }
+    },
+    {
+      "shot_id": "shot_003",
+      "framing": "unknown",
+      "duration_s": 2.1333329999999995,
+      "keyframe_generation": {
+        "attempt_id": "shot_003_keyframe",
+        "attempts": 2,
+        "model": "gpt-image-1 / images.edit / 1024x1536 / medium",
+        "image_inputs": 4,
+        "image_slot_0": "source_frame_structural (PRIMARY)",
+        "image_slot_1": "look3_front (outfit reference)",
+        "image_slot_2": "look3_sheet (look overview)",
+        "image_slot_3": "look3_closeup (face reference)",
+        "notes": "v1 prompt wrong — described face-forward pose. Inspected source frame → v2 rewritten as extreme low-angle feet close-up.",
+        "status": "approved",
+        "keyframe_path": "outputs/runs/live_test_03_4shots/keyframes/shot_003_keyframe_look3_preserve_scene.png",
+        "keyframe_size_kb": 2088,
+        "prompt_used": "The character is a young woman in her mid-twenties. She has a slender, tall build. Her face features: deep-set almond-shaped eyes, strong defined brows, high cheekbones, a straight nose, and full lips. Her skin tone is light olive. Her expression is composed, introspective, and quietly intense. charcoal tailored cropped blazer, white cotton shirt, muted olive tie, wide faded blue denim trousers with clean break, polished black leather oxford shoes. loose natural dark hair, centre part, slightly undone runway texture, falls to shoulders. natural polished makeup, lightly sculpted skin, defined b"
+      },
+      "kling_i2v": {
+        "attempt_id": "shot_003_kling",
+        "model": "kling-v1-6 / std / 9:16 / 5s",
+        "motion_type": "prompt-level I2V (not pose transfer)",
+        "video_prompt": "Low-angle close-up of lower legs and feet only. Animate subtle walking movement through wet sand and shallow water. Keep wide denim trouser hems and black oxford shoes visible. Do not show face, torso, arms, or upper body. Preserve sunset reflections, wet sand, shoreline water movement, and natural video-frame softness. No extra legs, no duplicated feet.",
+        "negative_prompt": "different face, changed identity, distorted face, wrong person, extra limbs, unstable hands, distorted proportions, multiple people, extra person, second face, background characters, crowd, duplicated body, bride, bridal, wedding, wedding dress, bridal gown, veil, cathedral veil, wedding veil, white beach dress, copied source outfit, same outfit as source, wrong outfit, wrong hairstyle, different identity, generic woman, random bride",
+        "status": "success",
+        "clip_path": "outputs/runs/live_test_03_4shots/clips/shot_003_look3.mp4",
+        "clip_size_kb": 7676
+      },
+      "evaluation": {
+        "status": "pending",
+        "attempts": [],
+        "note": "Evaluation not yet run. Awaiting user approval to start."
+      },
+      "repair": {
+        "status": "not_run",
+        "note": "No repair triggered — evaluation pending."
+      }
+    },
+    {
+      "shot_id": "shot_004",
+      "framing": "wide",
+      "duration_s": 1.1000000000000005,
+      "keyframe_generation": {
+        "attempt_id": "shot_004_keyframe",
+        "attempts": 3,
+        "model": "gpt-image-1 / images.edit / 1024x1536 / medium",
+        "image_inputs": 4,
+        "image_slot_0": "source_frame_structural (PRIMARY)",
+        "image_slot_1": "look3_front (outfit reference)",
+        "image_slot_2": "look3_sheet (look overview)",
+        "image_slot_3": "look3_closeup (face reference)",
+        "notes": "v1 too generic (black business blazer). v2 still generic. v3 maximal look specificity with labeled BLAZER/TIE/TROUSERS subsections.",
+        "status": "approved",
+        "keyframe_path": "outputs/runs/live_test_03_4shots/keyframes/shot_004_keyframe_look3_preserve_scene.png",
+        "keyframe_size_kb": 2118,
+        "prompt_used": "The character is a young woman in her mid-twenties. She has a slender, tall build. Her face features: deep-set almond-shaped eyes, strong defined brows, high cheekbones, a straight nose, and full lips. Her skin tone is light olive. Her expression is composed, introspective, and quietly intense. charcoal tailored cropped blazer, white cotton shirt, muted olive tie, wide faded blue denim trousers with clean break, polished black leather oxford shoes. loose natural dark hair, centre part, slightly undone runway texture, falls to shoulders. natural polished makeup, lightly sculpted skin, defined b"
+      },
+      "kling_i2v": {
+        "attempt_id": "shot_004_kling",
+        "model": "kling-v1-6 / std / 9:16 / 5s",
+        "motion_type": "prompt-level I2V (not pose transfer)",
+        "video_prompt": "Wide side-profile walking shot. The character walks sideways along the beach shoreline toward frame-left, head slightly lowered, not looking at camera. Preserve full-body framing, side profile, raised foot mid-stride, tailored blazer, wide denim trousers, and black shoes. Camera has slight handheld natural movement. Preserve sunset, ocean reflection, and rocky headland. No portrait pose, no front-facing turn.",
+        "negative_prompt": "different face, changed identity, distorted face, wrong person, extra limbs, unstable hands, distorted proportions, multiple people, extra person, second face, background characters, crowd, duplicated body, bride, bridal, wedding, wedding dress, bridal gown, veil, cathedral veil, wedding veil, white beach dress, copied source outfit, same outfit as source, wrong outfit, wrong hairstyle, different identity, generic woman, random bride",
+        "status": "success",
+        "clip_path": "outputs/runs/live_test_03_4shots/clips/shot_004_look3.mp4",
+        "clip_size_kb": 7593
+      },
+      "evaluation": {
+        "status": "pending",
+        "attempts": [],
+        "note": "Evaluation not yet run. Awaiting user approval to start."
+      },
+      "repair": {
+        "status": "not_run",
+        "note": "No repair triggered — evaluation pending."
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "description": "Mode B IP character reference sheets for animated storyboard generation",
+  "character": "Skye — the fixed IP character used in all Mode B generations",
+  "sheets": [
+    {
+      "id": "ip_formal_gown",
+      "label": "Formal — Black Gown",
+      "description": "Hero pose, turnaround, close-up, expressions. Black velvet mermaid gown, opera gloves, tulle ruffle, amber necklace.",
+      "file": "ip_formal_gown.png",
+      "style_tags": ["formal", "gown", "elegant", "evening"]
+    },
+    {
+      "id": "ip_casual_blazer",
+      "label": "Casual — Grey Blazer",
+      "description": "Turnaround, hero pose, face close-up, expressions. Grey blazer, olive tie, wide-leg jeans.",
+      "file": "ip_casual_blazer.png",
+      "style_tags": ["casual", "blazer", "everyday", "street"]
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "purpose": "Privacy-safe public display copies for the read-only Mode C evidence pages.",
+  "method": "Fixed full-head region pixelation using local FFmpeg nearest-neighbour downscale/upscale.",
+  "generation_or_api_calls": "none",
+  "originals_modified": false,
+  "created_at": "2026-08-04T23:08:10+01:00",
+  "items": [
+    {
+      "source": "outputs/runs/mode_c_full7s_20260804/control_test2_original.mov",
+      "source_sha256": "03c6aa3c811af308fd9147a94a337768e2e5f035a4284b6bdfb039c24f6377af",
+      "display_copy": "outputs/audits/privacy_redacted_mode_c/control_test2_original_head_pixelated.mp4",
+      "display_copy_sha256": "fcb8009e348254c582820638e7b407f4a72b79d6bb15ab23832a6e0251e37b86",
+      "pixelated_region_xywh": [
+        454,
+        230,
+        254,
+        308
+      ],
+      "source_duration_seconds": 6.967,
+      "display_duration_seconds": 6.987
+    },
+    {
+      "source": "outputs/runs/mode_c_phase0/mode_c_condition_a/input/driving_segment_test2_phase0.mp4",
+      "source_sha256": "b16fb68040c7117571121abf678c87df5214603a77e66bb25c762c4965a1e677",
+      "display_copy": "outputs/audits/privacy_redacted_mode_c/driving_segment_test2_phase0_head_pixelated.mp4",
+      "display_copy_sha256": "d8a58a79a51d39fd3597c2980597fd8d507a576078a6f6c3e9d00e3447f8faba",
+      "pixelated_region_xywh": [
+        214,
+        108,
+        120,
+        146
+      ],
+      "source_duration_seconds": 4.0,
+      "display_duration_seconds": 4.0
+    }
+  ]
+}

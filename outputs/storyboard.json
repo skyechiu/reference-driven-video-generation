@@ -1,0 +1,1307 @@
+{
+  "storyboard_id": "mode_a_test_03_multishot_edit_4shots_storyboard",
+  "schema_version": "0.3",
+  "generated_at": "2026-07-20T14:49:24.221750",
+  "input_mode": "reference_video",
+  "reference_type": "multi_shot",
+  "reference_type_source": "auto_detected",
+  "reference_strategy_label": "Reference Strategy C \u2014 Driving Performance",
+  "strategy": "key_pose_sequence",
+  "scene_prompt": "Urban rooftop at golden hour, city skyline in background, warm cinematic light.",
+  "character_mode": "single_primary_subject",
+  "supported_subject_count": 1,
+  "multi_subject_policy": "select_primary_subject_only",
+  "format": {
+    "scene_reference_aspect": "16:9",
+    "target_video_aspect": "9:16",
+    "adaptation_strategy": "vertical_recompose_per_shot"
+  },
+  "note": "Tool-measured fields (timing, framing, pose) are ground truth used for evaluation. VLM-assisted fields (camera_angle, lighting, environment, expression) carry source='vlm_caption' and are used for prompt building and human review.",
+  "source_video": {
+    "path": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/test/test_03_multishot_edit_4shots.mp4",
+    "duration_s": 7.916553287981859,
+    "fps": 30.0,
+    "bpm": 123.046875,
+    "beats_detected": 13,
+    "audio_policy": "beat_analysis_only \u2014 reference audio never appears in output"
+  },
+  "selected_identity": {
+    "identity_id": "ip_01_four_selves",
+    "locked": true
+  },
+  "selected_look": {
+    "look_id": "look_3_tailored_self",
+    "look_label": "Look 3 \u2014 The Tailored Self"
+  },
+  "alignment_stats": {
+    "total_shots": 4,
+    "snapped_to_beat": 3,
+    "kept_original": 1,
+    "snap_threshold_ms": 500
+  },
+  "shots": [
+    {
+      "shot_id": "shot_001",
+      "unit_id": "shot_001",
+      "unit_type": "shot",
+      "status": "blocked",
+      "timing": {
+        "original_start_s": 0.0,
+        "original_end_s": 2.4,
+        "duration_s": 2.4,
+        "beat_snap_applied": false,
+        "aligned_start_s": 0.0,
+        "snap_delta_ms": 0.0,
+        "nearest_beat_s": 0.6501587301587302,
+        "beat_strength": 0.499,
+        "beat_offset_ms": -650.2,
+        "snap_reason": "offset 650ms exceeds 500ms threshold",
+        "source": "tool_beat_alignment"
+      },
+      "source": {
+        "source_panel": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/ref_panels/shot_001_best.png",
+        "keyframe_method": "best_frame_by_sharpness_and_subject_visibility",
+        "pose_image": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/analysis/pose_000.png",
+        "pose_ref": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/pose_refs/shot_001_pose.json",
+        "source": "tool_stage1_analysis"
+      },
+      "visual_structure": {
+        "shot_size": "medium",
+        "shot_size_source": "tool_pose_classification",
+        "camera_angle": "unknown",
+        "camera_angle_source": "not_available",
+        "camera_motion": "unknown",
+        "lighting": {
+          "type": "unknown",
+          "direction": "unknown",
+          "source": "vlm_caption",
+          "confidence": 0.0
+        },
+        "environment": {
+          "location_type": "unknown",
+          "background_elements": [],
+          "source": "vlm_caption"
+        },
+        "framing_detail": {
+          "person_center_x": 0.515,
+          "person_center_y": 0.411,
+          "person_height_ratio": 0.52
+        }
+      },
+      "subject_action": {
+        "body_orientation": "unknown",
+        "action": "",
+        "expression": "unknown",
+        "gaze": "unknown",
+        "motion_intensity": "high",
+        "motion_direction": "moving right, moving away from camera, facing camera",
+        "pose_confidence": 0.438,
+        "view": "front",
+        "identity_eval_mode": "face_embedding",
+        "source": "tool+vlm_caption"
+      },
+      "description": {
+        "short": "Woman turning towards camera, walking on beach, ge",
+        "technical": "medium, unknown angle, unknown lighting, high motion",
+        "creative": "Woman turning towards camera, walking on beach, gentle smile.; moving right, moving away from camera, facing camera"
+      },
+      "generation_brief": {
+        "keyframe_prompt": "Redraw the source panel as the fixed IP character. Preserve the medium framing, pose, subject placement and composition from the reference. Replace the full person with the IP character. Outfit: charcoal tailored cropped blazer, white cotton shirt, muted olive tie, wide faded blue denim trousers with clean break, polished black leather oxford shoes. Hair: loose natural dark hair, centre part, slightly undone runway texture, falls to shoulders. Makeup: natural polished makeup, lightly sculpted skin, defined brows, subtle brown eyeshadow, understated nude lips. Shoes: polished black leather oxford shoes, structured toe, clean sole. Adapt the environment into a 9:16 vertical composition. Generate only one visible character in the frame. Do not add extra people, background figures, duplicated bodies or additional faces. Background people from the reference video must not be reproduced. Output: 9:16 vertical keyframe, realistic cinematic fashion editorial. Maintain identity consistency with the IP reference images.",
+        "video_prompt": "A short cinematic medium vertical video shot, 2.4 seconds. The character holds the pose with subtle breathing and high motion. The camera remains stable. Preserve throughout: same face, same identity, same outfit and hairstyle. No identity change, no cuts, no transition effects, realistic fabric movement, natural hair physics. Generate only one character throughout. No extra people, no background characters, no duplicated person.",
+        "negative_prompt": "different face, changed identity, wrong outfit, extra limbs, unstable hands, distorted proportions, copied original background, multiple people, extra person, second face, background characters, crowd, duplicated body",
+        "priority": [
+          "identity",
+          "look_consistency",
+          "scene_consistency",
+          "framing"
+        ],
+        "look_refs_to_use": [
+          "look3_closeup.png",
+          "look3_front.png",
+          "look3_sheet.png"
+        ],
+        "scene_refs_to_use": [],
+        "vlm_prompt_fragment": ""
+      },
+      "evaluation_targets": {
+        "identity_min": "calibrated",
+        "identity_eval_mode": "face_embedding",
+        "look_consistency_min": 0.65,
+        "framing_min": 0.75,
+        "pose_min": 0.7,
+        "beat_offset_ms_max": 150,
+        "subject_count_expected": 1
+      },
+      "replacement_target": {
+        "identity_id": "ip_character",
+        "look_id": "look_3_tailored_self",
+        "replace_scope": "full_subject",
+        "preserve": [
+          "pose",
+          "camera_framing",
+          "shot_timing",
+          "motion_rhythm",
+          "background"
+        ],
+        "replace": [
+          "face",
+          "hair",
+          "outfit",
+          "shoes",
+          "body_appearance",
+          "accessories"
+        ],
+        "prompt_profile": {
+          "hair": "loose natural dark hair, centre part, slightly undone runway texture, falls to shoulders",
+          "makeup": "natural polished makeup, lightly sculpted skin, defined brows, subtle brown eyeshadow, understated nude lips",
+          "outfit": "charcoal tailored cropped blazer, white cotton shirt, muted olive tie, wide faded blue denim trousers with clean break, polished black leather oxford shoes",
+          "shoes": "polished black leather oxford shoes, structured toe, clean sole",
+          "body_silhouette": "relaxed broad-shoulder tailored silhouette, wide trouser leg with clean break at ankle, cropped blazer waist, upright posture",
+          "jewellery": "none or minimal \u2014 clean modern look",
+          "palette": "charcoal, faded denim blue, white, muted olive, black leather, warm skin",
+          "texture": "tailored wool, cotton poplin, vintage denim, polished leather"
+        }
+      },
+      "primary_subject": {
+        "track_id": "person_01",
+        "selection_rule": "largest_central_person",
+        "background_people_policy": "ignore",
+        "locked": true,
+        "note": "Single-primary-subject pipeline. Background people in reference are not tracked or reproduced."
+      },
+      "generation_constraints": {
+        "single_character_only": true,
+        "no_extra_people": true,
+        "do_not_reproduce_background_characters": true,
+        "background_people_policy": "ignore",
+        "subject_count_expected": 1
+      },
+      "risk_flags": [
+        "beat_offset_too_large",
+        "beat_not_snapped",
+        "low_pose_confidence",
+        "source_panel_missing",
+        "camera_angle_unknown",
+        "source_panel_missing_for_vlm"
+      ],
+      "readiness": {
+        "source_panel_ready": false,
+        "framing_ready": true,
+        "pose_ready": false,
+        "beat_ready": false,
+        "requires_human_review": true,
+        "reason": [
+          "source_panel_missing",
+          "low_pose_confidence",
+          "beat_offset_too_large"
+        ]
+      },
+      "beat_time_s": 0.0,
+      "duration_s": 2.4,
+      "framing": "medium",
+      "source_panel": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/ref_panels/shot_001_best.png",
+      "pose_keypoints": {
+        "NOSE": {
+          "x": 0.5381276607513428,
+          "y": 0.3916640877723694,
+          "z": -1.2140570878982544,
+          "visibility": 0.9999773502349854
+        },
+        "LEFT_EYE_INNER": {
+          "x": 0.5675835013389587,
+          "y": 0.2892097234725952,
+          "z": -1.0875309705734253,
+          "visibility": 0.9999656677246094
+        },
+        "LEFT_EYE": {
+          "x": 0.5899569988250732,
+          "y": 0.28228771686553955,
+          "z": -1.087264895439148,
+          "visibility": 0.9999524354934692
+        },
+        "LEFT_EYE_OUTER": {
+          "x": 0.6094799637794495,
+          "y": 0.2760281562805176,
+          "z": -1.086631417274475,
+          "visibility": 0.9999300241470337
+        },
+        "RIGHT_EYE_INNER": {
+          "x": 0.4914517104625702,
+          "y": 0.3068748414516449,
+          "z": -1.1478846073150635,
+          "visibility": 0.999977707862854
+        },
+        "RIGHT_EYE": {
+          "x": 0.45626702904701233,
+          "y": 0.31145596504211426,
+          "z": -1.1477471590042114,
+          "visibility": 0.9999756813049316
+        },
+        "RIGHT_EYE_OUTER": {
+          "x": 0.4259587824344635,
+          "y": 0.3142125904560089,
+          "z": -1.1472872495651245,
+          "visibility": 0.9999681711196899
+        },
+        "LEFT_EAR": {
+          "x": 0.6193545460700989,
+          "y": 0.29906779527664185,
+          "z": -0.433977872133255,
+          "visibility": 0.999934196472168
+        },
+        "RIGHT_EAR": {
+          "x": 0.3833053410053253,
+          "y": 0.34566032886505127,
+          "z": -0.7004623413085938,
+          "visibility": 0.9999635219573975
+        },
+        "MOUTH_LEFT": {
+          "x": 0.5733388662338257,
+          "y": 0.5007019639015198,
+          "z": -0.9634848237037659,
+          "visibility": 0.9989450573921204
+        },
+        "MOUTH_RIGHT": {
+          "x": 0.4913005530834198,
+          "y": 0.5090994834899902,
+          "z": -1.0388613939285278,
+          "visibility": 0.9990324974060059
+        },
+        "LEFT_SHOULDER": {
+          "x": 0.518049418926239,
+          "y": 0.7154974937438965,
+          "z": 0.20888680219650269,
+          "visibility": 0.915156364440918
+        },
+        "RIGHT_SHOULDER": {
+          "x": 0.42667242884635925,
+          "y": 0.7959917783737183,
+          "z": -0.7566540241241455,
+          "visibility": 0.9125475287437439
+        },
+        "LEFT_ELBOW": {
+          "x": 0.567531168460846,
+          "y": 0.929548978805542,
+          "z": 0.49845030903816223,
+          "visibility": 0.017285671085119247
+        },
+        "RIGHT_ELBOW": {
+          "x": 0.36814892292022705,
+          "y": 1.1010409593582153,
+          "z": -1.2019661664962769,
+          "visibility": 0.06777335703372955
+        },
+        "LEFT_WRIST": {
+          "x": 0.5797781944274902,
+          "y": 0.8774359226226807,
+          "z": 0.3696849048137665,
+          "visibility": 0.08546391129493713
+        },
+        "RIGHT_WRIST": {
+          "x": 0.3818444311618805,
+          "y": 0.9703379273414612,
+          "z": -1.613259196281433,
+          "visibility": 0.08501267433166504
+        },
+        "LEFT_PINKY": {
+          "x": 0.5867249369621277,
+          "y": 0.8955049514770508,
+          "z": 0.3569887578487396,
+          "visibility": 0.1976846158504486
+        },
+        "RIGHT_PINKY": {
+          "x": 0.3855506479740143,
+          "y": 0.9637044668197632,
+          "z": -1.7381170988082886,
+          "visibility": 0.18516232073307037
+        },
+        "LEFT_INDEX": {
+          "x": 0.5926206111907959,
+          "y": 0.8621426820755005,
+          "z": 0.30707788467407227,
+          "visibility": 0.2533505856990814
+        },
+        "RIGHT_INDEX": {
+          "x": 0.37183472514152527,
+          "y": 0.913887083530426,
+          "z": -1.7442368268966675,
+          "visibility": 0.2465798258781433
+        },
+        "LEFT_THUMB": {
+          "x": 0.5879936218261719,
+          "y": 0.8646364212036133,
+          "z": 0.33400216698646545,
+          "visibility": 0.22482500970363617
+        },
+        "RIGHT_THUMB": {
+          "x": 0.3706166744232178,
+          "y": 0.922879695892334,
+          "z": -1.6337076425552368,
+          "visibility": 0.24502885341644287
+        },
+        "LEFT_HIP": {
+          "x": 0.5160880088806152,
+          "y": 1.9039888381958008,
+          "z": 0.36283078789711,
+          "visibility": 0.0014611342921853065
+        },
+        "RIGHT_HIP": {
+          "x": 0.4293116629123688,
+          "y": 1.9582123756408691,
+          "z": -0.3591059148311615,
+          "visibility": 0.0013745662290602922
+        },
+        "LEFT_KNEE": {
+          "x": 0.5257956981658936,
+          "y": 2.0122039318084717,
+          "z": 0.41104352474212646,
+          "visibility": 0.002277890918776393
+        },
+        "RIGHT_KNEE": {
+          "x": 0.5573172569274902,
+          "y": 1.9034793376922607,
+          "z": -0.2848340570926666,
+          "visibility": 0.004738866817206144
+        },
+        "LEFT_ANKLE": {
+          "x": 0.5309220552444458,
+          "y": 2.624070644378662,
+          "z": 0.9546480774879456,
+          "visibility": 0.0003504816850181669
+        },
+        "RIGHT_ANKLE": {
+          "x": 0.48287877440452576,
+          "y": 2.624819278717041,
+          "z": 0.18939265608787537,
+          "visibility": 0.0005092851351946592
+        },
+        "LEFT_HEEL": {
+          "x": 0.5078442692756653,
+          "y": 2.75156831741333,
+          "z": 0.9799069762229919,
+          "visibility": 0.000559485808480531
+        },
+        "RIGHT_HEEL": {
+          "x": 0.41461148858070374,
+          "y": 2.759661912918091,
+          "z": 0.22183296084403992,
+          "visibility": 0.0007829570095054805
+        },
+        "LEFT_FOOT_INDEX": {
+          "x": 0.6058592796325684,
+          "y": 2.740504741668701,
+          "z": 0.8007941246032715,
+          "visibility": 0.002072009490802884
+        },
+        "RIGHT_FOOT_INDEX": {
+          "x": 0.5936499238014221,
+          "y": 2.7830569744110107,
+          "z": 0.0443398617208004,
+          "visibility": 0.003106994554400444
+        }
+      },
+      "pose_image_path": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/analysis/pose_000.png",
+      "generated_image": null,
+      "video_clip": null,
+      "evaluation": {
+        "status": "pending",
+        "attempts": []
+      }
+    },
+    {
+      "shot_id": "shot_002",
+      "unit_id": "shot_002",
+      "unit_type": "shot",
+      "status": "blocked",
+      "timing": {
+        "original_start_s": 2.4,
+        "original_end_s": 4.666667,
+        "duration_s": 2.2666670000000004,
+        "beat_snap_applied": true,
+        "aligned_start_s": 2.5309750566893423,
+        "snap_delta_ms": 131.0,
+        "nearest_beat_s": 2.5309750566893423,
+        "beat_strength": 1.0,
+        "beat_offset_ms": -131.0,
+        "snap_reason": "",
+        "source": "tool_beat_alignment"
+      },
+      "source": {
+        "source_panel": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/ref_panels/shot_002_best.png",
+        "keyframe_method": "best_frame_by_sharpness_and_subject_visibility",
+        "pose_image": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/analysis/pose_001.png",
+        "pose_ref": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/pose_refs/shot_002_pose.json",
+        "source": "tool_stage1_analysis"
+      },
+      "visual_structure": {
+        "shot_size": "wide",
+        "shot_size_source": "tool_pose_classification",
+        "camera_angle": "unknown",
+        "camera_angle_source": "not_available",
+        "camera_motion": "unknown",
+        "lighting": {
+          "type": "unknown",
+          "direction": "unknown",
+          "source": "vlm_caption",
+          "confidence": 0.0
+        },
+        "environment": {
+          "location_type": "unknown",
+          "background_elements": [],
+          "source": "vlm_caption"
+        },
+        "framing_detail": {
+          "person_center_x": 0.49,
+          "person_center_y": 0.392,
+          "person_height_ratio": 0.869
+        }
+      },
+      "subject_action": {
+        "body_orientation": "unknown",
+        "action": "",
+        "expression": "unknown",
+        "gaze": "unknown",
+        "motion_intensity": "none",
+        "motion_direction": "",
+        "pose_confidence": 0.806,
+        "view": "front",
+        "identity_eval_mode": "face_embedding",
+        "source": "tool+vlm_caption"
+      },
+      "description": {
+        "short": "Woman walking away from camera, along the beach, t",
+        "technical": "wide, unknown angle, unknown lighting, none motion",
+        "creative": "Woman walking away from camera, along the beach, toward sunset."
+      },
+      "generation_brief": {
+        "keyframe_prompt": "Redraw the source panel as the fixed IP character. Preserve the wide framing, pose, subject placement and composition from the reference. Replace the full person with the IP character. Outfit: charcoal tailored cropped blazer, white cotton shirt, muted olive tie, wide faded blue denim trousers with clean break, polished black leather oxford shoes. Hair: loose natural dark hair, centre part, slightly undone runway texture, falls to shoulders. Makeup: natural polished makeup, lightly sculpted skin, defined brows, subtle brown eyeshadow, understated nude lips. Shoes: polished black leather oxford shoes, structured toe, clean sole. Adapt the environment into a 9:16 vertical composition. Generate only one visible character in the frame. Do not add extra people, background figures, duplicated bodies or additional faces. Background people from the reference video must not be reproduced. Output: 9:16 vertical keyframe, realistic cinematic fashion editorial. Maintain identity consistency with the IP reference images.",
+        "video_prompt": "A short cinematic wide vertical video shot, 2.3 seconds. The character holds the pose with subtle breathing and none motion. The camera remains stable. Preserve throughout: same face, same identity, same outfit and hairstyle. No identity change, no cuts, no transition effects, realistic fabric movement, natural hair physics. Generate only one character throughout. No extra people, no background characters, no duplicated person.",
+        "negative_prompt": "different face, changed identity, wrong outfit, extra limbs, unstable hands, distorted proportions, copied original background, multiple people, extra person, second face, background characters, crowd, duplicated body, face too small to identify",
+        "priority": [
+          "identity",
+          "look_consistency",
+          "scene_consistency",
+          "framing"
+        ],
+        "look_refs_to_use": [
+          "look3_closeup.png",
+          "look3_front.png",
+          "look3_sheet.png"
+        ],
+        "scene_refs_to_use": [],
+        "vlm_prompt_fragment": ""
+      },
+      "evaluation_targets": {
+        "identity_min": "calibrated",
+        "identity_eval_mode": "face_embedding",
+        "look_consistency_min": 0.65,
+        "framing_min": 0.75,
+        "pose_min": 0.7,
+        "beat_offset_ms_max": 150,
+        "subject_count_expected": 1
+      },
+      "replacement_target": {
+        "identity_id": "ip_character",
+        "look_id": "look_3_tailored_self",
+        "replace_scope": "full_subject",
+        "preserve": [
+          "pose",
+          "camera_framing",
+          "shot_timing",
+          "motion_rhythm",
+          "background"
+        ],
+        "replace": [
+          "face",
+          "hair",
+          "outfit",
+          "shoes",
+          "body_appearance",
+          "accessories"
+        ],
+        "prompt_profile": {
+          "hair": "loose natural dark hair, centre part, slightly undone runway texture, falls to shoulders",
+          "makeup": "natural polished makeup, lightly sculpted skin, defined brows, subtle brown eyeshadow, understated nude lips",
+          "outfit": "charcoal tailored cropped blazer, white cotton shirt, muted olive tie, wide faded blue denim trousers with clean break, polished black leather oxford shoes",
+          "shoes": "polished black leather oxford shoes, structured toe, clean sole",
+          "body_silhouette": "relaxed broad-shoulder tailored silhouette, wide trouser leg with clean break at ankle, cropped blazer waist, upright posture",
+          "jewellery": "none or minimal \u2014 clean modern look",
+          "palette": "charcoal, faded denim blue, white, muted olive, black leather, warm skin",
+          "texture": "tailored wool, cotton poplin, vintage denim, polished leather"
+        }
+      },
+      "primary_subject": {
+        "track_id": "person_01",
+        "selection_rule": "largest_central_person",
+        "background_people_policy": "ignore",
+        "locked": true,
+        "note": "Single-primary-subject pipeline. Background people in reference are not tracked or reproduced."
+      },
+      "generation_constraints": {
+        "single_character_only": true,
+        "no_extra_people": true,
+        "do_not_reproduce_background_characters": true,
+        "background_people_policy": "ignore",
+        "subject_count_expected": 1
+      },
+      "risk_flags": [
+        "source_panel_missing",
+        "camera_angle_unknown",
+        "source_panel_missing_for_vlm"
+      ],
+      "readiness": {
+        "source_panel_ready": false,
+        "framing_ready": true,
+        "pose_ready": true,
+        "beat_ready": true,
+        "requires_human_review": true,
+        "reason": [
+          "source_panel_missing"
+        ]
+      },
+      "beat_time_s": 2.5309750566893423,
+      "duration_s": 2.2666670000000004,
+      "framing": "wide",
+      "source_panel": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/ref_panels/shot_002_best.png",
+      "pose_keypoints": {
+        "NOSE": {
+          "x": 0.4872943162918091,
+          "y": 0.09348741918802261,
+          "z": -0.2397189438343048,
+          "visibility": 0.9998267292976379
+        },
+        "LEFT_EYE_INNER": {
+          "x": 0.49339351058006287,
+          "y": 0.07489810883998871,
+          "z": -0.24271166324615479,
+          "visibility": 0.9998043179512024
+        },
+        "LEFT_EYE": {
+          "x": 0.4967118501663208,
+          "y": 0.07353457808494568,
+          "z": -0.24274320900440216,
+          "visibility": 0.999804675579071
+        },
+        "LEFT_EYE_OUTER": {
+          "x": 0.49991655349731445,
+          "y": 0.07236143201589584,
+          "z": -0.242842897772789,
+          "visibility": 0.9998158812522888
+        },
+        "RIGHT_EYE_INNER": {
+          "x": 0.4866226613521576,
+          "y": 0.07823552936315536,
+          "z": -0.22408278286457062,
+          "visibility": 0.999723494052887
+        },
+        "RIGHT_EYE": {
+          "x": 0.48526084423065186,
+          "y": 0.07913093268871307,
+          "z": -0.22408774495124817,
+          "visibility": 0.9996727705001831
+        },
+        "RIGHT_EYE_OUTER": {
+          "x": 0.48392224311828613,
+          "y": 0.08008400350809097,
+          "z": -0.22408735752105713,
+          "visibility": 0.9997181296348572
+        },
+        "LEFT_EAR": {
+          "x": 0.5113610625267029,
+          "y": 0.08069919049739838,
+          "z": -0.19929614663124084,
+          "visibility": 0.9997807145118713
+        },
+        "RIGHT_EAR": {
+          "x": 0.4930652976036072,
+          "y": 0.08646062761545181,
+          "z": -0.11357877403497696,
+          "visibility": 0.9996277093887329
+        },
+        "MOUTH_LEFT": {
+          "x": 0.4965711236000061,
+          "y": 0.10884218662977219,
+          "z": -0.21725286543369293,
+          "visibility": 0.9996389150619507
+        },
+        "MOUTH_RIGHT": {
+          "x": 0.48837777972221375,
+          "y": 0.11140522360801697,
+          "z": -0.1924983710050583,
+          "visibility": 0.9994612336158752
+        },
+        "LEFT_SHOULDER": {
+          "x": 0.5187137722969055,
+          "y": 0.18049925565719604,
+          "z": -0.13976265490055084,
+          "visibility": 0.9998031258583069
+        },
+        "RIGHT_SHOULDER": {
+          "x": 0.5157216191291809,
+          "y": 0.18976767361164093,
+          "z": -0.021942732855677605,
+          "visibility": 0.9996104836463928
+        },
+        "LEFT_ELBOW": {
+          "x": 0.4643087387084961,
+          "y": 0.31019261479377747,
+          "z": -0.11793980002403259,
+          "visibility": 0.7767192721366882
+        },
+        "RIGHT_ELBOW": {
+          "x": 0.5226418375968933,
+          "y": 0.3345198929309845,
+          "z": 0.0048313685692846775,
+          "visibility": 0.45254984498023987
+        },
+        "LEFT_WRIST": {
+          "x": 0.43850138783454895,
+          "y": 0.4361381530761719,
+          "z": -0.1017327532172203,
+          "visibility": 0.6015157103538513
+        },
+        "RIGHT_WRIST": {
+          "x": 0.5483338832855225,
+          "y": 0.4791778326034546,
+          "z": -0.0517493300139904,
+          "visibility": 0.329382985830307
+        },
+        "LEFT_PINKY": {
+          "x": 0.4324895143508911,
+          "y": 0.46838143467903137,
+          "z": -0.11170755326747894,
+          "visibility": 0.5326465368270874
+        },
+        "RIGHT_PINKY": {
+          "x": 0.547804057598114,
+          "y": 0.5120509266853333,
+          "z": -0.06634484231472015,
+          "visibility": 0.29604223370552063
+        },
+        "LEFT_INDEX": {
+          "x": 0.4300345778465271,
+          "y": 0.46895238757133484,
+          "z": -0.12718676030635834,
+          "visibility": 0.5225465297698975
+        },
+        "RIGHT_INDEX": {
+          "x": 0.5479648113250732,
+          "y": 0.5118586421012878,
+          "z": -0.08502957224845886,
+          "visibility": 0.2898549437522888
+        },
+        "LEFT_THUMB": {
+          "x": 0.440594881772995,
+          "y": 0.46410560607910156,
+          "z": -0.10627974569797516,
+          "visibility": 0.47452837228775024
+        },
+        "RIGHT_THUMB": {
+          "x": 0.5462697744369507,
+          "y": 0.5005748867988586,
+          "z": -0.06121329590678215,
+          "visibility": 0.2755747437477112
+        },
+        "LEFT_HIP": {
+          "x": 0.49123093485832214,
+          "y": 0.4316025972366333,
+          "z": -0.027845870703458786,
+          "visibility": 0.9986602067947388
+        },
+        "RIGHT_HIP": {
+          "x": 0.5029935240745544,
+          "y": 0.4392011761665344,
+          "z": 0.02783297561109066,
+          "visibility": 0.9986107349395752
+        },
+        "LEFT_KNEE": {
+          "x": 0.4794089198112488,
+          "y": 0.6608665585517883,
+          "z": -0.04816117137670517,
+          "visibility": 0.9145818948745728
+        },
+        "RIGHT_KNEE": {
+          "x": 0.5060493350028992,
+          "y": 0.6607447266578674,
+          "z": -0.09142831712961197,
+          "visibility": 0.9245151877403259
+        },
+        "LEFT_ANKLE": {
+          "x": 0.47139444947242737,
+          "y": 0.8850218653678894,
+          "z": 0.0322897844016552,
+          "visibility": 0.9518690705299377
+        },
+        "RIGHT_ANKLE": {
+          "x": 0.5330325365066528,
+          "y": 0.8576172590255737,
+          "z": -0.050891365855932236,
+          "visibility": 0.935775101184845
+        },
+        "LEFT_HEEL": {
+          "x": 0.4824396073818207,
+          "y": 0.9021368622779846,
+          "z": 0.03197013586759567,
+          "visibility": 0.7370122671127319
+        },
+        "RIGHT_HEEL": {
+          "x": 0.5475679636001587,
+          "y": 0.874930739402771,
+          "z": -0.05125544220209122,
+          "visibility": 0.7668803930282593
+        },
+        "LEFT_FOOT_INDEX": {
+          "x": 0.46338990330696106,
+          "y": 0.9394399523735046,
+          "z": -0.10131841152906418,
+          "visibility": 0.9086055159568787
+        },
+        "RIGHT_FOOT_INDEX": {
+          "x": 0.5199075937271118,
+          "y": 0.9411095976829529,
+          "z": -0.17078469693660736,
+          "visibility": 0.9262726902961731
+        }
+      },
+      "pose_image_path": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/analysis/pose_001.png",
+      "generated_image": null,
+      "video_clip": null,
+      "evaluation": {
+        "status": "pending",
+        "attempts": []
+      }
+    },
+    {
+      "shot_id": "shot_003",
+      "unit_id": "shot_003",
+      "unit_type": "shot",
+      "status": "blocked",
+      "timing": {
+        "original_start_s": 4.666667,
+        "original_end_s": 6.8,
+        "duration_s": 2.1333329999999995,
+        "beat_snap_applied": true,
+        "aligned_start_s": 4.435011337868481,
+        "snap_delta_ms": -231.7,
+        "nearest_beat_s": 4.435011337868481,
+        "beat_strength": 0.44,
+        "beat_offset_ms": 231.7,
+        "snap_reason": "",
+        "source": "tool_beat_alignment"
+      },
+      "source": {
+        "source_panel": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/ref_panels/shot_003_best.png",
+        "keyframe_method": "best_frame_by_sharpness_and_subject_visibility",
+        "pose_image": null,
+        "pose_ref": "",
+        "source": "tool_stage1_analysis"
+      },
+      "visual_structure": {
+        "shot_size": "unknown",
+        "shot_size_source": "tool_pose_classification",
+        "camera_angle": "unknown",
+        "camera_angle_source": "not_available",
+        "camera_motion": "unknown",
+        "lighting": {
+          "type": "unknown",
+          "direction": "unknown",
+          "source": "vlm_caption",
+          "confidence": 0.0
+        },
+        "environment": {
+          "location_type": "unknown",
+          "background_elements": [],
+          "source": "vlm_caption"
+        },
+        "framing_detail": {}
+      },
+      "subject_action": {
+        "body_orientation": "unknown",
+        "action": "",
+        "expression": "unknown",
+        "gaze": "unknown",
+        "motion_intensity": "none",
+        "motion_direction": "",
+        "pose_confidence": 0.0,
+        "view": "unknown",
+        "identity_eval_mode": "face_embedding",
+        "source": "tool+vlm_caption"
+      },
+      "description": {
+        "short": "Feet toward camera, walking along beach. Woman tur",
+        "technical": "unknown, unknown angle, unknown lighting, none motion",
+        "creative": "Feet toward camera, walking along beach. Woman turning to face camera while walking, gentle smile."
+      },
+      "generation_brief": {
+        "keyframe_prompt": "Redraw the source panel as the fixed IP character. Preserve the unknown framing, pose, subject placement and composition from the reference. Replace the full person with the IP character. Outfit: charcoal tailored cropped blazer, white cotton shirt, muted olive tie, wide faded blue denim trousers with clean break, polished black leather oxford shoes. Hair: loose natural dark hair, centre part, slightly undone runway texture, falls to shoulders. Makeup: natural polished makeup, lightly sculpted skin, defined brows, subtle brown eyeshadow, understated nude lips. Shoes: polished black leather oxford shoes, structured toe, clean sole. Adapt the environment into a 9:16 vertical composition. Generate only one visible character in the frame. Do not add extra people, background figures, duplicated bodies or additional faces. Background people from the reference video must not be reproduced. Output: 9:16 vertical keyframe, realistic cinematic fashion editorial. Maintain identity consistency with the IP reference images.",
+        "video_prompt": "A short cinematic unknown vertical video shot, 2.1 seconds. The character holds the pose with subtle breathing and none motion. The camera remains stable. Preserve throughout: same face, same identity, same outfit and hairstyle. No identity change, no cuts, no transition effects, realistic fabric movement, natural hair physics. Generate only one character throughout. No extra people, no background characters, no duplicated person.",
+        "negative_prompt": "different face, changed identity, wrong outfit, extra limbs, unstable hands, distorted proportions, copied original background, multiple people, extra person, second face, background characters, crowd, duplicated body",
+        "priority": [
+          "identity",
+          "look_consistency",
+          "scene_consistency",
+          "framing"
+        ],
+        "look_refs_to_use": [
+          "look3_closeup.png",
+          "look3_front.png",
+          "look3_sheet.png"
+        ],
+        "scene_refs_to_use": [],
+        "vlm_prompt_fragment": ""
+      },
+      "evaluation_targets": {
+        "identity_min": "calibrated",
+        "identity_eval_mode": "face_embedding",
+        "look_consistency_min": 0.65,
+        "framing_min": 0.75,
+        "pose_min": 0.7,
+        "beat_offset_ms_max": 150,
+        "subject_count_expected": 1
+      },
+      "replacement_target": {
+        "identity_id": "ip_character",
+        "look_id": "look_3_tailored_self",
+        "replace_scope": "full_subject",
+        "preserve": [
+          "pose",
+          "camera_framing",
+          "shot_timing",
+          "motion_rhythm",
+          "background"
+        ],
+        "replace": [
+          "face",
+          "hair",
+          "outfit",
+          "shoes",
+          "body_appearance",
+          "accessories"
+        ],
+        "prompt_profile": {
+          "hair": "loose natural dark hair, centre part, slightly undone runway texture, falls to shoulders",
+          "makeup": "natural polished makeup, lightly sculpted skin, defined brows, subtle brown eyeshadow, understated nude lips",
+          "outfit": "charcoal tailored cropped blazer, white cotton shirt, muted olive tie, wide faded blue denim trousers with clean break, polished black leather oxford shoes",
+          "shoes": "polished black leather oxford shoes, structured toe, clean sole",
+          "body_silhouette": "relaxed broad-shoulder tailored silhouette, wide trouser leg with clean break at ankle, cropped blazer waist, upright posture",
+          "jewellery": "none or minimal \u2014 clean modern look",
+          "palette": "charcoal, faded denim blue, white, muted olive, black leather, warm skin",
+          "texture": "tailored wool, cotton poplin, vintage denim, polished leather"
+        }
+      },
+      "primary_subject": {
+        "track_id": "person_01",
+        "selection_rule": "largest_central_person",
+        "background_people_policy": "ignore",
+        "locked": true,
+        "note": "Single-primary-subject pipeline. Background people in reference are not tracked or reproduced."
+      },
+      "generation_constraints": {
+        "single_character_only": true,
+        "no_extra_people": true,
+        "do_not_reproduce_background_characters": true,
+        "background_people_policy": "ignore",
+        "subject_count_expected": 1
+      },
+      "risk_flags": [
+        "beat_offset_too_large",
+        "unknown_framing",
+        "low_pose_confidence",
+        "no_pose_detected",
+        "source_panel_missing",
+        "camera_angle_unknown",
+        "source_panel_missing_for_vlm"
+      ],
+      "readiness": {
+        "source_panel_ready": false,
+        "framing_ready": false,
+        "pose_ready": false,
+        "beat_ready": false,
+        "requires_human_review": true,
+        "reason": [
+          "source_panel_missing",
+          "unknown_framing",
+          "low_pose_confidence",
+          "beat_offset_too_large"
+        ]
+      },
+      "beat_time_s": 4.435011337868481,
+      "duration_s": 2.1333329999999995,
+      "framing": "unknown",
+      "source_panel": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/ref_panels/shot_003_best.png",
+      "pose_keypoints": null,
+      "pose_image_path": null,
+      "generated_image": null,
+      "video_clip": null,
+      "evaluation": {
+        "status": "pending",
+        "attempts": []
+      }
+    },
+    {
+      "shot_id": "shot_004",
+      "unit_id": "shot_004",
+      "unit_type": "shot",
+      "status": "blocked",
+      "timing": {
+        "original_start_s": 6.8,
+        "original_end_s": 7.9,
+        "duration_s": 1.1000000000000005,
+        "beat_snap_applied": true,
+        "aligned_start_s": 6.362267573696145,
+        "snap_delta_ms": -437.7,
+        "nearest_beat_s": 6.362267573696145,
+        "beat_strength": 0.349,
+        "beat_offset_ms": 437.7,
+        "snap_reason": "",
+        "source": "tool_beat_alignment"
+      },
+      "source": {
+        "source_panel": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/ref_panels/shot_004_best.png",
+        "keyframe_method": "best_frame_by_sharpness_and_subject_visibility",
+        "pose_image": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/analysis/pose_003.png",
+        "pose_ref": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/pose_refs/shot_004_pose.json",
+        "source": "tool_stage1_analysis"
+      },
+      "visual_structure": {
+        "shot_size": "wide",
+        "shot_size_source": "tool_pose_classification",
+        "camera_angle": "unknown",
+        "camera_angle_source": "not_available",
+        "camera_motion": "unknown",
+        "lighting": {
+          "type": "unknown",
+          "direction": "unknown",
+          "source": "vlm_caption",
+          "confidence": 0.0
+        },
+        "environment": {
+          "location_type": "unknown",
+          "background_elements": [],
+          "source": "vlm_caption"
+        },
+        "framing_detail": {
+          "person_center_x": 0.472,
+          "person_center_y": 0.404,
+          "person_height_ratio": 0.824
+        }
+      },
+      "subject_action": {
+        "body_orientation": "unknown",
+        "action": "",
+        "expression": "unknown",
+        "gaze": "unknown",
+        "motion_intensity": "high",
+        "motion_direction": "facing camera",
+        "pose_confidence": 0.815,
+        "view": "front",
+        "identity_eval_mode": "face_embedding",
+        "source": "tool+vlm_caption"
+      },
+      "description": {
+        "short": "Woman walking right on beach, sideways to camera, ",
+        "technical": "wide, unknown angle, unknown lighting, high motion",
+        "creative": "Woman walking right on beach, sideways to camera, holding dress, sunset background.; facing camera"
+      },
+      "generation_brief": {
+        "keyframe_prompt": "Redraw the source panel as the fixed IP character. Preserve the wide framing, pose, subject placement and composition from the reference. Replace the full person with the IP character. Outfit: charcoal tailored cropped blazer, white cotton shirt, muted olive tie, wide faded blue denim trousers with clean break, polished black leather oxford shoes. Hair: loose natural dark hair, centre part, slightly undone runway texture, falls to shoulders. Makeup: natural polished makeup, lightly sculpted skin, defined brows, subtle brown eyeshadow, understated nude lips. Shoes: polished black leather oxford shoes, structured toe, clean sole. Adapt the environment into a 9:16 vertical composition. Generate only one visible character in the frame. Do not add extra people, background figures, duplicated bodies or additional faces. Background people from the reference video must not be reproduced. Output: 9:16 vertical keyframe, realistic cinematic fashion editorial. Maintain identity consistency with the IP reference images.",
+        "video_prompt": "A short cinematic wide vertical video shot, 1.1 seconds. The character holds the pose with subtle breathing and high motion. The camera remains stable. Preserve throughout: same face, same identity, same outfit and hairstyle. No identity change, no cuts, no transition effects, realistic fabric movement, natural hair physics. Generate only one character throughout. No extra people, no background characters, no duplicated person.",
+        "negative_prompt": "different face, changed identity, wrong outfit, extra limbs, unstable hands, distorted proportions, copied original background, multiple people, extra person, second face, background characters, crowd, duplicated body, face too small to identify",
+        "priority": [
+          "identity",
+          "look_consistency",
+          "scene_consistency",
+          "framing"
+        ],
+        "look_refs_to_use": [
+          "look3_closeup.png",
+          "look3_front.png",
+          "look3_sheet.png"
+        ],
+        "scene_refs_to_use": [],
+        "vlm_prompt_fragment": ""
+      },
+      "evaluation_targets": {
+        "identity_min": "calibrated",
+        "identity_eval_mode": "face_embedding",
+        "look_consistency_min": 0.65,
+        "framing_min": 0.75,
+        "pose_min": 0.7,
+        "beat_offset_ms_max": 150,
+        "subject_count_expected": 1
+      },
+      "replacement_target": {
+        "identity_id": "ip_character",
+        "look_id": "look_3_tailored_self",
+        "replace_scope": "full_subject",
+        "preserve": [
+          "pose",
+          "camera_framing",
+          "shot_timing",
+          "motion_rhythm",
+          "background"
+        ],
+        "replace": [
+          "face",
+          "hair",
+          "outfit",
+          "shoes",
+          "body_appearance",
+          "accessories"
+        ],
+        "prompt_profile": {
+          "hair": "loose natural dark hair, centre part, slightly undone runway texture, falls to shoulders",
+          "makeup": "natural polished makeup, lightly sculpted skin, defined brows, subtle brown eyeshadow, understated nude lips",
+          "outfit": "charcoal tailored cropped blazer, white cotton shirt, muted olive tie, wide faded blue denim trousers with clean break, polished black leather oxford shoes",
+          "shoes": "polished black leather oxford shoes, structured toe, clean sole",
+          "body_silhouette": "relaxed broad-shoulder tailored silhouette, wide trouser leg with clean break at ankle, cropped blazer waist, upright posture",
+          "jewellery": "none or minimal \u2014 clean modern look",
+          "palette": "charcoal, faded denim blue, white, muted olive, black leather, warm skin",
+          "texture": "tailored wool, cotton poplin, vintage denim, polished leather"
+        }
+      },
+      "primary_subject": {
+        "track_id": "person_01",
+        "selection_rule": "largest_central_person",
+        "background_people_policy": "ignore",
+        "locked": true,
+        "note": "Single-primary-subject pipeline. Background people in reference are not tracked or reproduced."
+      },
+      "generation_constraints": {
+        "single_character_only": true,
+        "no_extra_people": true,
+        "do_not_reproduce_background_characters": true,
+        "background_people_policy": "ignore",
+        "subject_count_expected": 1
+      },
+      "risk_flags": [
+        "beat_offset_too_large",
+        "source_panel_missing",
+        "camera_angle_unknown",
+        "source_panel_missing_for_vlm"
+      ],
+      "readiness": {
+        "source_panel_ready": false,
+        "framing_ready": true,
+        "pose_ready": true,
+        "beat_ready": false,
+        "requires_human_review": true,
+        "reason": [
+          "source_panel_missing",
+          "beat_offset_too_large"
+        ]
+      },
+      "beat_time_s": 6.362267573696145,
+      "duration_s": 1.1000000000000005,
+      "framing": "wide",
+      "source_panel": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/ref_panels/shot_004_best.png",
+      "pose_keypoints": {
+        "NOSE": {
+          "x": 0.46933165192604065,
+          "y": 0.1345844268798828,
+          "z": -0.13694755733013153,
+          "visibility": 0.9999758005142212
+        },
+        "LEFT_EYE_INNER": {
+          "x": 0.4803345799446106,
+          "y": 0.1196097731590271,
+          "z": -0.13265927135944366,
+          "visibility": 0.9999779462814331
+        },
+        "LEFT_EYE": {
+          "x": 0.48457732796669006,
+          "y": 0.12114472687244415,
+          "z": -0.13279686868190765,
+          "visibility": 0.9999681711196899
+        },
+        "LEFT_EYE_OUTER": {
+          "x": 0.48868149518966675,
+          "y": 0.12280535697937012,
+          "z": -0.13294963538646698,
+          "visibility": 0.9999775886535645
+        },
+        "RIGHT_EYE_INNER": {
+          "x": 0.47048985958099365,
+          "y": 0.11639367789030075,
+          "z": -0.11475294083356857,
+          "visibility": 0.9999738931655884
+        },
+        "RIGHT_EYE": {
+          "x": 0.46797698736190796,
+          "y": 0.11545990407466888,
+          "z": -0.1146928146481514,
+          "visibility": 0.9999489784240723
+        },
+        "RIGHT_EYE_OUTER": {
+          "x": 0.46576008200645447,
+          "y": 0.11458355188369751,
+          "z": -0.11459536850452423,
+          "visibility": 0.9999569654464722
+        },
+        "LEFT_EAR": {
+          "x": 0.4964632987976074,
+          "y": 0.1352785974740982,
+          "z": -0.07537902146577835,
+          "visibility": 0.9999767541885376
+        },
+        "RIGHT_EAR": {
+          "x": 0.47053197026252747,
+          "y": 0.12512682378292084,
+          "z": 0.002599651226773858,
+          "visibility": 0.999901533126831
+        },
+        "MOUTH_LEFT": {
+          "x": 0.47588130831718445,
+          "y": 0.15917016565799713,
+          "z": -0.11135897040367126,
+          "visibility": 0.9999428987503052
+        },
+        "MOUTH_RIGHT": {
+          "x": 0.4641834497451782,
+          "y": 0.15351557731628418,
+          "z": -0.08913964033126831,
+          "visibility": 0.999901533126831
+        },
+        "LEFT_SHOULDER": {
+          "x": 0.47134989500045776,
+          "y": 0.22629070281982422,
+          "z": -0.12725360691547394,
+          "visibility": 0.9999537467956543
+        },
+        "RIGHT_SHOULDER": {
+          "x": 0.5019474625587463,
+          "y": 0.22354690730571747,
+          "z": 0.16527560353279114,
+          "visibility": 0.9981523156166077
+        },
+        "LEFT_ELBOW": {
+          "x": 0.4860783815383911,
+          "y": 0.3716749846935272,
+          "z": -0.14343903958797455,
+          "visibility": 0.9957406520843506
+        },
+        "RIGHT_ELBOW": {
+          "x": 0.5159617066383362,
+          "y": 0.33909329771995544,
+          "z": 0.23137742280960083,
+          "visibility": 0.01950889825820923
+        },
+        "LEFT_WRIST": {
+          "x": 0.428631067276001,
+          "y": 0.39922791719436646,
+          "z": -0.062362343072891235,
+          "visibility": 0.9747538566589355
+        },
+        "RIGHT_WRIST": {
+          "x": 0.4754280745983124,
+          "y": 0.3841286599636078,
+          "z": 0.20644672214984894,
+          "visibility": 0.025258280336856842
+        },
+        "LEFT_PINKY": {
+          "x": 0.41232115030288696,
+          "y": 0.4179159998893738,
+          "z": -0.07180771976709366,
+          "visibility": 0.9436817765235901
+        },
+        "RIGHT_PINKY": {
+          "x": 0.4669874608516693,
+          "y": 0.3962131142616272,
+          "z": 0.20830917358398438,
+          "visibility": 0.040528859943151474
+        },
+        "LEFT_INDEX": {
+          "x": 0.4103067219257355,
+          "y": 0.4034707546234131,
+          "z": -0.05395602062344551,
+          "visibility": 0.9422512054443359
+        },
+        "RIGHT_INDEX": {
+          "x": 0.4619402587413788,
+          "y": 0.38838067650794983,
+          "z": 0.186430886387825,
+          "visibility": 0.0406615249812603
+        },
+        "LEFT_THUMB": {
+          "x": 0.41604694724082947,
+          "y": 0.3973503112792969,
+          "z": -0.04994015395641327,
+          "visibility": 0.9252604246139526
+        },
+        "RIGHT_THUMB": {
+          "x": 0.4643852114677429,
+          "y": 0.38771358132362366,
+          "z": 0.1949731409549713,
+          "visibility": 0.04202131927013397
+        },
+        "LEFT_HIP": {
+          "x": 0.45210695266723633,
+          "y": 0.48020055890083313,
+          "z": -0.1022164449095726,
+          "visibility": 0.9993442893028259
+        },
+        "RIGHT_HIP": {
+          "x": 0.4795911908149719,
+          "y": 0.4812617003917694,
+          "z": 0.10216639190912247,
+          "visibility": 0.9969737529754639
+        },
+        "LEFT_KNEE": {
+          "x": 0.4480714797973633,
+          "y": 0.705501914024353,
+          "z": -0.07893048226833344,
+          "visibility": 0.9297182559967041
+        },
+        "RIGHT_KNEE": {
+          "x": 0.4785870313644409,
+          "y": 0.6955758929252625,
+          "z": 0.11241061240434647,
+          "visibility": 0.485946923494339
+        },
+        "LEFT_ANKLE": {
+          "x": 0.4638644754886627,
+          "y": 0.9010647535324097,
+          "z": -0.02828342095017433,
+          "visibility": 0.9814778566360474
+        },
+        "RIGHT_ANKLE": {
+          "x": 0.5474340915679932,
+          "y": 0.8342300057411194,
+          "z": 0.16638100147247314,
+          "visibility": 0.8182248473167419
+        },
+        "LEFT_HEEL": {
+          "x": 0.4715086817741394,
+          "y": 0.9386942386627197,
+          "z": -0.023396875709295273,
+          "visibility": 0.9885342717170715
+        },
+        "RIGHT_HEEL": {
+          "x": 0.5662535429000854,
+          "y": 0.8457939028739929,
+          "z": 0.16884805262088776,
+          "visibility": 0.9032890796661377
+        },
+        "LEFT_FOOT_INDEX": {
+          "x": 0.4202774465084076,
+          "y": 0.9376134276390076,
+          "z": -0.06675632297992706,
+          "visibility": 0.9820089340209961
+        },
+        "RIGHT_FOOT_INDEX": {
+          "x": 0.5401811599731445,
+          "y": 0.9272152185440063,
+          "z": 0.1367400884628296,
+          "visibility": 0.8473971486091614
+        }
+      },
+      "pose_image_path": "/sessions/stoic-busy-pascal/mnt/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/analysis/pose_003.png",
+      "generated_image": null,
+      "video_clip": null,
+      "evaluation": {
+        "status": "pending",
+        "attempts": []
+      }
+    }
+  ]
+}

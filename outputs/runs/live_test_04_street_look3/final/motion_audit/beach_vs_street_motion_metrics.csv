@@ -1,0 +1,13 @@
+shot,source,flow_pct_h,peak_pct_h,subject_pct_h,camera_pct_h,capture_pct_of_reference
+shot_001,reference,0.336,1.478,0.335,0.008,
+shot_001,beach,0.084,0.173,0.078,0.04,25.0
+shot_001,street,0.047,0.073,0.042,0.018,14.0
+shot_002,reference,0.119,0.494,0.119,0.0,
+shot_002,beach,0.077,0.138,0.077,0.0,64.7
+shot_002,street,0.044,0.082,0.037,0.017,37.0
+shot_003,reference,0.753,2.569,0.698,0.226,
+shot_003,beach,0.189,0.354,0.183,0.028,25.1
+shot_003,street,0.141,0.374,0.137,0.014,18.7
+shot_004,reference,0.273,0.832,0.197,0.213,
+shot_004,beach,0.186,0.307,0.181,0.046,68.1
+shot_004,street,0.175,0.221,0.109,0.135,64.1

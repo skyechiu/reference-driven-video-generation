@@ -1,0 +1,35 @@
+# ══════════════════════════════════════════════════════
+# BEST PIPELINE: GPT-image-1 (keyframes) + Kling (video)
+# Mac-compatible (pure API, no local GPU needed)
+# ══════════════════════════════════════════════════════
+# Prerequisites (Mac):
+#   brew install ffmpeg
+#
+# Install:
+#   pip install -r requirements_best.txt
+
+# OpenAI (gpt-image-1)
+openai>=1.30.0
+
+# Kling AI token generation
+PyJWT>=2.8.0
+
+# HTTP client for Kling polling + download
+httpx>=0.27.0
+requests>=2.31.0
+
+# Reference analysis — Stage 1
+scenedetect[opencv]>=0.6.4     # PySceneDetect
+librosa>=0.10.1                 # beat detection
+mediapipe>=0.10.14              # pose extraction
+opencv-python>=4.9.0
+
+# Evaluation — Stage 4
+deepface>=0.0.93               # wraps ArcFace
+tf-keras>=2.16                 # DeepFace dependency
+onnxruntime>=1.18.0            # Mac CPU version (not onnxruntime-gpu)
+
+# Utilities
+numpy>=1.26.0
+Pillow>=10.3.0
+imageio[ffmpeg]>=2.34.0       # frame → mp4

@@ -1,0 +1,34 @@
+{
+  "timestamp": "2026-06-26T19:37:35.201623",
+  "backend": "api",
+  "identity_threshold": 0.6,
+  "scene_prompt": "A woman stands in a sunlit greenhouse surrounded by white orchids, soft morning light",
+  "results": [
+    {
+      "pose_id": "pose_A_standing_front",
+      "image_path": "/Users/test/Documents/Claude/Projects/Reference-Driven Agentic Short-Form Video Generation System/outputs/keyframes/pose_A_standing_front.png",
+      "identity_score": 0.0,
+      "threshold": 0.6,
+      "passed": false,
+      "status": "FAIL \u2717"
+    },
+    {
+      "pose_id": "pose_B_profile_turn",
+      "image_path": "/Users/test/Documents/Claude/Projects/Reference-Driven Agentic Short-Form Video Generation System/outputs/keyframes/pose_B_profile_turn.png",
+      "identity_score": 0.0,
+      "threshold": 0.6,
+      "passed": false,
+      "status": "FAIL \u2717"
+    },
+    {
+      "pose_id": "pose_C_seated_low",
+      "image_path": "/Users/test/Documents/Claude/Projects/Reference-Driven Agentic Short-Form Video Generation System/outputs/keyframes/pose_C_seated_low.png",
+      "identity_score": 0.0,
+      "threshold": 0.6,
+      "passed": false,
+      "status": "FAIL \u2717"
+    }
+  ],
+  "overall_pass": false,
+  "pass_count": "0/3"
+}
