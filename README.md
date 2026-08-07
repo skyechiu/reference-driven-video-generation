@@ -1,96 +1,266 @@
-# 🎬 Reference-Driven Agentic Short-Form Video Generation System
+# 🎬 Reference-Driven Short-Form Video Generation
+### Auditable Per-Shot Orchestration over Closed Generative APIs
 
-**An MSc dissertation project that turns a reference video into a controllable, repairable generation pipeline — not just another prompt-to-video demo.**
+> **MSc Artificial Intelligence for Media Dissertation**  
+> Bournemouth University (NCCA), 2026
 
-[![Live Dashboard](https://img.shields.io/badge/live%20demo-huggingface.co-orange)](https://huggingface.co/spaces/skye6/video_driven)
-[![Status](https://img.shields.io/badge/status-dissertation%20submission-blue)](#)
-[![Python](https://img.shields.io/badge/python-3.10%2B-green)](#)
+[![Live Evidence Dashboard](https://img.shields.io/badge/Live-Evidence%20Dashboard-EA8A39)](https://huggingface.co/spaces/skye6/video_driven)
+[![Status](https://img.shields.io/badge/Status-Dissertation%20Submission-C65D3D)](#)
+[![Python](https://img.shields.io/badge/Python-3.10+-DAA24C)](#)
 
 ---
 
-## 👋 What is this?
+# ✨ Overview
 
-Most "video generation" demos are one-shot: type a prompt, get a clip, hope it's good. This project asks a different question — **can a system look at a reference video, understand its structure, and use that understanding to control generation, evaluate its own output, and repair what fails?**
+This repository contains the implementation, experimental evidence, and dissertation materials for a research project investigating **reference-driven short-form video regeneration**.
 
-The answer here isn't "yes, perfectly." It's something more honest and more interesting: a working pipeline that decomposes a reference video into inspectable shot-level data, recombines it with a chosen identity/look/scene, generates keyframes and video clips per shot, scores the result on five metrics, and — when something fails — diagnoses *why* and applies a targeted fix instead of just rerolling blindly. Every one of those decisions is logged, so the dissertation's claims are traceable back to real evidence, not vibes.
+Rather than treating video generation as a single prompt-to-video process, the project explores whether a reference video can be decomposed into **explicit shot-level generation units**, regenerated through separated conditioning, and evaluated using an auditable, human-gated repair workflow.
 
-## 🔴 Live Demo
+The contribution is **not a new generative model**.
 
-**→ [huggingface.co/spaces/skye6/video_driven](https://huggingface.co/spaces/skye6/video_driven)**
+Instead, the work proposes an orchestration framework that makes generation decisions, failures, repairs, and retained outputs transparent and traceable while operating entirely on **closed commercial generative APIs**.
 
-This is a **read-only evidence dashboard**, not a "type a prompt, get a video" toy. Every state-changing route (upload / generate / reset / repair) is hard-disabled and returns `403` no matter who calls it. It exists so you can click through and see exactly what backs up every number and claim in the dissertation: decision logs, run summaries, generated media, audit manifests.
+---
 
-## 🧩 How it works
+# 🎯 Research Question
 
+> **How can the structure of a reference short-form video be decomposed and reused to guide controllable regeneration while keeping every generation decision, failure, and repair inspectable?**
+
+---
+
+# 🌐 Live Evidence Dashboard
+
+👉 **https://huggingface.co/spaces/skye6/video_driven**
+
+The online dashboard is a **read-only evidence viewer**.
+
+It exposes the experimental evidence supporting the dissertation, including:
+
+- 🎞 Reference analysis
+- 🧩 Generation units
+- 🎨 Identity / Look / Scene packages
+- 📊 Evaluation evidence
+- 🛠 Human-gated repair records
+- 📑 Decision logs
+- 📈 Experimental reports
+- ⚖️ Claim boundaries and limitations
+
+State-changing operations (generation, upload, repair, reset, etc.) are intentionally disabled in the public deployment.
+
+---
+
+# 🏗 Method Overview
+
+```text
+Reference Video
+        │
+        ▼
+Shot-level Analysis
+        │
+        ▼
+Structured Generation Units
+        │
+        ▼
+Separated Conditioning
+(Identity / Look / Scene)
+        │
+        ▼
+Keyframe Generation
+        │
+        ▼
+Image-to-Video Generation
+        │
+        ▼
+Human Review
+        │
+        ▼
+Diagnosis
+        │
+        ▼
+Targeted Repair
+        │
+        ▼
+Decision Log
+        │
+        ▼
+Retained Output
 ```
-reference video
-     │
-     ▼
-shot / camera / pose / framing / timing analysis   (Stage 1)
-     │
-     ▼
-beat-aligned, enriched storyboard                  (Stage 2)
-     │
-     ▼
-per-shot generation: keyframe → I2V clip           (Stage 3)
-     │
-     ▼
-five-metric evaluation (identity / pose / framing /
-beat alignment / look consistency)                 (Stage 4)
-     │
-     ▼
-diagnose → targeted repair → re-evaluate loop       (Stage 5)
-     │
-     ▼
-final video + decision log (the evidence trail)
+
+Unlike a conventional one-shot workflow, unsuccessful generations are **diagnosed and selectively repaired**, with every decision recorded as part of an auditable evidence trail.
+
+---
+
+# 🧪 Experimental Evidence
+
+The repository contains multiple categories of evidence with different maturity levels.
+
+| Evidence | Status |
+|-----------|--------|
+| 🟢 Reference-scene preservation (Mode A-1) | Completed |
+| 🟢 Scene-package replacement stress test | Completed |
+| 🟡 Motion diagnostics & repair | Completed (post-hoc) |
+| 🟡 ArcFace identity diagnostics | Completed (post-hoc) |
+| 🟡 Pose / mask feasibility audit | Completed |
+| 🟠 Driving-video backend (Mode C) | Feasibility / Quality WIP |
+| 🔵 Storyboard extension (Mode B) | Experimental |
+| ⚪ Hosted-service comparison | Supplementary |
+| ⚪ Planned extensions | Not implemented |
+
+The dissertation explicitly distinguishes:
+
+- Executed evidence
+- Post-hoc diagnostics
+- Log-reconstructed observations
+- Feasibility studies
+- Planned future work
+
+---
+
+# 📂 Repository Structure
+
+```text
+.
+├── pipeline/           Core orchestration and dashboard
+├── scripts/            Analysis, evaluation and export utilities
+├── dissertation/       LaTeX dissertation source
+├── docs/               Technical documentation
+├── assets/             Public project assets
+├── look/               Look conditioning
+├── storyboards/        Structured storyboard assets
+├── outputs/            Executed evidence
+└── README.md
 ```
 
-The Stage 5 loop is the part that makes this "agentic" rather than a linear script: a failed shot doesn't just get rerolled with a new random seed. The system classifies *what* failed — identity drift, weak motion, wrong framing — and applies the matching fix, recording the whole observed-issue → diagnosis → repair-action → retained-result chain in a decision log.
+### Main Components
 
-## 🏖️ Two case studies
+| Directory | Description |
+|------------|-------------|
+| `pipeline/` | Dashboard, orchestration workflow, generation-unit schema |
+| `pipeline/generators/` | Image and video generation backends |
+| `pipeline/evaluation/` | Evaluation utilities and diagnostics |
+| `pipeline/policies/` | Prompt policies and repair rules |
+| `scripts/` | Standalone analysis and export scripts |
+| `outputs/` | Generated evidence and audit artefacts |
+| `dissertation/` | Dissertation source |
+| `docs/` | Technical documentation |
 
-| | Mode A-1 · Beach | Mode A-2 · Street |
-|---|---|---|
-| **Question it answers** | Can the system preserve a reference scene while replacing the character/look? | Can reference-derived shot structure be recomposed with a *different* scene? |
-| **Status** | Completed evidence | Completed as an identity-and-scene stress test |
-| **Reference video** | Yes | No (`reference_video = None` — scene-package replacement) |
+---
 
-Both runs are backed by real decision logs, real generated keyframes and clips, and honest post-hoc diagnostics (ArcFace identity similarity, optical-flow motion energy) — reported as diagnostics, not as automatic pass/fail thresholds.
+# 📊 Evaluation
 
-## 📁 Repository structure
+The implemented evaluation considers five control dimensions:
 
-| Path | What's in it |
-|---|---|
-| `pipeline/` | The four-stage pipeline + the dashboard (`app.py`) + generation-unit schema + mode policies |
-| `pipeline/generators/` | The two generation backends: OpenAI Images API + Kling (default), and a free local-GPU path |
-| `pipeline/evaluation/` | The five evaluation metrics + repair planner |
-| `pipeline/policies/` | Reusable rules extracted from the runs: reference-slot ordering, motion-prompt repair, honest backend-capability limits |
-| `outputs/` | Executed evidence — runs, SHA-256-manifested audits, keyframes, clips, analysis |
-| `assets/`, `look/`, `storyboards/` | Identity / look / scene conditioning packages |
-| `dissertation/` | Paper source (`paper.tex`), chapters, references |
-| `docs/` | Architecture notes, run instructions, audit reports |
-| `generate_*.py`, `regen_*.py`, `rerun_*.py`, `promote_*.py`, `ablation_*.py` | Dated working scripts, kept as a work record. Every one of them defaults to a dry-run / plan-only mode — nothing spends real API credit without an explicit confirmation flag |
+- 👤 Identity consistency
+- 🧍 Character pose / motion
+- 📐 Framing consistency
+- 🎵 Temporal / beat alignment
+- 🎨 Look consistency
 
-## 📏 Evidence-first, on principle
+The repository differentiates between:
 
-This isn't a formality — it's the actual design constraint the whole codebase is built around. Every number that appears in the paper or on the dashboard has to trace back to something concrete: a decision-log entry, a run summary, `ffprobe` output, a metrics file, or an audit manifest. Hash-manifested evidence packages are never edited in place — if something in one turns out to be wrong, a new package gets created rather than quietly patching the old one. The dashboard's own safety guard (`ONLINE_DEMO_READ_ONLY`) enforces the same discipline in code: it's a viewer for evidence that already exists, not a live generator.
+- automated diagnostics
+- post-hoc analysis
+- human review
+- targeted repair
+- retained evidence
 
-## 🚀 Running it locally
+Automatic metric-driven acceptance is **not claimed** as fully executed.
+
+Human review remains the final acceptance authority throughout the completed dissertation evidence.
+
+---
+
+# 📖 Evidence Integrity
+
+Every reported result is expected to trace back to one or more of the following:
+
+- 📄 `decision_log.json`
+- 📊 evaluation reports
+- 🎬 generated outputs
+- 📈 run summaries
+- 🔍 audit manifests
+- 🔐 SHA-256 evidence packages
+
+Evidence packages are treated as immutable records.
+
+Derived analyses are stored separately rather than modifying existing evidence.
+
+---
+
+# 🚀 Running Locally
+
+Clone the repository:
 
 ```bash
 git clone https://github.com/skyechiu/reference-driven-video-generation.git
 cd reference-driven-video-generation
-cp .env.example .env        # fill in your own API keys
-pip install -r pipeline/requirements_best.txt
-python pipeline/run.py phase0   # feasibility check — run this first
 ```
 
-Full setup, backend selection (API vs. local GPU), and the evaluation-repair loop are documented in [`docs/PROJECT_RUN_INSTRUCTIONS.md`](docs/PROJECT_RUN_INSTRUCTIONS.md) and [`pipeline/PIPELINE_README.md`](pipeline/PIPELINE_README.md).
+Create the environment:
 
-## 📄 Dissertation
+```bash
+python -m venv .venv
+source .venv/bin/activate
 
-Full write-up, methodology, and evaluation live in [`dissertation/paper.tex`](dissertation/paper.tex). MSc AI for Media, August 2026.
+pip install -r pipeline/requirements_best.txt
+```
+
+Create your environment file:
+
+```bash
+cp .env.example .env
+```
+
+Inspect available commands:
+
+```bash
+python pipeline/run.py --help
+```
+
+Detailed setup instructions are available in:
+
+- `docs/PROJECT_RUN_INSTRUCTIONS.md`
+- `pipeline/PIPELINE_README.md`
 
 ---
 
-*Built as a single-author MSc dissertation project. The dashboard, pipeline, and every case study in this repo are real, executed, and logged — not mockups.*
+# ⚖️ Scope
+
+This repository **does not claim**:
+
+- exact frame-level motion transfer
+- fully autonomous repair
+- production-ready hard video control
+- implementation of every planned system extension
+
+The supported claim is narrower:
+
+> **Reference-derived shot structure, separated conditioning packages, and logged human-gated repair provide a more inspectable workflow for short-form video regeneration over closed generative APIs.**
+
+---
+
+# 📄 Dissertation
+
+**MSc Artificial Intelligence for Media**
+
+Bournemouth University (NCCA)
+
+2026
+
+The dissertation source is available under:
+
+```
+dissertation/
+```
+
+---
+
+# 📌 Citation
+
+If you reference this repository, please cite the accompanying MSc dissertation.
+
+---
+
+Built as a single-author MSc research project.
+
+The dashboard, experimental evidence, and decision logs included in this repository are derived from executed research runs and are accompanied by explicit evidence-status labels where applicable.
