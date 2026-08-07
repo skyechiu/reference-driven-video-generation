@@ -94,3 +94,8 @@ DEV_NOTES.md
 MASTER_INSTRUCTIONS_20260805.md
 codex_dashboard_patch_instructions.md
 codex_text_selfcheck_20260805.md
+
+# --- Dissertation LaTeX editing backups (auto-generated before each risky
+# edit; same category as pipeline/app.py.backup_* -- work-in-progress
+# snapshots, not deliverables) ---
+dissertation/paper.tex.backup_*
