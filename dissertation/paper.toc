@@ -27,62 +27,62 @@
 \contentsline {subsection}{3.4 Stage 2 --- Template Builder (beat-aligned storyboard)}{11}{figure.caption.8}%
 \contentsline {subsection}{3.5 Stage 3 --- IP-Conditioned Generation}{11}{figure.caption.9}%
 \contentsline {subsubsection}{3.5.1 Identity / look / scene / source-frame separation}{11}{figure.caption.9}%
-\contentsline {subsubsection}{3.5.2 Keyframe generation}{13}{figure.caption.10}%
+\contentsline {subsubsection}{3.5.2 Keyframe generation}{11}{figure.caption.10}%
 \contentsline {subsubsection}{3.5.3 Image-to-video and assembly}{13}{figure.caption.12}%
 \contentsline {subsubsection}{3.5.4 Scoping note: pose control vs. identity}{13}{figure.caption.13}%
 \contentsline {subsubsection}{3.5.5 Graded structural guidance (pose as soft conditioning)}{13}{figure.caption.13}%
-\contentsline {subsection}{3.6 Stage 4 --- Evaluation and Repair}{15}{Item.11}%
-\contentsline {subsubsection}{3.6.1 Two-layer repair}{15}{table.caption.14}%
+\contentsline {subsection}{3.6 Stage 4 --- Evaluation and Repair}{14}{Item.11}%
+\contentsline {subsubsection}{3.6.1 Two-layer repair}{14}{table.caption.14}%
 \contentsline {subsubsection}{3.6.2 Core experiment}{15}{table.caption.14}%
 \contentsline {subsubsection}{3.6.3 Loop trigger on the reported run (honest note)}{15}{figure.caption.16}%
 \contentsline {subsection}{3.7 Central state file and decision log}{15}{figure.caption.16}%
-\contentsline {subsection}{3.8 Copyright-aware workflow and Mode B}{16}{table.caption.17}%
-\contentsline {subsection}{3.9 Implementation status (what is built vs. what is designed)}{17}{figure.caption.18}%
-\contentsline {subsection}{3.10 Mode C --- pose-conditioned driving-video backend (two conditions)}{17}{table.caption.19}%
-\contentsline {subsection}{3.11 Project planning, milestones and risk management}{19}{figure.caption.20}%
-\contentsline {subsubsection}{3.11.1 Milestones}{19}{figure.caption.20}%
-\contentsline {subsubsection}{3.11.2 Risk register and contingencies}{19}{figure.caption.22}%
-\contentsline {section}{Chapter 4 --- Evaluation and Results}{20}{table.caption.23}%
-\contentsline {subsection}{4.1 Aims and the meaning of "result" in this chapter}{20}{section*.24}%
-\contentsline {subsection}{4.2 Evaluation status at a glance}{21}{section*.24}%
-\contentsline {subsection}{4.3 Experiment 1 --- Schema smoke test}{21}{table.caption.26}%
-\contentsline {subsubsection}{4.3.1 Shot-segmentation smoke test}{21}{table.caption.27}%
-\contentsline {subsection}{4.4 Experiment 2 --- Keyframe generation attempts}{21}{table.caption.28}%
-\contentsline {subsection}{4.5 Experiment 3 --- Kling I2V clip results}{22}{table.caption.29}%
-\contentsline {subsection}{4.6 End-to-end assembly result}{23}{table.caption.30}%
-\contentsline {subsection}{4.7 Verified result: human visual review + successful end-to-end generation}{23}{table.caption.31}%
-\contentsline {subsection}{4.8 Evaluation metrics: post-hoc identity diagnostic and pending scores}{24}{table.caption.31}%
-\contentsline {subsubsection}{4.8.1 Identity scoring --- executed (ArcFace)}{24}{table.caption.32}%
-\contentsline {subsection}{4.9 Repair-loop comparison: log reconstruction and planned controlled ablation}{24}{table.caption.33}%
-\contentsline {subsection}{4.10 Automated scoring status for \texttt {live\_test\_03\_4shots}}{25}{table.caption.35}%
-\contentsline {subsection}{4.11 Reference pose-extraction quality and graded structural guidance}{25}{table.caption.35}%
-\contentsline {subsubsection}{4.11.1 Reference-control pose/mask audit (documented control-signal trial)}{27}{table.caption.38}%
-\contentsline {subsection}{4.12 Complementary street-scene runs: scene-package replacement and archived pose-guidance branch}{28}{figure.caption.40}%
-\contentsline {subsection}{4.13 Motion-energy audit of the generated clips}{31}{figure.caption.41}%
-\contentsline {subsection}{4.14 Experimental development process and negative results}{32}{figure.caption.44}%
-\contentsline {subsection}{4.15 Limitations and threats to validity}{34}{table.caption.45}%
-\contentsline {subsubsection}{4.15.1 System limitations}{34}{table.caption.45}%
-\contentsline {subsubsection}{4.15.2 Experimental-design limitations}{35}{Item.22}%
-\contentsline {subsubsection}{4.15.3 Argument and scope boundaries}{35}{Item.25}%
-\contentsline {subsection}{4.16 Summary}{35}{Item.27}%
-\contentsline {subsection}{4.17 Mode C --- driving-video backend: Condition A feasibility (Executed), Condition B (planned)}{36}{Item.27}%
-\contentsline {subsection}{4.18 Hosted-service comparison: implicit control versus the explicit pipeline}{36}{figure.caption.47}%
-\contentsline {section}{Chapter 5 --- Professional and Ethical Considerations}{38}{figure.caption.49}%
-\contentsline {subsection}{5.1 Copyright and the extract-structure principle}{38}{section*.50}%
-\contentsline {subsection}{5.2 Synthetic media, likeness and person replacement}{39}{section*.50}%
-\contentsline {subsection}{5.3 Data and consent}{40}{section*.50}%
-\contentsline {subsection}{5.4 Honesty, reproducibility and professional practice}{40}{section*.50}%
-\contentsline {subsection}{5.5 Environmental and cost considerations}{40}{section*.50}%
-\contentsline {section}{Chapter 6 --- Conclusion and Future Work}{40}{section*.50}%
-\contentsline {subsection}{6.1 Summary}{40}{section*.51}%
-\contentsline {subsection}{6.2 What the evaluation showed}{40}{section*.51}%
-\contentsline {subsection}{6.3 Reflection: negative results as findings}{40}{section*.51}%
-\contentsline {subsection}{6.4 Limitations}{41}{section*.51}%
-\contentsline {subsection}{6.5 Future work}{41}{section*.51}%
-\contentsline {subsection}{6.6 Closing}{41}{section*.51}%
-\contentsline {section}{References}{41}{section*.51}%
-\contentsline {section}{Appendix A --- Results Showcase}{43}{section*.51}%
-\contentsline {subsection}{A.1 End-to-end output: the assembled beach short}{43}{section*.52}%
-\contentsline {subsection}{A.2 Approved keyframes}{43}{figure.caption.53}%
-\contentsline {subsection}{A.3 Reference structure vs. regenerated content}{43}{figure.caption.54}%
-\contentsline {subsection}{A.4 Decision-log excerpt (state file)}{43}{figure.caption.55}%
+\contentsline {subsection}{3.8 Copyright-aware workflow and Mode B}{15}{table.caption.17}%
+\contentsline {subsection}{3.9 Implementation status (what is built vs. what is designed)}{16}{table.caption.17}%
+\contentsline {subsection}{3.10 Mode C --- pose-conditioned driving-video backend (two conditions)}{16}{table.caption.18}%
+\contentsline {subsection}{3.11 Project planning, milestones and risk management}{18}{figure.caption.19}%
+\contentsline {subsubsection}{3.11.1 Milestones}{18}{figure.caption.19}%
+\contentsline {subsubsection}{3.11.2 Risk register and contingencies}{19}{figure.caption.21}%
+\contentsline {section}{Chapter 4 --- Evaluation and Results}{19}{table.caption.22}%
+\contentsline {subsection}{4.1 Aims and the meaning of "result" in this chapter}{19}{section*.23}%
+\contentsline {subsection}{4.2 Evaluation status at a glance}{19}{section*.23}%
+\contentsline {subsection}{4.3 Experiment 1 --- Schema smoke test}{19}{table.caption.25}%
+\contentsline {subsubsection}{4.3.1 Shot-segmentation smoke test}{19}{table.caption.26}%
+\contentsline {subsection}{4.4 Experiment 2 --- Keyframe generation attempts}{20}{table.caption.27}%
+\contentsline {subsection}{4.5 Experiment 3 --- Kling I2V clip results}{21}{table.caption.28}%
+\contentsline {subsection}{4.6 End-to-end assembly result}{22}{table.caption.29}%
+\contentsline {subsection}{4.7 Verified result: human visual review + successful end-to-end generation}{22}{table.caption.30}%
+\contentsline {subsection}{4.8 Evaluation metrics: post-hoc identity diagnostic and pending scores}{23}{table.caption.30}%
+\contentsline {subsubsection}{4.8.1 Identity scoring --- executed (ArcFace)}{23}{table.caption.31}%
+\contentsline {subsection}{4.9 Repair-loop comparison: log reconstruction and planned controlled ablation}{23}{table.caption.32}%
+\contentsline {subsection}{4.10 Automated scoring status for \texttt {live\_test\_03\_4shots}}{24}{table.caption.34}%
+\contentsline {subsection}{4.11 Reference pose-extraction quality and graded structural guidance}{24}{table.caption.34}%
+\contentsline {subsubsection}{4.11.1 Reference-control pose/mask audit (documented control-signal trial)}{26}{table.caption.37}%
+\contentsline {subsection}{4.12 Complementary street-scene runs: scene-package replacement and archived pose-guidance branch}{27}{figure.caption.39}%
+\contentsline {subsection}{4.13 Motion-energy audit of the generated clips}{30}{figure.caption.40}%
+\contentsline {subsection}{4.14 Experimental development process and negative results}{31}{figure.caption.43}%
+\contentsline {subsection}{4.15 Limitations and threats to validity}{33}{table.caption.44}%
+\contentsline {subsubsection}{4.15.1 System limitations}{33}{table.caption.44}%
+\contentsline {subsubsection}{4.15.2 Experimental-design limitations}{34}{Item.22}%
+\contentsline {subsubsection}{4.15.3 Argument and scope boundaries}{34}{Item.25}%
+\contentsline {subsection}{4.16 Summary}{34}{Item.27}%
+\contentsline {subsection}{4.17 Mode C --- driving-video backend: Condition A feasibility (Executed), Condition B (planned)}{35}{Item.27}%
+\contentsline {subsection}{4.18 Hosted-service comparison: implicit control versus the explicit pipeline}{35}{figure.caption.46}%
+\contentsline {section}{Chapter 5 --- Professional and Ethical Considerations}{37}{figure.caption.48}%
+\contentsline {subsection}{5.1 Copyright and the extract-structure principle}{37}{section*.49}%
+\contentsline {subsection}{5.2 Synthetic media, likeness and person replacement}{37}{section*.49}%
+\contentsline {subsection}{5.3 Data and consent}{38}{section*.49}%
+\contentsline {subsection}{5.4 Honesty, reproducibility and professional practice}{39}{section*.49}%
+\contentsline {subsection}{5.5 Environmental and cost considerations}{39}{section*.49}%
+\contentsline {section}{Chapter 6 --- Conclusion and Future Work}{39}{section*.49}%
+\contentsline {subsection}{6.1 Summary}{39}{section*.50}%
+\contentsline {subsection}{6.2 What the evaluation showed}{39}{section*.50}%
+\contentsline {subsection}{6.3 Reflection: negative results as findings}{39}{section*.50}%
+\contentsline {subsection}{6.4 Limitations}{40}{section*.50}%
+\contentsline {subsection}{6.5 Future work}{40}{section*.50}%
+\contentsline {subsection}{6.6 Closing}{40}{section*.50}%
+\contentsline {section}{References}{40}{section*.50}%
+\contentsline {section}{Appendix A --- Results Showcase}{42}{section*.50}%
+\contentsline {subsection}{A.1 End-to-end output: the assembled beach short}{42}{section*.51}%
+\contentsline {subsection}{A.2 Approved keyframes}{42}{figure.caption.52}%
+\contentsline {subsection}{A.3 Reference structure vs. regenerated content}{42}{figure.caption.53}%
+\contentsline {subsection}{A.4 Decision-log excerpt (state file)}{42}{figure.caption.54}%

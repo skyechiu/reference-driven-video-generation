@@ -7315,7 +7315,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <p>Redraw each reference panel as an IP-consistent keyframe (gpt-image-1). Preserves framing, camera angle, body orientation.</p>
       </div>
       <div class="run-panel">
-        <div class="hb-row hb-paid"><span class="hb-k">PAID / EXTERNAL &middot; NEEDS CONFIRMATION</span><span>Runs the generic stage3 / api_gen keyframe backend — NOT the tuned generate_street_run.py that produced the completed street keyframes. Costs money (gpt-image-1) and may not reproduce the shown evidence.</span></div>
+        <div class="hb-row hb-paid"><span class="hb-k">PAID / EXTERNAL &middot; NEEDS CONFIRMATION</span><span>Runs the generic stage3 / api_gen keyframe backend — NOT the tuned scripts/generation/generate_street_run.py that produced the completed street keyframes. Costs money (gpt-image-1) and may not reproduce the shown evidence.</span></div>
         <button class="rp-btn" id="run-s3" onclick="handleGenerateKeyframes()">
           <div class="spin"></div> Generate IP Keyframes
         </button>
@@ -7338,7 +7338,7 @@ document.addEventListener("DOMContentLoaded", function () {
         <p>Animate each IP keyframe with Kling image-to-video. Generated per-shot, never as one continuous video.</p>
       </div>
       <div class="run-panel">
-        <div class="hb-row hb-paid"><span class="hb-k">PAID / EXTERNAL &middot; NEEDS CONFIRMATION</span><span>Runs the generic stage3 clip backend — NOT run_kling_i2v.py / the tuned street script behind the completed clips. Costs money (Kling) per clip.</span></div>
+        <div class="hb-row hb-paid"><span class="hb-k">PAID / EXTERNAL &middot; NEEDS CONFIRMATION</span><span>Runs the generic stage3 clip backend — NOT scripts/generation/run_kling_i2v.py / the tuned street script behind the completed clips. Costs money (Kling) per clip.</span></div>
         <button class="rp-btn" id="run-s4" onclick="handleRunKling()">
           <div class="spin"></div> Generate Clips
         </button>

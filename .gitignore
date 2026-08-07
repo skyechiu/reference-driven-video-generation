@@ -55,6 +55,22 @@ outputs/huggingface_static_site.zip.corrupt*
 outputs/mode_b/comfyui_mode_b_assets/demo_de.mov
 outputs/huggingface_static_site/assets/videos/mode-b-assets/demo_de.mov
 
+# --- Generated static-site export (regenerable via scripts/export/export.py +
+# scripts/export/readme_and_zip.py; the full deployed copy is already hosted
+# separately on Hugging Face -- no need to duplicate ~660MB of build output
+# in the source repo) ---
+outputs/huggingface_static_site/
+
+# --- OS / debug scratch at repo root ---
+.DS_Store
+.fuse_hidden*
+_gen_shot001_inputs.json
+_gen_shot001.log
+_gen001.log
+_gen001.py
+_generate_shot001.log
+_generate_shot001.py
+
 # =========================================================================
 # MAYBE — public evidence media that a human should decide on (Git LFS,
 # external hosting, or committed as-is). NOT excluded by default below;
@@ -66,5 +82,5 @@ outputs/huggingface_static_site/assets/videos/mode-b-assets/demo_de.mov
 # outputs/runs/live_test_04_street_look3/final/final_look3_street_demo_motion_v2_preview.mp4
 # outputs/runs/live_test_04_street_look3/final/final_look3_street_demo_premotion_backup.mp4
 # outputs/audits/reference_control_pose_mask_audit/reference_control_pose_mask_audit.zip
-# outputs/huggingface_static_site/   (entire generated static-site export — regenerable via export.py)
+# (outputs/huggingface_static_site/ now actively excluded above, not just a MAYBE)
 # pipeline/models/pose_landmarker_full.task   (9.4MB vendored MediaPipe model — consider download-on-setup instead)

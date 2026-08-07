@@ -56,8 +56,8 @@ This is the official Mode A reference-video run. It demonstrates:
 |---|---|
 | Run ID | `live_test_04_street_look3` |
 | Label | Scene Package Demo — shared keyframe-to-I2V pipeline |
-| Main script | `generate_street_run.py` |
-| Repair script | `regen_shot001_004_v2.py` |
+| Main script | `scripts/generation/generate_street_run.py` |
+| Repair script | `scripts/generation/regen_shot001_004_v2.py` |
 | Status | Keyframes in progress — not yet sent to Kling |
 
 **Purpose:**
@@ -80,7 +80,7 @@ This file still contains the **older general pipeline logic**. It has not yet be
 
 **Do NOT rewrite `api_gen.py` until the street run has been fully validated.**
 
-Reason: the new slot-order and fidelity logic is currently implemented and tested only in `generate_street_run.py` and `regen_shot001_004_v2.py`, for the specific combination of Look 3 × street scene. Generalising it into the main pipeline before validating outputs risks breaking the beach run's established pipeline behaviour.
+Reason: the new slot-order and fidelity logic is currently implemented and tested only in `scripts/generation/generate_street_run.py` and `scripts/generation/regen_shot001_004_v2.py`, for the specific combination of Look 3 × street scene. Generalising it into the main pipeline before validating outputs risks breaking the beach run's established pipeline behaviour.
 
 Planned future step: once the street run keyframes are approved and Kling clips are confirmed stable, migrate the identity-anchor pattern and slot-order logic into `api_gen.py` as a general improvement.
 
@@ -179,13 +179,13 @@ Follow this order exactly. Do not skip human review steps.
 Check whether `look3_identity_anchor_street.png` already exists and is approved.
 If regeneration is needed:
 ```bash
-python3 regen_anchor.py
+python3 scripts/generation/regen_anchor.py
 ```
 Review the output. Stop here if the anchor does not look like the correct character.
 
 **Step 2 — Keyframe generation**
 ```bash
-python3 generate_street_run.py
+python3 scripts/generation/generate_street_run.py
 # RUN_MODE = "keyframes_only"  (default — do not change)
 # ALLOW_OVERWRITE = False       (default — change only to force re-run)
 ```
@@ -200,7 +200,7 @@ Inspect the generated keyframes manually. Check:
 **Step 4 — Targeted repair (if needed)**
 If shot_001 or shot_004 has identity drift, run:
 ```bash
-python3 regen_shot001_004_v2.py
+python3 scripts/generation/regen_shot001_004_v2.py
 ```
 This outputs:
 - `shot_001_keyframe_look3_street_v2.png`
@@ -282,7 +282,7 @@ These wordings set honest scope expectations and frame the identity repair work 
 ```
 Current next step:
   Finalize the street run keyframe set.
-  Run regen_shot001_004_v2.py to regenerate shot_001 and shot_004
+  Run scripts/generation/regen_shot001_004_v2.py to regenerate shot_001 and shot_004
   with the updated identity anchor at slot[0].
   Review the comparison sheet.
   Only proceed to Kling after the 4-shot set is approved.

@@ -23,8 +23,8 @@ MSc AI for Media engineering dissertation artefact (August 2026).
 - `mode_d/` — hosted-service demo clips (viggle.ai / wan.video, 4 Aug 2026);
   demos only, not dissertation evidence
 - `look/`, `storyboards/`, `docs/` — look packages, storyboard JSON, docs
-- root `generate_*.py`, `regen_*.py`, `rerun_*.py`, `promote_*.py` — dated
-  working scripts retained as a work record
+- `scripts/` (`generation/`, `export/`, `maintenance/`) — dated working
+  scripts retained as a work record, organised by purpose
 - `_archive/` — superseded backups and scratch (safe to delete; see its README)
 
 ## Evidence rules
