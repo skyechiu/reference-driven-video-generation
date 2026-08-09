@@ -1,0 +1,202 @@
+# --- Secrets ---
+.env
+.env.*
+!.env.example
+
+# --- Python ---
+__pycache__/
+*.pyc
+*.pyo
+.cache/
+*.egg-info/
+.pytest_cache/
+
+# --- OS / editor ---
+.DS_Store
+.vscode/
+.claude/settings.local.json
+
+# --- Temp / scratch ---
+tmp/
+temp/
+outputs/tmp/
+outputs/cache/
+*.tmp
+
+# --- Node (if any tooling ever added) ---
+node_modules/
+
+# --- Logs ---
+*.log
+
+# --- Dashboard patch-script backups (regenerable / superseded by git history) ---
+pipeline/app.py.backup_*
+
+# --- Private / unredacted source footage (see docs/GITHUB_PREP_REPORT.md §4) ---
+mode_c.MP4
+reference_videos/
+video_ref/
+test2.mov
+reference/video_dance_test_00001v2_.mp4
+
+# --- Local pipeline state (contains machine-specific absolute paths) ---
+project_state.json
+project_state.last_valid.json
+
+# --- Folders already staged for deletion / vendored third-party code / archived scratch ---
+_to_delete/
+_export_tmp/
+_archive/
+
+# --- Corrupt / broken export artifacts ---
+outputs/huggingface_static_site.zip.corrupt*
+
+# --- Oversized media that exceeds GitHub's 100MB limit ---
+outputs/mode_b/comfyui_mode_b_assets/demo_de.mov
+outputs/huggingface_static_site/assets/videos/mode-b-assets/demo_de.mov
+
+# --- Generated static-site export (regenerable via scripts/export/export.py +
+# scripts/export/readme_and_zip.py; the full deployed copy is already hosted
+# separately on Hugging Face -- no need to duplicate ~660MB of build output
+# in the source repo) ---
+outputs/huggingface_static_site/
+
+# --- OS / debug scratch at repo root ---
+.DS_Store
+.fuse_hidden*
+_gen_shot001_inputs.json
+_gen_shot001.log
+_gen001.log
+_gen001.py
+_generate_shot001.log
+_generate_shot001.py
+
+# =========================================================================
+# MAYBE — public evidence media that a human should decide on (Git LFS,
+# external hosting, or committed as-is). NOT excluded by default below;
+# uncomment any line you want to keep out of the repo, or set up Git LFS
+# for these paths instead. See docs/GITHUB_PREP_REPORT.md §5 for sizes.
+# =========================================================================
+# outputs/runs/live_test_03_4shots/final/final_look3_reference_driven_demo.mp4
+# outputs/runs/live_test_04_street_look3/final/final_look3_street_demo.mp4
+# outputs/runs/live_test_04_street_look3/final/final_look3_street_demo_motion_v2_preview.mp4
+# outputs/runs/live_test_04_street_look3/final/final_look3_street_demo_premotion_backup.mp4
+# outputs/audits/reference_control_pose_mask_audit/reference_control_pose_mask_audit.zip
+# (outputs/huggingface_static_site/ now actively excluded above, not just a MAYBE)
+# pipeline/models/pose_landmarker_full.task   (9.4MB vendored MediaPipe model — consider download-on-setup instead)
+
+# --- Internal AI-assistant working/handoff documents (process notes for
+# Claude/Codex during development; not dissertation or dashboard deliverables,
+# and reference the "What Is Light" phrase this project excludes everywhere
+# else -- excluded from the public repo, kept locally as work records) ---
+CLAUDE.md
+DEV_NOTES.md
+MASTER_INSTRUCTIONS_20260805.md
+codex_dashboard_patch_instructions.md
+codex_text_selfcheck_20260805.md
+
+# --- Dissertation LaTeX editing backups (auto-generated before each risky
+# edit; same category as pipeline/app.py.backup_* -- work-in-progress
+# snapshots, not deliverables) ---
+dissertation/paper.tex.backup_*
+
+# --- Dissertation manuscript: kept out of the public repository entirely.
+# Submitted separately to the university; this repo documents the
+# implementation, evidence, and evaluation infrastructure the dissertation's
+# claims trace back to, not the manuscript itself. ---
+dissertation/
+
+# --- Mode C raw/unredacted driving footage (real-person content). The
+# privacy-redacted (pixelated) equivalents are the ones meant to be public,
+# at outputs/audits/privacy_redacted_mode_c/. See docs/GITHUB_FINAL_AUDIT.md §0. ---
+outputs/runs/mode_c_phase0/mode_c_condition_a/input/
+outputs/runs/mode_c_phase0/phase0_results/driving_segment_phase0.mp4
+outputs/runs/mode_c_phase0/phase0_results/driving_segment_phase0_magic_mask_person_20260720_190946.mp4
+outputs/runs/mode_c_phase0/local_animate_full7s_20260804/test2_magic_mask_person_20260804_153753.mp4
+
+# --- Duplicate / superseded media (see docs/GITHUB_FINAL_AUDIT.md §4) ---
+outputs/runs/live_test_04_street_look3/final/final_look3_street_demo_motion_v2_preview.mp4
+outputs/runs/live_test_04_street_look3/final/final_look3_street_demo_premotion_backup.mp4
+reference/test_03_multishot_edit_4shots.mp4
+outputs/runs/mode_c_phase0/local_animate_full7s_20260804/2026-08-04-16h45m09s_seed630814980_A fit young woman with a blonde ponytail, wearing a fitted pink sports bra and brown athletic shorts.mp4
+outputs/runs/mode_c_phase0/local_animate_full7s_20260804/2026-08-04-17h51m35s_seed630814980_A fit young woman with a blonde ponytail, wearing a fitted pink sports bra and brown athletic shorts.mp4
+outputs/runs/mode_c_phase0/local_animate_full7s_20260804/2026-08-04-18h33m37s_seed630814980_A fit young woman with a blonde ponytail, wearing a fitted pink sports bra and brown athletic shorts.mp4
+outputs/audits/reference_control_pose_mask_audit/reference_control_pose_mask_audit.zip
+
+# --- Unidentified file, unresolved -- see docs/GITHUB_FINAL_AUDIT.md ---
+outputs/ziQmGV7z
+
+# --- Raw LoRA face-training dataset (40 personal photos); trained/generated
+# outputs are kept, the raw training set is not published ---
+outputs/lora/olivia_face_lora/dataset_sample/
+
+# --- Stray draft scripts left inside the data folder (superseded by
+# scripts/generation/generate_shot001.py) ---
+outputs/_gen001.py
+outputs/_generate_shot001.py
+
+# --- Superseded exploratory run, predates the two main dissertation runs ---
+outputs/runs/run_20260720_224813/
+
+# =========================================================================
+# outputs/ policy change (2026-08-07): the public GitHub repo ships a small
+# curated evidence set at the top-level public_evidence/ (not nested under
+# outputs/) instead of the full raw outputs/ tree. Every complete run,
+# intermediate attempt, and audit file stays in the local / university-
+# submission archive only. See public_evidence/README.md.
+# =========================================================================
+outputs/
+
+# --- Mode D: rough hosted-service test clips with download-style filenames
+# (one literally contains the author's name). Low dissertation-evidence
+# value ("planned extension" per project status labels); excluded wholesale
+# rather than renamed. Curate + re-add specific files later if needed. ---
+mode_d/
+
+# --- Internal GitHub-publishing audit: contains local paths, privacy
+# investigation notes, and internal cleanup reasoning -- not something a
+# public reader needs to see. Kept locally as a work record. ---
+docs/GITHUB_FINAL_AUDIT.md
+
+# --- Same category as GITHUB_FINAL_AUDIT.md above: internal security/size
+# audit written before this git repo existed. References the local
+# /Users/test/... username in several spots and narrates the internal
+# cleanup pass (patch-script comment rewrites, what was/wasn't applied).
+# Not needed by a public reader; kept locally as a work record. ---
+docs/GITHUB_PREP_REPORT.md
+
+# --- Superseded submission-layout note: referenced project_state.json,
+# full outputs/, reference_videos/, video_ref/, mode_d/, _archive/ -- all
+# inconsistent with the current public_evidence/ + outputs/-excluded policy.
+# Main README.md is the single source of truth going forward. ---
+README_SUBMISSION.md
+
+# --- Superseded devcontainer/backup scratch left by earlier cleanup passes
+# (auto_repair_harness re-exports of the static site, patch scripts). Not
+# dissertation evidence, not meant to be public. ---
+_to_delete/
+
+# --- Stray dev-scratch script left in pipeline/, same category as the
+# outputs/_gen001.py / _gen_shot001_inputs.json family already excluded
+# above -- superseded by scripts/generation/generate_shot001.py. ---
+pipeline/_gen_shot001.py
+
+# --- Accidental duplicate save of look_package.json ("副本" = "copy"). ---
+assets/looks/look_3_tailored_self/look_package_副本.json
+
+# --- Superseded raw image dumps confirmed byte-identical to the current
+# assets/looks/look_1_activewear / look_2_darkening_self / look_3_tailored_self
+# folders (pipeline/app.py:19916-19918 itself labels these "(raw images, no
+# JSON)" -- pre-reorg leftovers, not read by any script). look/mode_b_ip/ is
+# NOT included here -- it's actively served by pipeline/app.py and has no
+# duplicate elsewhere in the tracked tree. ---
+look/look1/
+look/look2_darkening-self/
+look/look3_tailored-self/
+
+# --- Loose root-level files, decided not to publish (2026-08-09). ---
+dissertation deck academic 1.pptx
+tech_stack.xlsx
+tech_stack_EN.xlsx
+pipeline_overview.html
+evaluation_repair_loop_web.svg

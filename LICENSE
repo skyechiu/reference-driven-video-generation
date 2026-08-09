@@ -1,0 +1,36 @@
+MIT License
+
+Copyright (c) 2026 Mingming (Skye) Zhao
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Scope
+
+The MIT License above applies to the source code in this repository: everything
+under `pipeline/`, `scripts/`, and other `.py`, `.md`, and configuration files
+that make up the pipeline and dashboard implementation.
+
+It does NOT extend to non-code media in this repository — generated character
+images and video, look/scene reference material, and the contents of
+`public_evidence/`. That material is provided for research-viewing and
+portfolio-review purposes only. All rights to the depicted synthetic character,
+generated imagery, and video content are reserved by the author; it may not be
+reused, redistributed, or used to train other models without permission.

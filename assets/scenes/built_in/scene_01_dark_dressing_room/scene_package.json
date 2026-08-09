@@ -1,0 +1,70 @@
+{
+  "scene_id": "scene_01_dark_dressing_room",
+  "scene_name": "Dark Dressing Room",
+  "scene_number": 1,
+  "status": "built_in",
+  "description": "A warm, low-key vintage dressing room. Antique vanity mirror with round bulbs, tufted green velvet sofa, brass dress rack, Persian rug, red velvet curtains. Intimate editorial atmosphere.",
+  "thumbnail": "thumbnails/card_thumbnail.jpg",
+  "best_use": [
+    "close-up editorial shots",
+    "dramatic fashion",
+    "mirror reflections",
+    "seated or standing poses",
+    "introspective mood"
+  ],
+  "compatible_looks": ["look_2_darkening_self"],
+  "risk_notes": [
+    "low ambient light — may lose detail in deep shadows",
+    "mirror can cause unwanted reflections of character",
+    "warm amber palette may shift look colours in generation"
+  ],
+  "references": [
+    {
+      "filename": "references/main_scene_board_16x9.jpg",
+      "role": "main_scene_board",
+      "description": "Front establishing view — full room, vanity mirror left, dress rack centre, sofa right",
+      "use_for": ["general reference", "full_body shots", "establishing scene mood"]
+    },
+    {
+      "filename": "references/side_view_16x9.jpg",
+      "role": "side_view",
+      "description": "Side angle — dress rack foreground, sofa and lamp in background",
+      "use_for": ["side profile shots", "walking poses", "dress rack detail"]
+    },
+    {
+      "filename": "references/reverse_view_16x9.jpg",
+      "role": "reverse_view",
+      "description": "Reverse angle — entrance door centre, sofa left, vanity mirror right",
+      "use_for": ["walking toward camera", "entrance framing", "back view shots"]
+    },
+    {
+      "filename": "references/lighting_reference_16x9.jpg",
+      "role": "lighting_reference",
+      "description": "Close-up of vanity mirror with warm round bulbs",
+      "use_for": ["close-up shots", "lighting description", "mirror detail"]
+    },
+    {
+      "filename": "references/floor_reference_16x9.png",
+      "role": "floor_reference",
+      "description": "Top-down floor plan with LEFT WALL / RIGHT WALL / ENTRANCE labels",
+      "use_for": ["spatial layout", "prompt spatial reasoning", "director reference"]
+    }
+  ],
+  "prompt_profile": {
+    "location": "vintage backstage dressing room, intimate and low-key",
+    "lighting": "warm amber vanity bulbs, low-key fill, soft shadows, single-source warm glow from mirror lights",
+    "background_elements": ["antique vanity mirror with round bulbs", "tufted green velvet sofa", "brass dress rack", "Persian rug in red and gold", "deep red velvet curtains", "vintage wooden dresser"],
+    "floor": "Persian carpet rug, warm terracotta and gold tones",
+    "palette": "deep amber, forest green velvet, dark wood, cream, red velvet, gold brass",
+    "mood": "intimate, editorial, theatrical backstage",
+    "adaptation_note": "Adapt reference into 9:16 vertical frame. Preserve lighting palette and key background elements. Allow background recomposition for vertical framing."
+  },
+  "shot_type_map": {
+    "close_up": ["lighting_reference", "main_scene_board"],
+    "medium_close_up": ["lighting_reference", "main_scene_board"],
+    "medium": ["main_scene_board", "side_view"],
+    "full_body": ["main_scene_board", "reverse_view", "floor_reference"],
+    "side_profile": ["side_view", "floor_reference"],
+    "back_view": ["reverse_view", "side_view"]
+  }
+}

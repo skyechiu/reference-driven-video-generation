@@ -1,0 +1,313 @@
+{
+  "schema_version": "0.3",
+  "character_mode": "single_primary_subject",
+  "supported_subject_count": 1,
+  "multi_subject_policy": "select_primary_subject_only",
+  "project_id": "mode_b_1782938134",
+  "input_mode": "storyboard_sheet",
+  "scene_prompt": "",
+  "mood": "",
+  "camera_style": "stable_editorial",
+  "motion_level": "low",
+  "format": {
+    "scene_reference_aspect": "16:9",
+    "target_video_aspect": "9:16",
+    "adaptation_strategy": "vertical_recompose_per_shot",
+    "fps": 24,
+    "duration_seconds": 8.0
+  },
+  "character": {
+    "identity_refs": [
+      "/Users/test/Desktop/character_look/look4b_01.png",
+      "/Users/test/Desktop/character_look/look4b_05.png",
+      "/Users/test/Desktop/character_look/look4b_03.png"
+    ],
+    "description": "The character is a young woman in her mid-twenties. She has a slender, tall build. Her face features: deep-set almond-shaped eyes, strong defined brows, high cheekbones, a straight nose, and full lips. Her skin tone is light olive. Hair is dark brown, loosely pinned. She wears a white square-neck lace wedding gown with a long cathedral veil. Her expression is composed, introspective, and quietly intense."
+  },
+  "shots": [
+    {
+      "shot_id": "shot_000",
+      "input_mode": "storyboard_sheet",
+      "source_panel": "/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/mode_b/panels/panel_001.png",
+      "reference_keyframe": "/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/mode_b/panels/panel_001.png",
+      "timing": {
+        "start_time_s": 0.0,
+        "end_time_s": 2.0,
+        "duration_s": 2.0,
+        "beat_time_s": null,
+        "beat_aligned": false
+      },
+      "visual_structure": {
+        "shot_size": "medium",
+        "camera_angle": "eye_level",
+        "camera_motion": "static vertical camera",
+        "aspect_ratio": "9:16",
+        "orientation": "vertical"
+      },
+      "subject_action": {
+        "body_orientation": "front",
+        "action": "",
+        "expression": "",
+        "gaze": "natural",
+        "motion_intensity": "low",
+        "motion_direction": "minimal movement",
+        "pose_confidence": null,
+        "view": "front",
+        "identity_eval_mode": "face_embedding",
+        "source": "storyboard_sheet"
+      },
+      "primary_subject": {
+        "track_id": "person_01",
+        "selection_rule": "largest_central_person",
+        "background_people_policy": "ignore",
+        "locked": true,
+        "note": "Single-primary-subject pipeline. Background people in reference are not tracked or reproduced."
+      },
+      "generation_constraints": {
+        "single_character_only": true,
+        "no_extra_people": true,
+        "do_not_reproduce_background_characters": true,
+        "background_people_policy": "ignore",
+        "subject_count_expected": 1
+      },
+      "generation_brief": {
+        "keyframe_prompt": "The character is a young woman in her mid-twenties. She has a slender, tall build. Her face features: deep-set almond-shaped eyes, strong defined brows, high cheekbones, a straight nose, and full lips. Her skin tone is light olive. Hair is dark brown, loosely pinned. She wears a white square-neck lace wedding gown with a long cathedral veil. Her expression is composed, introspective, and quietly intense. Framing: medium shot, 9:16 vertical frame. View: front view. Camera: static vertical camera. Camera style: stable editorial. Generate only one visible character in the frame. Do not add extra people, background figures, duplicated bodies or additional faces.",
+        "video_prompt": "minimal movement. Camera: static vertical camera. slow, subtle movement.",
+        "negative_prompt": "different face, changed identity, wrong outfit, extra limbs, unstable hands, distorted proportions, copied original background, multiple people, extra person, second face, background characters, crowd, duplicated body",
+        "camera_style": "stable_editorial",
+        "motion_level": "low",
+        "mood": ""
+      },
+      "evaluation_targets": {
+        "identity_min": "calibrated",
+        "identity_eval_mode": "face_embedding",
+        "look_consistency_min": 0.65,
+        "framing_min": 0.75,
+        "pose_min": 0.7,
+        "beat_offset_ms_max": 150,
+        "subject_count_expected": 1
+      },
+      "risk_flags": [],
+      "pose_keypoints": null,
+      "generated_image": null,
+      "generated_clip": null,
+      "evaluation": {
+        "status": "pending",
+        "attempts": []
+      }
+    },
+    {
+      "shot_id": "shot_001",
+      "input_mode": "storyboard_sheet",
+      "source_panel": "/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/mode_b/panels/panel_002.png",
+      "reference_keyframe": "/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/mode_b/panels/panel_002.png",
+      "timing": {
+        "start_time_s": 2.0,
+        "end_time_s": 4.0,
+        "duration_s": 2.0,
+        "beat_time_s": null,
+        "beat_aligned": false
+      },
+      "visual_structure": {
+        "shot_size": "medium",
+        "camera_angle": "eye_level",
+        "camera_motion": "static vertical camera",
+        "aspect_ratio": "9:16",
+        "orientation": "vertical"
+      },
+      "subject_action": {
+        "body_orientation": "front",
+        "action": "",
+        "expression": "",
+        "gaze": "natural",
+        "motion_intensity": "low",
+        "motion_direction": "minimal movement",
+        "pose_confidence": null,
+        "view": "front",
+        "identity_eval_mode": "face_embedding",
+        "source": "storyboard_sheet"
+      },
+      "primary_subject": {
+        "track_id": "person_01",
+        "selection_rule": "largest_central_person",
+        "background_people_policy": "ignore",
+        "locked": true,
+        "note": "Single-primary-subject pipeline. Background people in reference are not tracked or reproduced."
+      },
+      "generation_constraints": {
+        "single_character_only": true,
+        "no_extra_people": true,
+        "do_not_reproduce_background_characters": true,
+        "background_people_policy": "ignore",
+        "subject_count_expected": 1
+      },
+      "generation_brief": {
+        "keyframe_prompt": "The character is a young woman in her mid-twenties. She has a slender, tall build. Her face features: deep-set almond-shaped eyes, strong defined brows, high cheekbones, a straight nose, and full lips. Her skin tone is light olive. Hair is dark brown, loosely pinned. She wears a white square-neck lace wedding gown with a long cathedral veil. Her expression is composed, introspective, and quietly intense. Framing: medium shot, 9:16 vertical frame. View: front view. Camera: static vertical camera. Camera style: stable editorial. Generate only one visible character in the frame. Do not add extra people, background figures, duplicated bodies or additional faces.",
+        "video_prompt": "minimal movement. Camera: static vertical camera. slow, subtle movement.",
+        "negative_prompt": "different face, changed identity, wrong outfit, extra limbs, unstable hands, distorted proportions, copied original background, multiple people, extra person, second face, background characters, crowd, duplicated body",
+        "camera_style": "stable_editorial",
+        "motion_level": "low",
+        "mood": ""
+      },
+      "evaluation_targets": {
+        "identity_min": "calibrated",
+        "identity_eval_mode": "face_embedding",
+        "look_consistency_min": 0.65,
+        "framing_min": 0.75,
+        "pose_min": 0.7,
+        "beat_offset_ms_max": 150,
+        "subject_count_expected": 1
+      },
+      "risk_flags": [],
+      "pose_keypoints": null,
+      "generated_image": null,
+      "generated_clip": null,
+      "evaluation": {
+        "status": "pending",
+        "attempts": []
+      }
+    },
+    {
+      "shot_id": "shot_002",
+      "input_mode": "storyboard_sheet",
+      "source_panel": "/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/mode_b/panels/panel_003.png",
+      "reference_keyframe": "/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/mode_b/panels/panel_003.png",
+      "timing": {
+        "start_time_s": 4.0,
+        "end_time_s": 6.0,
+        "duration_s": 2.0,
+        "beat_time_s": null,
+        "beat_aligned": false
+      },
+      "visual_structure": {
+        "shot_size": "medium",
+        "camera_angle": "eye_level",
+        "camera_motion": "static vertical camera",
+        "aspect_ratio": "9:16",
+        "orientation": "vertical"
+      },
+      "subject_action": {
+        "body_orientation": "front",
+        "action": "",
+        "expression": "",
+        "gaze": "natural",
+        "motion_intensity": "low",
+        "motion_direction": "minimal movement",
+        "pose_confidence": null,
+        "view": "front",
+        "identity_eval_mode": "face_embedding",
+        "source": "storyboard_sheet"
+      },
+      "primary_subject": {
+        "track_id": "person_01",
+        "selection_rule": "largest_central_person",
+        "background_people_policy": "ignore",
+        "locked": true,
+        "note": "Single-primary-subject pipeline. Background people in reference are not tracked or reproduced."
+      },
+      "generation_constraints": {
+        "single_character_only": true,
+        "no_extra_people": true,
+        "do_not_reproduce_background_characters": true,
+        "background_people_policy": "ignore",
+        "subject_count_expected": 1
+      },
+      "generation_brief": {
+        "keyframe_prompt": "The character is a young woman in her mid-twenties. She has a slender, tall build. Her face features: deep-set almond-shaped eyes, strong defined brows, high cheekbones, a straight nose, and full lips. Her skin tone is light olive. Hair is dark brown, loosely pinned. She wears a white square-neck lace wedding gown with a long cathedral veil. Her expression is composed, introspective, and quietly intense. Framing: medium shot, 9:16 vertical frame. View: front view. Camera: static vertical camera. Camera style: stable editorial. Generate only one visible character in the frame. Do not add extra people, background figures, duplicated bodies or additional faces.",
+        "video_prompt": "minimal movement. Camera: static vertical camera. slow, subtle movement.",
+        "negative_prompt": "different face, changed identity, wrong outfit, extra limbs, unstable hands, distorted proportions, copied original background, multiple people, extra person, second face, background characters, crowd, duplicated body",
+        "camera_style": "stable_editorial",
+        "motion_level": "low",
+        "mood": ""
+      },
+      "evaluation_targets": {
+        "identity_min": "calibrated",
+        "identity_eval_mode": "face_embedding",
+        "look_consistency_min": 0.65,
+        "framing_min": 0.75,
+        "pose_min": 0.7,
+        "beat_offset_ms_max": 150,
+        "subject_count_expected": 1
+      },
+      "risk_flags": [],
+      "pose_keypoints": null,
+      "generated_image": null,
+      "generated_clip": null,
+      "evaluation": {
+        "status": "pending",
+        "attempts": []
+      }
+    },
+    {
+      "shot_id": "shot_003",
+      "input_mode": "storyboard_sheet",
+      "source_panel": "/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/mode_b/panels/panel_004.png",
+      "reference_keyframe": "/Users/test/Desktop/Reference-Driven Agentic Short-Form Video Generation System/outputs/mode_b/panels/panel_004.png",
+      "timing": {
+        "start_time_s": 6.0,
+        "end_time_s": 8.0,
+        "duration_s": 2.0,
+        "beat_time_s": null,
+        "beat_aligned": false
+      },
+      "visual_structure": {
+        "shot_size": "medium",
+        "camera_angle": "eye_level",
+        "camera_motion": "static vertical camera",
+        "aspect_ratio": "9:16",
+        "orientation": "vertical"
+      },
+      "subject_action": {
+        "body_orientation": "front",
+        "action": "",
+        "expression": "",
+        "gaze": "natural",
+        "motion_intensity": "low",
+        "motion_direction": "minimal movement",
+        "pose_confidence": null,
+        "view": "front",
+        "identity_eval_mode": "face_embedding",
+        "source": "storyboard_sheet"
+      },
+      "primary_subject": {
+        "track_id": "person_01",
+        "selection_rule": "largest_central_person",
+        "background_people_policy": "ignore",
+        "locked": true,
+        "note": "Single-primary-subject pipeline. Background people in reference are not tracked or reproduced."
+      },
+      "generation_constraints": {
+        "single_character_only": true,
+        "no_extra_people": true,
+        "do_not_reproduce_background_characters": true,
+        "background_people_policy": "ignore",
+        "subject_count_expected": 1
+      },
+      "generation_brief": {
+        "keyframe_prompt": "The character is a young woman in her mid-twenties. She has a slender, tall build. Her face features: deep-set almond-shaped eyes, strong defined brows, high cheekbones, a straight nose, and full lips. Her skin tone is light olive. Hair is dark brown, loosely pinned. She wears a white square-neck lace wedding gown with a long cathedral veil. Her expression is composed, introspective, and quietly intense. Framing: medium shot, 9:16 vertical frame. View: front view. Camera: static vertical camera. Camera style: stable editorial. Generate only one visible character in the frame. Do not add extra people, background figures, duplicated bodies or additional faces.",
+        "video_prompt": "minimal movement. Camera: static vertical camera. slow, subtle movement.",
+        "negative_prompt": "different face, changed identity, wrong outfit, extra limbs, unstable hands, distorted proportions, copied original background, multiple people, extra person, second face, background characters, crowd, duplicated body",
+        "camera_style": "stable_editorial",
+        "motion_level": "low",
+        "mood": ""
+      },
+      "evaluation_targets": {
+        "identity_min": "calibrated",
+        "identity_eval_mode": "face_embedding",
+        "look_consistency_min": 0.65,
+        "framing_min": 0.75,
+        "pose_min": 0.7,
+        "beat_offset_ms_max": 150,
+        "subject_count_expected": 1
+      },
+      "risk_flags": [],
+      "pose_keypoints": null,
+      "generated_image": null,
+      "generated_clip": null,
+      "evaluation": {
+        "status": "pending",
+        "attempts": []
+      }
+    }
+  ]
+}

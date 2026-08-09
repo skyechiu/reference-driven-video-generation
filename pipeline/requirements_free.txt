@@ -1,0 +1,43 @@
+# ══════════════════════════════════════════════════════
+# FREE PIPELINE: InstantID (keyframes) + CogVideoX (video)
+# For school Linux machine with CUDA GPU (16GB+ VRAM)
+# ══════════════════════════════════════════════════════
+# Prerequisites (Linux):
+#   sudo apt install ffmpeg
+#
+# Install PyTorch with CUDA first (check your CUDA version):
+#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+#
+# Then:
+#   pip install -r requirements_free.txt
+
+# Core diffusers stack
+diffusers>=0.30.0
+transformers>=4.44.0
+accelerate>=0.33.0
+safetensors>=0.4.3
+
+# InstantID face analysis
+insightface>=0.7.3
+onnxruntime-gpu>=1.18.0       # Linux CUDA; swap for onnxruntime if no GPU
+huggingface_hub>=0.24.0
+
+# Video generation (free, HuggingFace) — pick one:
+# CogVideoX-5b-I2V: THUDM/CogVideoX-5b-I2V (~16GB VRAM)
+# Wan2.1-I2V:       Wan-AI/Wan2.1-I2V-14B-480P-Diffusers (~22GB, better quality)
+imageio[ffmpeg]>=2.34.0
+
+# Reference analysis — Stage 1
+scenedetect[opencv]>=0.6.4
+librosa>=0.10.1
+mediapipe>=0.10.14
+opencv-python>=4.9.0
+
+# Evaluation — Stage 4
+deepface>=0.0.93
+tf-keras>=2.16
+
+# Utilities
+numpy>=1.26.0
+Pillow>=10.3.0
+# torch installed separately above (CUDA-specific wheel)

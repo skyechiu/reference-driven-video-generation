@@ -1,0 +1,71 @@
+{
+  "look_id": "look_3_tailored_self",
+  "look_number": 3,
+  "look_name": "The Tailored Self",
+  "status": "built_in",
+  "identity_id": "ip_01_the_four_selves",
+  "main_thumbnail": "look3_sheet.png",
+  "description": "Charcoal cropped blazer, white shirt, muted olive tie, wide faded denim trousers, polished black leather shoes, loose natural dark hair with centre part.",
+  "best_use": [
+    "walking shots",
+    "city and studio scenes",
+    "full-body motion tests",
+    "storyboard prompt mode",
+    "modern tailored editorial"
+  ],
+  "risk_notes": [
+    "more stable for motion than long gowns",
+    "identity may shift if natural makeup loses definition",
+    "wide denim silhouette should remain consistent across shots",
+    "olive tie is a subtle detail — may disappear in low-res frames"
+  ],
+  "motion_stability": "high",
+  "references": [
+    {
+      "filename": "look3_sheet.png",
+      "label": "Look Sheet",
+      "role": "overview",
+      "use_for": [
+        "layout",
+        "mood",
+        "full_outfit",
+        "styling",
+        "overall_reference"
+      ]
+    },
+    {
+      "filename": "look3_front.png",
+      "label": "Front Full Body",
+      "role": "front_full_body",
+      "use_for": [
+        "jacket_fit",
+        "tie",
+        "denim_silhouette",
+        "shoes",
+        "full_body_proportion"
+      ]
+    },
+    {
+      "filename": "look3_closeup.png",
+      "label": "Face Close-up",
+      "role": "face_closeup",
+      "use_for": [
+        "identity",
+        "natural_makeup",
+        "hair_texture",
+        "brows",
+        "skin_tone"
+      ]
+    }
+  ],
+  "prompt_profile": {
+    "outfit": "charcoal tailored cropped blazer, white cotton shirt, muted olive tie, wide faded blue denim trousers with clean break, polished black leather oxford shoes",
+    "hair": "loose natural dark hair, centre part, slightly undone runway texture, falls to shoulders",
+    "makeup": "natural polished makeup, lightly sculpted skin, defined brows, subtle brown eyeshadow, understated nude lips",
+    "jewellery": "none or minimal — clean modern look",
+    "palette": "charcoal, faded denim blue, white, muted olive, black leather, warm skin",
+    "texture": "tailored wool, cotton poplin, vintage denim, polished leather",
+    "shoes": "polished black leather oxford shoes, structured toe, clean sole",
+    "body_silhouette": "relaxed broad-shoulder tailored silhouette, wide trouser leg with clean break at ankle, cropped blazer waist, upright posture"
+  }
+}

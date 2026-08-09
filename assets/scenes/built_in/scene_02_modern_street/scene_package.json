@@ -1,0 +1,58 @@
+{
+  "scene_id": "scene_02_modern_street",
+  "scene_name": "Parisian Street",
+  "scene_number": 2,
+  "status": "built_in",
+  "description": "A quiet cobblestone street in Paris. Haussmann-style limestone facades, wrought iron railings, gas-style street lamps, boulangerie. Soft diffused daylight. Empty and serene — ideal for walking shots.",
+  "thumbnail": "thumbnails/card_thumbnail.jpg",
+  "best_use": [
+    "full-body walking shots",
+    "motion sequences",
+    "street fashion editorial",
+    "establishing wide shots",
+    "tailored look showcase"
+  ],
+  "compatible_looks": ["look_3_tailored_self"],
+  "risk_notes": [
+    "background too empty may feel unnatural in generation",
+    "foot contact with cobblestone is a common failure point",
+    "neutral palette may not contrast strongly with light looks"
+  ],
+  "references": [
+    {
+      "filename": "references/main_scene_board_16x9.jpg",
+      "role": "main_scene_board",
+      "description": "Wide shot — boulangerie on left, cobblestone street, Haussmann buildings",
+      "use_for": ["general reference", "full_body shots", "street mood and palette"]
+    },
+    {
+      "filename": "references/establishing_view_16x9.png",
+      "role": "establishing_view",
+      "description": "Deep perspective down narrow street, symmetric vanishing point",
+      "use_for": ["establishing shots", "walking away from camera", "long lens framing"]
+    },
+    {
+      "filename": "references/side_view_16x9.png",
+      "role": "side_view",
+      "description": "Side angle along building facade — shows sidewalk, railings, street lamps",
+      "use_for": ["side profile walking", "tracking shots", "sidewalk detail"]
+    }
+  ],
+  "prompt_profile": {
+    "location": "quiet Parisian cobblestone street, Haussmann architecture",
+    "lighting": "soft diffused daylight, overcast or early morning, neutral cool-warm balance, no harsh shadows",
+    "background_elements": ["limestone Haussmann facades", "wrought iron bollards and railings", "gas-style street lamps", "cobblestone paving", "boulangerie shopfront", "shuttered windows with flower boxes"],
+    "floor": "grey cobblestone, irregular stone paving",
+    "palette": "warm limestone beige, grey cobblestone, muted sage, cream, charcoal ironwork",
+    "mood": "quiet, editorial, Parisian morning, fashion week off-duty",
+    "adaptation_note": "Adapt reference into 9:16 vertical frame. Preserve cobblestone floor, limestone buildings and soft daylight. Allow vertical recompose — show more sky or building height as needed."
+  },
+  "shot_type_map": {
+    "close_up": ["main_scene_board"],
+    "medium_close_up": ["main_scene_board", "side_view"],
+    "medium": ["main_scene_board", "side_view"],
+    "full_body": ["establishing_view", "main_scene_board", "side_view"],
+    "walking_away": ["establishing_view"],
+    "side_profile": ["side_view"]
+  }
+}

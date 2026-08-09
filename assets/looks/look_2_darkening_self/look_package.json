@@ -1,0 +1,93 @@
+{
+  "look_id": "look_2_darkening_self",
+  "look_number": 2,
+  "look_name": "The Darkening Self",
+  "status": "built_in",
+  "identity_id": "ip_01_the_four_selves",
+  "main_thumbnail": "look2_sheet.png",
+  "description": "Black velvet gown, sculpted organza shoulder, long black leather gloves, diamond necklace with yellow gemstone, slick sculpted dark hair, dramatic polished editorial makeup.",
+  "best_use": [
+    "dramatic editorial scenes",
+    "mirror room",
+    "close-up emotional shots",
+    "controlled slow motion",
+    "high-fashion runway mood"
+  ],
+  "risk_notes": [
+    "organza shoulder may deform during I2V motion",
+    "black velvet loses texture detail in dark scenes",
+    "long dress limits fast walking shots",
+    "complex silhouette increases identity drift risk"
+  ],
+  "motion_stability": "medium",
+  "references": [
+    {
+      "filename": "look2_sheet.png",
+      "label": "Look Sheet",
+      "role": "overview",
+      "use_for": [
+        "layout",
+        "mood",
+        "full_outfit",
+        "styling",
+        "overall_reference"
+      ]
+    },
+    {
+      "filename": "look2_front.png",
+      "label": "Front Full Body",
+      "role": "front_full_body",
+      "use_for": [
+        "outfit_silhouette",
+        "body_proportion",
+        "frontal_styling",
+        "gown_length"
+      ]
+    },
+    {
+      "filename": "look2_side.png",
+      "label": "Side View",
+      "role": "side_full_body",
+      "use_for": [
+        "side_silhouette",
+        "dress_volume",
+        "profile_outfit",
+        "gown_train"
+      ]
+    },
+    {
+      "filename": "look2_back.png",
+      "label": "Back View",
+      "role": "back_full_body",
+      "use_for": [
+        "back_silhouette",
+        "shoulder_structure",
+        "organza_detail",
+        "glove_back"
+      ]
+    },
+    {
+      "filename": "look2_closeup.png",
+      "label": "Face Close-up",
+      "role": "face_closeup",
+      "use_for": [
+        "identity",
+        "makeup",
+        "hair",
+        "jewellery",
+        "expression",
+        "skin_tone"
+      ]
+    }
+  ],
+  "prompt_profile": {
+    "outfit": "black velvet gown with sculpted bodice, black organza architectural shoulder structure, long black leather gloves, floor-length skirt with subtle train",
+    "hair": "slick sculpted dark hair with controlled waves, severe parting, editorial precision",
+    "makeup": "defined dark eyes, warm sculpted skin, polished editorial makeup, composed and controlled expression",
+    "jewellery": "diamond necklace with large yellow gemstone centre, minimal other accessories",
+    "palette": "black, onyx, midnight, white skin contrast, yellow diamond",
+    "texture": "velvet, silk organza, leather, diamond, skin",
+    "shoes": "concealed by floor-length gown; if visible — black pointed-toe heels or structured black satin block heels",
+    "body_silhouette": "tall dramatic silhouette, architectural sculpted shoulder, fitted bodice flaring to floor-length skirt with train, elongated vertical line"
+  }
+}
