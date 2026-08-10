@@ -1,4 +1,4 @@
-# Reference-Driven Short-Form Video Generation with Auditable Per-Shot Orchestration
+# Reference-Structured Video Regeneration with Auditable Per-Shot Orchestration
 
 **MSc AI for Media dissertation project investigating reference-structured video regeneration, separated conditioning, and human-gated targeted repair over closed generative APIs.**
 
