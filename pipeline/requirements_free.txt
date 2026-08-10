@@ -11,6 +11,11 @@
 # Then:
 #   pip install -r requirements_free.txt
 
+# Dashboard (pipeline/app.py) — needed regardless of which generation
+# backend below is used, since the dashboard itself always runs on Flask.
+Flask>=3.0.0
+python-dotenv>=1.0.0
+
 # Core diffusers stack
 diffusers>=0.30.0
 transformers>=4.44.0

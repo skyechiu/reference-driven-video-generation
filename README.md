@@ -8,22 +8,6 @@
 
 ---
 
-## Overview
-
-This repository contains the implementation and supporting evidence for an MSc dissertation on **reference-driven short-form video generation**.
-
-The project investigates whether a reference video can be decomposed into inspectable shot-level structure and then regenerated using separately controlled identity, look, scene, framing, and action information.
-
-Rather than treating generation as a single prompt-to-video operation, the system represents each shot as an explicit generation unit, records intermediate decisions, and supports human-gated diagnosis and targeted repair when generated outputs fail to satisfy the intended structure or appearance.
-
-The primary research contribution is therefore not a new generative model. It is an **auditable orchestration workflow for controlling and evaluating generation over closed image and video APIs**.
-
-### Research question
-
-> How can the structure of a reference short-form video be decomposed and reused to guide character-consistent regeneration while keeping generation decisions, failures, and repairs inspectable?
-
----
-
 ## Live evidence dashboard
 
 **[Open the read-only dashboard →](https://huggingface.co/spaces/skye6/video_driven)**
@@ -43,6 +27,22 @@ It exposes curated dissertation evidence including:
 State-changing operations such as generation, upload, reset, and repair are disabled in the public deployment.
 
 The dashboard is intended to make the dissertation's claims traceable to the corresponding artefacts rather than to provide an unrestricted generation interface.
+
+---
+
+## Overview
+
+This repository contains the implementation and supporting evidence for an MSc dissertation on **reference-driven short-form video generation**.
+
+The project investigates whether a reference video can be decomposed into inspectable shot-level structure and then regenerated using separately controlled identity, look, scene, framing, and action information.
+
+Rather than treating generation as a single prompt-to-video operation, the system represents each shot as an explicit generation unit, records intermediate decisions, and supports human-gated diagnosis and targeted repair when generated outputs fail to satisfy the intended structure or appearance.
+
+The primary research contribution is therefore not a new generative model. It is an **auditable orchestration workflow for controlling and evaluating generation over closed image and video APIs**.
+
+### Research question
+
+> How can the structure of a reference short-form video be decomposed and reused to guide character-consistent regeneration while keeping generation decisions, failures, and repairs inspectable?
 
 ---
 
@@ -286,6 +286,11 @@ python -m venv .venv
 source .venv/bin/activate
 pip install -r pipeline/requirements_best.txt
 ```
+
+`requirements_best.txt` is the API-based backend (gpt-image-1 + Kling) that the
+dissertation evidence was generated with, and needs no local GPU. A separate
+`pipeline/requirements_free.txt` documents an alternative local-GPU backend
+(InstantID + CogVideoX/Wan2.1); see that file's header for its own setup steps.
 
 ### 3. Configure credentials
 
