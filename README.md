@@ -10,7 +10,7 @@
 
 ## Live evidence dashboard
 
-**[Open the read-only dashboard →](https://huggingface.co/spaces/skye6/video_driven)**
+**[Open the read-only dashboard →](https://skye6-video-driven.static.hf.space/index.html)**
 
 The deployed website is an **evidence viewer**, not a public generation service.
 
