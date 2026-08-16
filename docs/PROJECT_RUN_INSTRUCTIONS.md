@@ -128,13 +128,21 @@ The slot order passed to `gpt-image-1` images.edit determines which reference ha
 
 ```
 [0] look3_identity_anchor_street.png   ← PRIMARY: locks identity in street context
-[1] scene_ref / main_scene_board       ← composition, architecture, street layout
+[1] look3_closeup.png                  ← face fidelity reference (high-res face, white bg)
 [2] look3_front.png                    ← outfit and body proportions
 [3] look3_profile_crop.png             ← side-profile facial geometry support
 ```
 
+`scene_ref` is deliberately **not** included as an image slot for face-visible
+shots — it is described in text only, consistent with the "why scene
+reference is excluded" note in Section 5 above. (An earlier draft of this
+table showed `scene_ref` at slot[1]; that draft did not match what the
+executed script actually built and has been corrected here to match
+`scripts/generation/generate_street_run.py`'s `images_in` list for
+`slot_mode == "face_visible"`.)
+
 - slot[0] locks identity — the anchor is an already-approved face in the street environment
-- slot[1] controls composition and scene structure
+- slot[1] reinforces face fidelity from a clean, high-resolution close-up
 - slot[2] preserves the exact Look 3 outfit
 - slot[3] reinforces facial geometry from a second angle
 
