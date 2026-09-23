@@ -1,0 +1,140 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>03 液态彩虹薄膜 → 铺满全屏（alche Vision 转场的做法）</title>
+<style>
+  html,body{margin:0;height:100%;background:#dfe5e8;overflow:hidden;font:13px/1.5 system-ui,sans-serif;color:#222}
+  #info{position:fixed;left:16px;top:14px;max-width:470px;pointer-events:none}
+  #info b{color:#000;background:#d7ff00;padding:0 4px}
+  #bar{position:fixed;left:16px;bottom:16px;width:260px;height:4px;background:#0002}
+  #bar i{display:block;height:100%;width:0;background:#000}
+</style>
+<script type="importmap">
+{ "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js" } }
+</script>
+</head>
+<body>
+<div id="info"><b>03 液态彩虹薄膜</b> —— 颜色 = 域扭曲噪声 + 余弦调色板（全是代码算的，没有贴图）。<br><b>滚动鼠标滚轮</b>：薄膜的四个角被插值到全屏，内容带镜头畸变 + 色差溶解成"下一个场景"。停止滚动几秒后会自动演示。</div>
+<div id="bar"><i></i></div>
+<script type="module">
+import * as THREE from 'three';
+
+const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+
+// ---------- "下一个场景"：先渲到一张 RT（换成你自己的场景即可）----------
+const nextRT = new THREE.WebGLRenderTarget(innerWidth, innerHeight);
+const nextScene = new THREE.Scene();
+nextScene.background = new THREE.Color('#050608');
+const nextCam = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, 0.1, 50);
+nextCam.position.set(0, 0, 8);
+const knot = new THREE.Mesh(new THREE.TorusKnotGeometry(1.4, 0.45, 220, 32), new THREE.MeshNormalMaterial());
+nextScene.add(knot);
+const grid = new THREE.GridHelper(40, 40, '#333', '#1a1a1a'); grid.rotation.x = Math.PI / 2; grid.position.z = -3; nextScene.add(grid);
+
+// ---------- 薄膜 ----------
+// 一个 1×1 平面。uExpand=0：细长斜条（像 A 的一条边）；uExpand=1：铺满屏幕。
+const filmMat = new THREE.ShaderMaterial({
+  transparent: true,
+  uniforms: { uTime: { value: 0 }, uExpand: { value: 0 }, uAspect: { value: innerWidth / innerHeight }, tNext: { value: nextRT.texture }, uRes: { value: new THREE.Vector2(innerWidth, innerHeight) } },
+  vertexShader: /* glsl */`
+    uniform float uExpand, uAspect;
+    varying vec2 vUv;
+    mat2 rot(float a){ return mat2(cos(a), sin(a), -sin(a), cos(a)); }
+    void main() {
+      vUv = uv;
+      // 形态 A：细长斜条（在屏幕坐标里摆好：宽 0.06、高 1.3，转 -30°）
+      vec2 strip = position.xy * vec2(0.06, 1.3);
+      strip = rot(-0.52) * strip;
+      strip.x /= uAspect;
+      strip += vec2(-0.15, 0.0);
+      // 形态 B：全屏（NDC -1..1）
+      vec2 full = position.xy * 2.0;
+      // ★ 核心：顶点位置在两种形态之间插值 —— 条带"长大"成全屏
+      float e = uExpand * uExpand * (3.0 - 2.0 * uExpand);
+      gl_Position = vec4(mix(strip, full, e), 0.0, 1.0);
+    }`,
+  fragmentShader: /* glsl */`
+    uniform float uTime, uExpand; uniform sampler2D tNext; uniform vec2 uRes;
+    varying vec2 vUv;
+    // --- 噪声 ---
+    vec2 hash(vec2 p){ p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3))); return -1.0 + 2.0 * fract(sin(p) * 43758.5453); }
+    float noise(vec2 p){
+      vec2 i = floor(p), f = fract(p), u = f * f * (3.0 - 2.0 * f);
+      return mix(mix(dot(hash(i), f), dot(hash(i + vec2(1,0)), f - vec2(1,0)), u.x),
+                 mix(dot(hash(i + vec2(0,1)), f - vec2(0,1)), dot(hash(i + vec2(1,1)), f - vec2(1,1)), u.x), u.y);
+    }
+    float fbm(vec2 p){ float s = 0.0, a = 0.5; for (int i = 0; i < 5; i++){ s += a * noise(p); p *= 2.02; a *= 0.5; } return s; }
+    // --- 余弦调色板：一行代码出彩虹 / 镭射色 ---
+    vec3 palette(float t){ return 0.5 + 0.5 * cos(6.28318 * (t + vec3(0.0, 0.33, 0.67))); }
+    vec2 lens(vec2 p, float k){ return p * (1.0 + k * dot(p, p)); }   // 镜头畸变
+
+    void main() {
+      // ★ 1. 域扭曲：用噪声去扭噪声的坐标（两次），就会出现"液体被拉丝"的形状
+      vec2 p = vUv * vec2(1.0, 4.0) * 0.8;
+      vec2 q = vec2(fbm(p + uTime * 0.10), fbm(p + vec2(5.2, 1.3) - uTime * 0.08));
+      vec2 r = vec2(fbm(p + 3.0 * q + vec2(1.7, 9.2) + uTime * 0.05), fbm(p + 3.0 * q + vec2(8.3, 2.8)));
+      float f = fbm(p + 3.0 * r);
+      vec3 film = palette(f * 1.6 + r.x * 0.8 + uTime * 0.03);
+      film = mix(film, vec3(1.0), smoothstep(0.35, 0.6, f) * 0.35);          // 高光条纹
+      film *= 0.75 + 0.5 * smoothstep(-0.2, 0.6, f);
+      // 颗粒感（alche 的薄膜带一点点噪点）
+      film += (fract(sin(dot(gl_FragCoord.xy, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) * 0.04;
+
+      // ★ 2. 铺满全屏后，内容溶解成"下一个场景"：带镜头畸变 + 色差，越接近 1 越干净
+      vec2 suv = gl_FragCoord.xy / uRes;
+      float inv = 1.0 - uExpand;
+      vec2 c = suv - 0.5 + (q - 0.5) * inv * 0.3;
+      vec3 next;
+      next.r = texture2D(tNext, lens(c, 1.0 * inv * 3.0) + 0.5).r;
+      next.g = texture2D(tNext, lens(c, 1.05 * inv * 3.0) + 0.5).g;
+      next.b = texture2D(tNext, lens(c, 1.1 * inv * 3.0) + 0.5).b;
+      // 用噪声做溶解门槛：不是整体淡入，而是一块一块"化开"
+      float w = smoothstep(0.0, 0.25, -r.y * 0.8 + uExpand * 2.2 - 0.9);
+      vec3 col = mix(film, next, w);
+      gl_FragColor = vec4(col, 1.0);
+      #include <colorspace_fragment>
+    }`,
+});
+const film = new THREE.Mesh(new THREE.PlaneGeometry(1, 1, 1, 1), filmMat);
+film.frustumCulled = false;
+const filmScene = new THREE.Scene(); filmScene.add(film);
+const dummyCam = new THREE.Camera();
+
+// ---------- 背景：线框三角（alche 白底段的气质）----------
+const bgScene = new THREE.Scene();
+const bgCam = new THREE.PerspectiveCamera(40, innerWidth / innerHeight, 0.1, 50); bgCam.position.z = 6;
+const tri = new THREE.LineLoop(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(0, 1.9, 0), new THREE.Vector3(-2.1, -1.6, 0), new THREE.Vector3(2.1, -1.6, 0)]), new THREE.LineBasicMaterial({ color: '#ffffff' }));
+bgScene.add(tri);
+
+// ---------- 控制：滚轮 → uExpand（真实项目里就是 ScrollTrigger 的 progress）----------
+let target = 0, value = 0, lastWheel = -1e9;
+addEventListener('wheel', (e) => { target = THREE.MathUtils.clamp(target + e.deltaY * 0.0012, 0, 1); lastWheel = performance.now(); }, { passive: true });
+addEventListener('resize', () => {
+  renderer.setSize(innerWidth, innerHeight); nextRT.setSize(innerWidth, innerHeight);
+  nextCam.aspect = bgCam.aspect = innerWidth / innerHeight; nextCam.updateProjectionMatrix(); bgCam.updateProjectionMatrix();
+  filmMat.uniforms.uAspect.value = innerWidth / innerHeight; filmMat.uniforms.uRes.value.set(innerWidth, innerHeight);
+});
+const bar = document.querySelector('#bar i');
+const clock = new THREE.Clock();
+renderer.setAnimationLoop(() => {
+  const t = clock.getElapsedTime();
+  if (performance.now() - lastWheel > 3000) target = 0.5 - 0.5 * Math.cos(t * 0.5);   // 自动演示
+  value += (target - value) * 0.08;                                                   // 平滑（原站用 damp）
+  filmMat.uniforms.uExpand.value = value; filmMat.uniforms.uTime.value = t;
+  bar.style.width = (value * 100).toFixed(1) + '%';
+  knot.rotation.set(t * 0.3, t * 0.4, 0);
+
+  renderer.setRenderTarget(nextRT); renderer.render(nextScene, nextCam);   // 下一个场景 → RT
+  renderer.setRenderTarget(null);
+  renderer.setClearColor('#dfe5e8', 1); renderer.clear();
+  renderer.render(bgScene, bgCam);
+  renderer.autoClear = false; renderer.render(filmScene, dummyCam); renderer.autoClear = true;
+});
+</script>
+</body>
+</html>

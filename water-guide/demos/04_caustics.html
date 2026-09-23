@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>04 焦散光纹（activetheory CleanRoom 天花板的做法）</title>
+<style>
+  html,body{margin:0;height:100%;background:#040507;overflow:hidden;font:13px/1.5 system-ui,sans-serif;color:#cfd3da}
+  #info{position:fixed;left:16px;top:14px;max-width:470px;pointer-events:none;text-shadow:0 1px 2px #000}
+  #info b{color:#7fe8ff}
+</style>
+<script type="importmap">
+{ "imports": {
+  "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+} }
+</script>
+</head>
+<body>
+<div id="info"><b>04 焦散光纹</b> —— 从水下往上看的"光网"。原站其实只是一张静态碎冰贴图 + 色相偏移 + 径向淡出；这里用程序化的 Worley 边缘噪声做成会动的版本，同样可以只用一张图代替。<br>移动鼠标轻微改变视角。</div>
+<script type="module">
+import * as THREE from 'three';
+import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
+import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
+import { UnrealBloomPass } from 'three/addons/postprocessing/UnrealBloomPass.js';
+import { OutputPass } from 'three/addons/postprocessing/OutputPass.js';
+
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(devicePixelRatio, 1.5));
+renderer.setSize(innerWidth, innerHeight);
+document.body.appendChild(renderer.domElement);
+const scene = new THREE.Scene();
+scene.background = new THREE.Color('#040507');
+const camera = new THREE.PerspectiveCamera(55, innerWidth / innerHeight, 0.1, 100);
+camera.position.set(0, 0, 0);
+camera.lookAt(0, 4, -6);
+
+const causticMat = new THREE.ShaderMaterial({
+  transparent: true, depthWrite: false, side: THREE.DoubleSide,
+  uniforms: { uTime: { value: 0 } },
+  vertexShader: `varying vec2 vUv; void main(){ vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }`,
+  fragmentShader: /* glsl */`
+    uniform float uTime; varying vec2 vUv;
+    vec2 hash2(vec2 p){ p = vec2(dot(p, vec2(127.1, 311.7)), dot(p, vec2(269.5, 183.3))); return fract(sin(p) * 43758.5453); }
+    // Worley：返回到最近点(F1) 和第二近点(F2) 的距离。F2-F1 很小 = 在两个细胞的交界线上
+    vec2 worley(vec2 p, float t){
+      vec2 i = floor(p), f = fract(p); float d1 = 8.0, d2 = 8.0;
+      for (int y = -1; y <= 1; y++) for (int x = -1; x <= 1; x++) {
+        vec2 g = vec2(x, y);
+        vec2 o = hash2(i + g);
+        o = 0.5 + 0.45 * sin(t + 6.2831 * o);          // 让特征点慢慢游动 → 光网在"流"
+        float d = length(g + o - f);
+        if (d < d1) { d2 = d1; d1 = d; } else if (d < d2) { d2 = d; }
+      }
+      return vec2(d1, d2);
+    }
+    float vnoise(vec2 p){ vec2 i = floor(p), f = fract(p); f = f*f*(3.0-2.0*f);
+      float a = dot(hash2(i), vec2(1.0)), b = dot(hash2(i+vec2(1,0)), vec2(1.0)), c = dot(hash2(i+vec2(0,1)), vec2(1.0)), d = dot(hash2(i+vec2(1,1)), vec2(1.0));
+      return mix(mix(a,b,f.x), mix(c,d,f.x), f.y) * 0.5; }
+    float caustic(vec2 p, float t){
+      p += (vec2(vnoise(p * 0.8 + t * 0.2), vnoise(p * 0.8 - t * 0.2 + 7.0)) - 0.5) * 0.9;   // 域扭曲：线条变弯
+      vec2 w = worley(p, t);
+      return smoothstep(0.05, 0.0, w.y - w.x);        // ★ 细胞交界线 = 焦散亮线
+    }
+    vec3 hue(float h){ return clamp(abs(mod(h * 6.0 + vec3(0,4,2), 6.0) - 3.0) - 1.0, 0.0, 1.0); }
+    void main(){
+      vec2 p = vUv * 7.0;
+      float t = uTime * 0.6;
+      // 两层不同尺度 / 速度叠加：交叉的地方最亮，像真实的焦散
+      float c1 = caustic(p, t);
+      float c2 = caustic(p * 1.7 + 3.1, t * 1.3);
+      float c = (c1 * 0.6 + c2 * 0.4 + c1 * c2 * 1.2) * 0.55;
+      // 原站做法：按到中心的距离偏色相 + 径向淡出
+      float r = length(vUv - 0.5);
+      vec3 col = mix(vec3(0.55, 0.85, 1.0), hue(0.88 - r * 0.25), 0.45) * c;
+      col *= smoothstep(0.45, 0.0, r);
+      gl_FragColor = vec4(col, 1.0);
+      #include <colorspace_fragment>
+    }`,
+  blending: THREE.AdditiveBlending,
+});
+const ceiling = new THREE.Mesh(new THREE.PlaneGeometry(26, 26), causticMat);
+ceiling.position.set(0, 4, -6);
+ceiling.rotation.x = Math.PI / 2;          // 面朝下：我们在水下往上看
+scene.add(ceiling);
+
+// 水里漂浮的小颗粒（被 bloom 后更像水下）
+const N = 400, pos = new Float32Array(N * 3);
+for (let i = 0; i < N; i++) { pos[i*3] = (Math.random()-0.5)*16; pos[i*3+1] = Math.random()*4-1; pos[i*3+2] = -Math.random()*14; }
+const dustGeo = new THREE.BufferGeometry(); dustGeo.setAttribute('position', new THREE.BufferAttribute(pos, 3));
+const dust = new THREE.Points(dustGeo, new THREE.PointsMaterial({ color: '#9fdcff', size: 0.03, transparent: true, opacity: 0.6 }));
+scene.add(dust);
+
+const composer = new EffectComposer(renderer);
+composer.addPass(new RenderPass(scene, camera));
+composer.addPass(new UnrealBloomPass(new THREE.Vector2(innerWidth, innerHeight), 0.45, 0.35, 0.1));
+composer.addPass(new OutputPass());
+
+const mouse = new THREE.Vector2();
+addEventListener('pointermove', (e) => mouse.set(e.clientX / innerWidth - 0.5, e.clientY / innerHeight - 0.5));
+addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); composer.setSize(innerWidth, innerHeight); });
+const clock = new THREE.Clock();
+renderer.setAnimationLoop(() => {
+  const t = clock.getElapsedTime();
+  causticMat.uniforms.uTime.value = t;
+  camera.position.x += (mouse.x * 1.5 - camera.position.x) * 0.05;
+  camera.position.y += (-mouse.y * 0.8 - camera.position.y) * 0.05;
+  camera.lookAt(0, 4, -6);
+  dust.position.y = Math.sin(t * 0.3) * 0.2;
+  composer.render();
+});
+</script>
+</body>
+</html>
