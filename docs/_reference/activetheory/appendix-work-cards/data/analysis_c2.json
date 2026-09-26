@@ -1,0 +1,410 @@
+{
+ "stage": [
+  1280,
+  720
+ ],
+ "cards": [
+  {
+   "i": 2,
+   "distCam": 5.796,
+   "facing": 0.1,
+   "ro": 13,
+   "bbox": [
+    341,
+    166,
+    940,
+    555
+   ],
+   "screenW": 46.8,
+   "screenH": 54.1,
+   "visibleArea": 25.3,
+   "meanLuma": 68.7,
+   "p95": 163.9
+  },
+  {
+   "i": 1,
+   "distCam": 7.764,
+   "facing": 72.2,
+   "ro": 12,
+   "bbox": [
+    106,
+    12,
+    272,
+    388
+   ],
+   "screenW": 12.9,
+   "screenH": 52.3,
+   "visibleArea": 6.8,
+   "meanLuma": 43.0,
+   "p95": 68.7
+  },
+  {
+   "i": 3,
+   "distCam": 7.773,
+   "facing": 72.3,
+   "ro": 11,
+   "bbox": [
+    1009,
+    332,
+    1173,
+    708
+   ],
+   "screenW": 12.8,
+   "screenH": 52.3,
+   "visibleArea": 6.7,
+   "meanLuma": 101.0,
+   "p95": 135.0
+  },
+  {
+   "i": 9,
+   "distCam": 8.323,
+   "facing": 47.2,
+   "ro": 10,
+   "bbox": [
+    238,
+    1274,
+    812,
+    720
+   ],
+   "screenW": 44.8,
+   "screenH": 67.9,
+   "visibleArea": 0.0,
+   "meanLuma": NaN,
+   "p95": null
+  },
+  {
+   "i": 8,
+   "distCam": 9.767,
+   "facing": 84.1,
+   "ro": 9,
+   "bbox": [
+    126,
+    874,
+    187,
+    720
+   ],
+   "screenW": 4.8,
+   "screenH": 78.6,
+   "visibleArea": 0.0,
+   "meanLuma": NaN,
+   "p95": null
+  },
+  {
+   "i": 10,
+   "distCam": 9.792,
+   "facing": 68.8,
+   "ro": 8,
+   "bbox": [
+    897,
+    1214,
+    1177,
+    720
+   ],
+   "screenW": 21.9,
+   "screenH": 95.5,
+   "visibleArea": 0.0,
+   "meanLuma": NaN,
+   "p95": null
+  },
+  {
+   "i": 0,
+   "distCam": 11.041,
+   "facing": 119.6,
+   "ro": 7,
+   "bbox": [
+    117,
+    12,
+    301,
+    293
+   ],
+   "screenW": 14.4,
+   "screenH": 39.0,
+   "visibleArea": 5.6,
+   "meanLuma": 43.7,
+   "p95": 78.4
+  },
+  {
+   "i": 4,
+   "distCam": 11.05,
+   "facing": 119.7,
+   "ro": 6,
+   "bbox": [
+    977,
+    427,
+    1162,
+    708
+   ],
+   "screenW": 14.4,
+   "screenH": 38.9,
+   "visibleArea": 5.6,
+   "meanLuma": 99.9,
+   "p95": 136.5
+  },
+  {
+   "i": 7,
+   "distCam": 12.208,
+   "facing": 125.4,
+   "ro": 5,
+   "bbox": [
+    146,
+    658,
+    357,
+    720
+   ],
+   "screenW": 16.4,
+   "screenH": 45.6,
+   "visibleArea": 1.4,
+   "meanLuma": 36.0,
+   "p95": 39.4
+  },
+  {
+   "i": 11,
+   "distCam": 12.798,
+   "facing": 107.3,
+   "ro": 3,
+   "bbox": [
+    1030,
+    1035,
+    1177,
+    720
+   ],
+   "screenW": 11.5,
+   "screenH": 74.0,
+   "visibleArea": 0.0,
+   "meanLuma": NaN,
+   "p95": null
+  },
+  {
+   "i": 5,
+   "distCam": 13.269,
+   "facing": 155.9,
+   "ro": 4,
+   "bbox": [
+    688,
+    488,
+    942,
+    690
+   ],
+   "screenW": 19.8,
+   "screenH": 28.0,
+   "visibleArea": 5.6,
+   "meanLuma": 51.5,
+   "p95": 75.2
+  },
+  {
+   "i": 6,
+   "distCam": 13.65,
+   "facing": 159.8,
+   "ro": 2,
+   "bbox": [
+    393,
+    558,
+    650,
+    720
+   ],
+   "screenW": 20.1,
+   "screenH": 27.0,
+   "visibleArea": 4.5,
+   "meanLuma": 39.1,
+   "p95": 66.6
+  },
+  {
+   "i": 12,
+   "distCam": 15.265,
+   "facing": 137,
+   "ro": 1,
+   "bbox": [
+    748,
+    988,
+    997,
+    720
+   ],
+   "screenW": 19.4,
+   "screenH": 41.9,
+   "visibleArea": 0.0,
+   "meanLuma": NaN,
+   "p95": null
+  },
+  {
+   "i": 13,
+   "distCam": 16.24,
+   "facing": 144.7,
+   "ro": 0,
+   "bbox": [
+    451,
+    1053,
+    710,
+    720
+   ],
+   "screenW": 20.2,
+   "screenH": 27.9,
+   "visibleArea": 0.0,
+   "meanLuma": NaN,
+   "p95": null
+  }
+ ],
+ "centerCard": {
+  "base": {
+   "mean": 67.06,
+   "rgb": [
+    87.0,
+    57.6,
+    63.4
+   ]
+  },
+  "noUI": {
+   "mean": 63.87,
+   "rgb": [
+    83.4,
+    54.2,
+    62.4
+   ]
+  },
+  "noBloom": {
+   "mean": 61.95,
+   "rgb": [
+    75.1,
+    54.9,
+    64.1
+   ]
+  },
+  "noBloom_noStreak": {
+   "mean": 63.49,
+   "rgb": [
+    76.5,
+    56.3,
+    66.3
+   ]
+  },
+  "noBloom_noStreak_noUI": {
+   "mean": 58.98,
+   "rgb": [
+    72.0,
+    51.7,
+    62.0
+   ]
+  },
+  "noRefraction": {
+   "mean": 63.35,
+   "rgb": [
+    84.1,
+    53.9,
+    57.5
+   ]
+  },
+  "noRefraction_noThumb": {
+   "mean": 36.0,
+   "rgb": [
+    53.2,
+    27.9,
+    32.8
+   ]
+  },
+  "hover0": {
+   "mean": 59.76,
+   "rgb": [
+    51.3,
+    61.9,
+    70.9
+   ]
+  },
+  "hover0.25": {
+   "mean": 63.97,
+   "rgb": [
+    55.1,
+    66.2,
+    75.6
+   ]
+  },
+  "hover0.5": {
+   "mean": 67.65,
+   "rgb": [
+    58.5,
+    69.7,
+    81.1
+   ]
+  },
+  "hover0.75": {
+   "mean": 58.46,
+   "rgb": [
+    50.8,
+    59.8,
+    71.7
+   ]
+  },
+  "hover1": {
+   "mean": 52.3,
+   "rgb": [
+    45.8,
+    53.2,
+    65.0
+   ]
+  }
+ },
+ "frame": {
+  "base": 45.75,
+  "noUI": 48.06,
+  "noBloom": 45.3,
+  "noBloom_noStreak": 45.86,
+  "noBloom_noStreak_noUI": 44.86,
+  "noRefraction": 48.27,
+  "noRefraction_noThumb": 38.02,
+  "hover0": 40.12,
+  "hover0.25": 41.39,
+  "hover0.5": 45.86,
+  "hover0.75": 43.33,
+  "hover1": 41.61
+ },
+ "text": {
+  "pixels": 11931,
+  "bbox": [
+   514,
+   188,
+   822,
+   424
+  ],
+  "addMeanRGB": [
+   105.2,
+   104.7,
+   107.9
+  ],
+  "addP95": 170.0,
+  "finalMeanRGB": [
+   209.1,
+   169.9,
+   181.3
+  ],
+  "finalP95": 255.0,
+  "finalMax": 255.0,
+  "underTextBgRGB": [
+   103.9,
+   65.1,
+   73.4
+  ],
+  "shift_R_to_G": [
+   0,
+   0
+  ],
+  "shift_B_to_G": [
+   0,
+   0
+  ],
+  "hRunMedian": 8.0,
+  "heightPxOfCard": 60.6,
+  "widthPctOfCard": 51.5
+ },
+ "bloom": {
+  "frameMean": 0.45,
+  "cardMean": 5.1,
+  "textMean": 25.38,
+  "pctOfCard": 7.6,
+  "pctOfText": 13.9
+ },
+ "streak": {
+  "frameMean": -0.56,
+  "cardMean": -1.54
+ },
+ "textGlowFromBloom": {
+  "halo_mean_outside_text": -2.39
+ }
+}

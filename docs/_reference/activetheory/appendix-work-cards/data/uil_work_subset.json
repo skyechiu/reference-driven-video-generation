@@ -1,0 +1,300 @@
+{
+ "CAMERA_Element_2_WorkcameraRotation": [
+  0,
+  0,
+  0
+ ],
+ "CAMERA_Element_2_WorkgroupPos": [
+  0,
+  0,
+  0
+ ],
+ "CAMERA_Element_2_Workfov": 35,
+ "CAMERA_Element_2_WorklookAt": [
+  0,
+  0,
+  -4
+ ],
+ "CAMERA_Element_2_WorklerpSpeed": 0.07,
+ "CAMERA_Element_2_WorklerpSpeed2": 1,
+ "CAMERA_Element_2_WorkmoveXY": [
+  0,
+  0
+ ],
+ "CAMERA_Element_2_Workposition": [
+  0,
+  0,
+  2
+ ],
+ "CAMERA_Element_2_Workrotation": [
+  0,
+  196.07,
+  0
+ ],
+ "BloomLuminosityPass/BloomLuminosityPass/luminosityThreshold": 0,
+ "GlobalCompositeuNormalScale": 3,
+ "GlobalCompositeuRGBStrength": 1,
+ "INPUT_Config_0_Work_custom": "WorkItems",
+ "INPUT_Config_0_Work_name": "items",
+ "INPUT_Config_0_Work_renderOrder": 0,
+ "INPUT_Config_0_Work_sortIndex": 0,
+ "INPUT_Config_0_mousefluid_customClass": "FluidLayer",
+ "INPUT_Config_0_mousefluid_name": "fluid",
+ "INPUT_Config_0_mousefluid_renderOrder": 0,
+ "INPUT_Config_0_mousefluid_sortIndex": 0,
+ "INPUT_Config_1_Work_transparent": true,
+ "INPUT_Config_1_Work_visible": false,
+ "INPUT_Config_1_Work_depthWrite": true,
+ "INPUT_Config_1_Work_geometry": {
+  "filename": "cube.bin",
+  "prefix": "",
+  "relative": "assets/geometry/work",
+  "src": "assets/geometry/work/cube.bin"
+ },
+ "INPUT_Config_1_Work_name": "pane",
+ "INPUT_Config_1_Work_renderOrder": 1,
+ "INPUT_Config_1_Work_shader": "WorkItemShader",
+ "INPUT_Config_1_Work_side": "shader_front_side",
+ "INPUT_Config_1_Work_sortIndex": 1,
+ "INPUT_Config_2_Work_custom": "GazeCamera",
+ "INPUT_Config_2_Work_name": "camera",
+ "INPUT_Config_2_Work_renderOrder": 2,
+ "INPUT_Config_2_Work_sortIndex": 2,
+ "INPUT_Config_3_Work_transparent": true,
+ "INPUT_Config_3_Work_visible": false,
+ "INPUT_Config_3_Work_blending": "shader_additive_blending",
+ "INPUT_Config_3_Work_depthWrite": true,
+ "INPUT_Config_3_Work_geometry": {
+  "filename": "",
+  "prefix": "",
+  "relative": "World.PLANEHI",
+  "src": ""
+ },
+ "INPUT_Config_3_Work_name": "pane_ui",
+ "INPUT_Config_3_Work_occlusionCulling": true,
+ "INPUT_Config_3_Work_renderOrder": 3,
+ "INPUT_Config_3_Work_shader": "WorkItemUIShader",
+ "INPUT_Config_3_Work_side": "shader_double_side",
+ "INPUT_Config_3_Work_sortIndex": 3,
+ "INPUT_Config_4_Work_transparent": true,
+ "INPUT_Config_4_Work_visible": false,
+ "INPUT_Config_4_Work_blending": "shader_additive_blending",
+ "INPUT_Config_4_Work_depthTest": true,
+ "INPUT_Config_4_Work_depthWrite": true,
+ "INPUT_Config_4_Work_geometry": {
+  "filename": "",
+  "prefix": "",
+  "relative": "World.TUBE",
+  "src": ""
+ },
+ "INPUT_Config_4_Work_name": "tube",
+ "INPUT_Config_4_Work_renderOrder": 4,
+ "INPUT_Config_4_Work_shader": "WorkTubeShader",
+ "INPUT_Config_4_Work_sortIndex": 4,
+ "INPUT_Config_5_Work_geometry": {
+  "filename": "spine.bin",
+  "prefix": "",
+  "relative": "assets/geometry/spine",
+  "src": "assets/geometry/spine/spine.bin"
+ },
+ "INPUT_Config_5_Work_name": "spine",
+ "INPUT_Config_5_Work_renderOrder": 5,
+ "INPUT_Config_5_Work_script": "SpineInstancer",
+ "INPUT_Config_5_Work_shader": "SpineShader",
+ "INPUT_Config_5_Work_sortIndex": 5,
+ "INPUT_Config_6_Work_transparent": false,
+ "INPUT_Config_6_Work_blending": "shader_normal_blending",
+ "INPUT_Config_6_Work_custom": "Proton",
+ "INPUT_Config_6_Work_name": "flower",
+ "INPUT_Config_6_Work_renderOrder": 6,
+ "INPUT_Config_6_Work_sortIndex": 6,
+ "INPUT_Config_7_Work_transparent": true,
+ "INPUT_Config_7_Work_blending": "shader_additive_blending",
+ "INPUT_Config_7_Work_name": "pane_text",
+ "INPUT_Config_7_Work_renderOrder": 4,
+ "INPUT_Config_7_Work_side": "shader_double_side",
+ "INPUT_Config_7_Work_sortIndex": 4,
+ "INPUT_Config_8_Work_geometry": {
+  "filename": "chainlink.bin",
+  "prefix": "",
+  "relative": "assets/geometry/work",
+  "src": "assets/geometry/work/chainlink.bin"
+ },
+ "INPUT_Config_8_Work_name": "chain",
+ "INPUT_Config_8_Work_renderOrder": 4,
+ "INPUT_Config_8_Work_script": "ChainInstancer",
+ "INPUT_Config_8_Work_shader": "ChainShader",
+ "INPUT_Config_8_Work_side": "shader_front_side",
+ "INPUT_Config_8_Work_sortIndex": 4,
+ "INPUT_Element_0_mousefluidfluid_velocity": "0.98",
+ "INPUT_Element_0_mousefluidfluid_curl": "30",
+ "INPUT_Element_0_mousefluidfluid_density": "0.97",
+ "INPUT_Element_0_mousefluidfluid_defaultRadius": "5",
+ "INPUT_Element_0_mousefluidfluid_dyeSize": "512",
+ "INPUT_Element_0_mousefluidfluid_iterations": "5",
+ "INPUT_Element_0_mousefluidfluid_pressure": "0.8",
+ "INPUT_Element_0_mousefluidfluid_simSize": "256",
+ "INPUT_Element_0_mousefluidmousefluid_scale": "1",
+ "INPUT_HydraLensStreak_uAspectCorrection": "1",
+ "INPUT_HydraLensStreak_uDebugHalo": false,
+ "INPUT_HydraLensStreak_uFlareIntensity": "0.5",
+ "INPUT_HydraLensStreak_uGlowIntensity": "0.2",
+ "INPUT_HydraLensStreak_uHaloColor": "#cceeff",
+ "INPUT_HydraLensStreak_uHaloConstant": "0",
+ "INPUT_HydraLensStreak_uHaloChroma": "0.5",
+ "INPUT_HydraLensStreak_uHaloSoftness": "2",
+ "INPUT_HydraLensStreak_uHaloScale": "0.5",
+ "INPUT_HydraLensStreak_uHaloRotateSrc": 1,
+ "INPUT_HydraLensStreak_uHaloRing": "[0.5,0.5,0.6,0.4]",
+ "INPUT_HydraLensStreak_uRotateStreak": "0.3",
+ "INPUT_HydraLensStreak_uSoftenEdge": "1.5",
+ "INPUT_HydraLensStreak_uStreakColor": "#c2dcff",
+ "INPUT_HydraLensStreak_uStreakIntensity": "0.1",
+ "INPUT_HydraLensStreak_uStretch": 1,
+ "INPUT_HydraLensStreak_uThreshold": "1",
+ "INPUT_P_Element_6_Work_behavior_data": "[\"code_1\",\"code_2\"]",
+ "INPUT_P_Element_6_Work_config_depth": "[-1,1]",
+ "INPUT_P_Element_6_Work_config_height": "[-1,1]",
+ "INPUT_P_Element_6_Work_config_shader": "FlowerParticleShader",
+ "INPUT_P_Element_6_Work_config_particleCount": "Tests.flowerParticleCount()",
+ "INPUT_P_Element_6_Work_config_width": "[-1,1]",
+ "INPUT_P_Element_6_Work_config_uniforms": "uTint: #ffffff\nuScroll: 0\nuRotate: 0\nuSparkle: 0",
+ "INPUT_scenelayout_Work_data": "{\"layers\":8}",
+ "INPUT_scenelayout_mousefluid_data": "{\"layers\":0}",
+ "MESH_Element_1_Workposition": [
+  0,
+  0,
+  0
+ ],
+ "MESH_Element_1_Workrotation": [
+  0,
+  0,
+  180
+ ],
+ "MESH_Element_1_Workscale": [
+  4,
+  2.6,
+  1
+ ],
+ "MESH_Element_3_Workposition": [
+  0,
+  0,
+  0
+ ],
+ "MESH_Element_3_Workrotation": [
+  0,
+  0,
+  0
+ ],
+ "MESH_Element_3_Workscale": [
+  4,
+  2,
+  1
+ ],
+ "MESH_Element_4_Workposition": [
+  0,
+  -1,
+  0
+ ],
+ "MESH_Element_4_Workrotation": [
+  0,
+  0,
+  0
+ ],
+ "MESH_Element_4_Workscale": [
+  0.02,
+  2,
+  0.02
+ ],
+ "MESH_Element_5_Workposition": [
+  0,
+  3.446,
+  0
+ ],
+ "MESH_Element_5_Workrotation": [
+  0,
+  0,
+  0
+ ],
+ "MESH_Element_5_Workscale": [
+  3.5,
+  3.5,
+  3.5
+ ],
+ "MESH_Element_6_Workposition": [
+  0,
+  -4.5,
+  0
+ ],
+ "MESH_Element_6_Workrotation": [
+  0,
+  180,
+  0
+ ],
+ "MESH_Element_6_Workscale": [
+  0.38,
+  0.38,
+  0.6
+ ],
+ "MESH_Element_7_Workposition": [
+  0,
+  0,
+  0
+ ],
+ "MESH_Element_7_Workrotation": [
+  0,
+  0,
+  0
+ ],
+ "MESH_Element_7_Workscale": [
+  4,
+  2,
+  1
+ ],
+ "MESH_Element_8_Workposition": [
+  0,
+  3,
+  0
+ ],
+ "MESH_Element_8_Workrotation": [
+  0,
+  0,
+  0
+ ],
+ "MESH_Element_8_Workscale": [
+  2,
+  2,
+  2
+ ],
+ "SpineShader/SpineShader/Element_5_Work/uNormalStrength": 0.19,
+ "SpineShader/SpineShader/Element_5_Work/uColor": "#d1fff4",
+ "SpineShader/SpineShader/Element_5_Work/uLight": [
+  1,
+  1,
+  1,
+  0.4
+ ],
+ "SpineShader/SpineShader/Element_5_Work/uReflection": [
+  2.7,
+  0.85
+ ],
+ "WorkItemShader/WorkItemShader/Element_5_ParticleTest/uDistortStrength": 1,
+ "WorkItemShader/WorkItemShader/Element_5_ParticleTest/uFresnelPow": 1,
+ "WorkItemShader/WorkItemShader/Element_5_ParticleTest/uRefractionRatio": 1,
+ "WorkItemShader/WorkItemShader/Element_1_Work/uDistortStrength": 0,
+ "WorkItemShader/WorkItemShader/Element_1_Work/uFresnelPow": 1,
+ "WorkItemShader/WorkItemShader/Element_1_Work/uRefractionRatio": 1,
+ "UIL_graph_mousefluid-0": "{\"isOpen\":true,\"isFocused\":true,\"focusedLayer\":\"sl_mousefluid_0\",\"order\":[\"Config\",\"sl_mousefluid_0\"]}",
+ "UIL_graph_mousefluid-1": "{\"isOpen\":false,\"isFocused\":false,\"order\":[]}",
+ "UnrealBloomComposite/UnrealBloomComposite/globalbloom/bloomRadius": 0.2,
+ "UnrealBloomComposite/UnrealBloomComposite/globalbloom/bloomStrength": 0.3,
+ "UnrealBloomLuminosity/UnrealBloomLuminosity/treescene/luminosityThreshold": 0,
+ "UnrealBloomLuminosity/UnrealBloomLuminosity/workbloom/luminosityThreshold": 0,
+ "UnrealBloomLuminosity/UnrealBloomLuminosity/cleanroom/luminosityThreshold": 0.2,
+ "UnrealBloomLuminosity/UnrealBloomLuminosity/globalbloom/luminosityThreshold": 0,
+ "UnrealBloomLuminosity/UnrealBloomLuminosity/home/luminosityThreshold": 0,
+ "UnrealBloomLuminosity/UnrealBloomLuminosity/homebloom/luminosityThreshold": 0,
+ "UnrealBloomLuminosity/UnrealBloomLuminosity/luminosityThreshold": 0,
+ "sl_Work_4_deleted": true,
+ "sl_Work_7_deleted": true
+}
