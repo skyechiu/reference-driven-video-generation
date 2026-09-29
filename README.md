@@ -1,5 +1,7 @@
 # Reference-Structured Video Regeneration with Auditable Per-Shot Orchestration
 
+**Portfolio:** https://skyechiu.com
+
 **MSc AI for Media dissertation project investigating reference-structured video regeneration, separated conditioning, and human-gated targeted repair over closed generative APIs.**
 
 [![Live Evidence Dashboard](https://img.shields.io/badge/evidence%20dashboard-Hugging%20Face-EA8A39)](https://huggingface.co/spaces/skye6/video_driven)
